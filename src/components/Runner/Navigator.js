@@ -31,13 +31,15 @@ export default class Navigator extends Component {
   }
 
   navigate = action => {
+    let { width } = Dimensions.get('window')
+
     if (action.type === NAVIGATION_BACK) {
       let currentViewOffset = new Animated.Value(0)
 
       Animated.timing(
         currentViewOffset,
         {
-          toValue: 400,
+          toValue: width,
           easing: Easing.in(Easing.ease),
           duration: 200,
           delay: 20
@@ -50,7 +52,7 @@ export default class Navigator extends Component {
 
       setTimeout(this.postPop, 400)
     } else {
-      let currentViewOffset = new Animated.Value(320)
+      let currentViewOffset = new Animated.Value(width)
 
       Animated.timing(
         currentViewOffset,

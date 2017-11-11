@@ -18,6 +18,11 @@ export default class Label extends Component {
       fontSize: object.fontSize
     }
 
+    if (!object.autoWidth) {
+      wrapperStyles.width = object.width
+      textStyles.textAlign = object.textAlignment
+    }
+
     return (
       <View style={wrapperStyles}>
         <ActionWrapper action={component.links[object.id]}>
