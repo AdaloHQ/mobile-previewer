@@ -3,8 +3,9 @@ import { Animated, Easing, Dimensions, StyleSheet, View } from 'react-native'
 import PropTypes from 'prop-types'
 import { NAVIGATION_BACK } from 'apto-constants'
 
-import { createStack, push, peek, pop } from '../../utils/stacks'
+import { createStack, push, peek, pop } from '../utils/stacks'
 import Screen from './Screen'
+import ErrorScreen from './Error'
 
 export default class Navigator extends Component {
   static childContextTypes = {
@@ -16,6 +17,7 @@ export default class Navigator extends Component {
 
     let routeStack = push(createStack(), {
       target: props.initialComponentId,
+      params: {},
       transition: null
     })
 
@@ -66,7 +68,10 @@ export default class Navigator extends Component {
 
       this.setState(state => ({
         currentViewOffset,
-        routeStack: push(state.routeStack, action),
+        routeStack: push(
+          state.routeStack,
+          { params: {}, ...action }
+        ),
       }))
     }
   }
@@ -99,6 +104,10 @@ export default class Navigator extends Component {
     let currentRoute = peek(routeStack)
     let previousRoute = peek(routeStack, 1)
 
+    if (!currentRoute || !currentRoute.target) {
+      return <ErrorScreen message='No Start Screen' />
+    }
+
     let currentComponent = app.components[currentRoute.target]
     let previousComponent = previousRoute && app.components[previousRoute.target]
 
@@ -114,7 +123,10 @@ export default class Navigator extends Component {
           style={[styles.inner, { left: 0 }]}
           key={previousRoute.target}
         >
-          <Screen component={previousComponent} />
+          <Screen
+            component={previousComponent}
+            params={previousRoute.params}
+          />
         </Animated.View>
       )
     }
@@ -122,9 +134,12 @@ export default class Navigator extends Component {
     children.push(
       <Animated.View
         style={[styles.inner, currentViewStyles]}
-        key={currentRoute.target}
+        key={currentRoute.target || '0'}
       >
-        <Screen component={currentComponent} />
+        <Screen
+          component={currentComponent}
+          params={currentRoute.params}
+        />
       </Animated.View>
     )
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
 
 import { getApp } from '../../ducks/apps'
-import Runner from '../Runner'
+import Runner from '../../Runner'
 
 class Viewer extends Component {
   handleClose = () => {
@@ -23,7 +23,11 @@ class Viewer extends Component {
           onPress={this.handleClose}
           style={styles.backButtonWrapper}
         >
-          <View style={styles.backButton} />
+          <View style={styles.backButton}>
+            <Text style={styles.backButtonText}>
+              ╋
+            </Text>
+          </View>
         </TouchableHighlight>
       </View>
     )
@@ -36,17 +40,26 @@ const styles = StyleSheet.create({
   },
   backButtonWrapper: {
     position: 'absolute',
-    right: 8,
+    right: 0,
     bottom: 100,
     width: 32,
     height: 32,
-    borderRadius: 16,
+    borderTopLeftRadius: 16,
+    borderBottomLeftRadius: 16,
   },
   backButton: {
     flex: 1,
-    borderRadius: 16,
+    borderTopLeftRadius: 16,
+    borderBottomLeftRadius: 16,
     backgroundColor: '#444',
-    opacity: 0.5
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  backButtonText: {
+    backgroundColor: 'transparent',
+    color: '#fff',
+    fontSize: 16,
+    transform: [{ rotate: '45deg' }]
   },
 })
 
