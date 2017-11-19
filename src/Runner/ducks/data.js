@@ -23,7 +23,7 @@ const DELETE_ITEM_SUCCESS = Symbol('DELETE_ITEM_SUCCESS')
 const DELETE_ITEM_FAILURE = Symbol('DELETE_ITEM_FAILURE')
 
 const INITIAL_STATE = {
-  data: {},
+  tables: {},
   errors: {}
 }
 
@@ -71,6 +71,25 @@ export const fetchItem = (datasourceId, tableId, id) => dispatch => {
 
 // SELECTORS
 
-export const getCollection = (state, tableId, sort='id') => {
-  return state.data.data[tableId]
+export const getTableData = (state, tableId) => {
+  return state.data.tables[tableId]
+}
+
+export const getCollection = (state, tableId, sort=null, filter=null) => {
+  let data = state.data.tables[tableId]
+  let collection = Object.keys(data).map(id => data[id])
+
+  if (sort) {
+    collection.sort(sort)
+  }
+
+  if (filter) {
+    collection = collection.filter(filter)
+  }
+
+  return collection
+}
+
+export const getItem = (state, tableId, selector) => {
+  return selector(state.data.tables[tableId])
 }

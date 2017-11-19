@@ -1,8 +1,7 @@
-import { CURRENT_USER_SELECTOR } from 'apto-constants'
+import { getTableData } from '../ducks/data'
+import { unsafeGetToken } from '../ducks/auth'
 
-const selectors = {
-  [CURRENT_USER_SELECTOR]: () => {}
-}
+import selectors from './selectors'
 
 export const buildMapFunc = (component, params) => state => {
   let { dataBindings } = component
@@ -11,7 +10,19 @@ export const buildMapFunc = (component, params) => state => {
 
   for (let bindingId in dataBindings) {
     let binding = dataBindings[bindingId]
+
+    let { datasourceId, tableId, fieldId, selector } = binding
+    let authToken = unsafeGetToken(datasourceId)
+
+    let selectorFunc = selectors[selector.type]    
+    let map = getTableData(state, tableId)
+
+    if (!map || !selectorFunc) { continue }
+
+    let bindingData = selectorFunc(map, params, authToken)
+
+    result[bindingId] = bindingData
   }
 
-  return {}
+  return result
 }

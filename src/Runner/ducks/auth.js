@@ -8,6 +8,12 @@ const tokenKey = datasourceId => `SESSION_TOKEN-${datasourceId}`
 const LOAD_SUCCESS = Symbol('LOAD_SUCCESS')
 const LOAD_FAILURE = Symbol('LOAD_FAILURE')
 
+const tokens = {}
+
+export const unsafeGetToken = datasourceId => {
+  return tokens[datasourceId]
+}
+
 const INITIAL_STATE = {
   tokens: {},
   activeAuth: null
@@ -17,7 +23,7 @@ export default (state=INITIAL_STATE, action) => {
   if (action.type === LOAD_SUCCESS) {
     let { datasourceId, token } = action
 
-    console.log("LOAD SUCCESS", token)
+    tokens[datasourceId] = token
 
     return {
       ...state,
@@ -32,8 +38,6 @@ export default (state=INITIAL_STATE, action) => {
   if (action.type === LOAD_FAILURE) {
     let { datasourceId } = action
 
-    console.log("LOAD FAILURE")
-
     return {
       ...state,
       activeAuth: datasourceId
@@ -46,13 +50,11 @@ export default (state=INITIAL_STATE, action) => {
 // ACTIONS
 
 export const restartSession = datasourceId => dispatch => {
-  console.log("RESTARTING...", datasourceId)
   AsyncStorage.getItem(tokenKey(datasourceId))
     .then(token => {
       if (token !== null) {
         dispatch({ type: LOAD_SUCCESS, token })
       } else {
-        console.log("NOT FOUND. SHOWING LOGIN.")
         dispatch({ type: LOAD_FAILURE, datasourceId })
       }
     })

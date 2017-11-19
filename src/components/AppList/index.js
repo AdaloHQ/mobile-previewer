@@ -7,6 +7,7 @@ import { getApps, requestApps } from '../../ducks/apps'
 import Loader from '../Shared/Loader'
 import ListView from './List'
 import RefreshButton from './RefreshButton'
+import LogoutButton from './LogoutButton'
 
 class ListWrapper extends Component {
   componentWillMount() {
@@ -60,7 +61,8 @@ export default StackNavigator(
       screen: ConnectedListWrapper,
       navigationOptions: {
         title: 'My Apps',
-        headerRight: <RefreshButton />
+        headerRight: <RefreshButton />,
+        headerLeft: <LogoutButton />
       }
     }
   }
