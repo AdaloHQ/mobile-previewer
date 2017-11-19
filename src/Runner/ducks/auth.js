@@ -3,8 +3,6 @@ import axios from 'axios'
 
 import { loginUrl } from '../utils/urls'
 
-const tokenKey = datasourceId => `SESSION_TOKEN-${datasourceId}`
-
 const LOAD_SUCCESS = Symbol('LOAD_SUCCESS')
 const LOAD_FAILURE = Symbol('LOAD_FAILURE')
 
@@ -12,6 +10,14 @@ const tokens = {}
 
 export const unsafeGetToken = datasourceId => {
   return tokens[datasourceId]
+}
+
+const tokenKey = datasourceId => {
+  if (!datasourceId) {
+    throw new Error('datasourceId cannot be blank')
+  }
+
+  return `SESSION_TOKEN-${datasourceId}`
 }
 
 const INITIAL_STATE = {
@@ -22,6 +28,8 @@ const INITIAL_STATE = {
 export default (state=INITIAL_STATE, action) => {
   if (action.type === LOAD_SUCCESS) {
     let { datasourceId, token } = action
+
+    console.log("SUCCESSFULLY GOT TOKEN:", datasourceId, token)
 
     tokens[datasourceId] = token
 
@@ -53,7 +61,7 @@ export const restartSession = datasourceId => dispatch => {
   AsyncStorage.getItem(tokenKey(datasourceId))
     .then(token => {
       if (token !== null) {
-        dispatch({ type: LOAD_SUCCESS, token })
+        dispatch({ type: LOAD_SUCCESS, datasourceId, token })
       } else {
         dispatch({ type: LOAD_FAILURE, datasourceId })
       }
@@ -66,7 +74,7 @@ export const authenticate = (datasourceId, data) => dispatch => {
       AsyncStorage.setItem(tokenKey(datasourceId), response.data.token)
         .catch(() => console.error('Error storing token to AsyncStorage'))
 
-      dispatch({ type: LOAD_SUCCESS, token: response.data.token })
+      dispatch({ type: LOAD_SUCCESS, datasourceId, token: response.data.token })
     })
     .catch(err => {
       console.log("ERROR:", err)
@@ -81,7 +89,6 @@ export const getAuthenticated = state => {
 }
 
 export const getAuthScreenVisible = state => {
-  console.log("ACTIVE AUTH:", state.auth.activeAuth)
   return !!state.auth.activeAuth
 }
 

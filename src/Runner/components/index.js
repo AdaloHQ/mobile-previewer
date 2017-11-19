@@ -17,7 +17,6 @@ class Runner extends Component {
     // Attempt to grab the user's session token from asyncStorage
     let { app } = this.props
     let id = app.datasources && Object.keys(app.datasources)[0]
-    console.log(Object.keys(app.datasources)[0])
 
     this.props.restartSession(id)
   }

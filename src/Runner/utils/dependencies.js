@@ -19,9 +19,40 @@ export const buildMapFunc = (component, params) => state => {
 
     if (!map || !selectorFunc) { continue }
 
-    let bindingData = selectorFunc(map, params, authToken)
+    let id = selectorFunc(params, authToken)
+    let bindingData = map[id]
 
-    result[bindingId] = bindingData
+    result[bindingId] = bindingData[fieldId]
+  }
+
+  console.log('BUILT DEPENDENCIES:', result)
+
+  return result
+}
+
+export const getDependencies = (component, params) => {
+  let { dataBindings } = component
+
+  let result = []
+
+  let cache = {}
+
+  for (let bindingId in dataBindings) {
+    let binding = dataBindings[bindingId]
+
+    let { datasourceId, tableId, fieldId, selector } = binding
+    let authToken = unsafeGetToken(datasourceId)
+
+    let selectorFunc = selectors[selector.type]    
+    let id = selectorFunc(params, authToken)
+
+    let cacheKey = `${datasourceId}.${tableId}.${id}`
+
+    if (cache[cacheKey]) { continue }
+
+    cache[cacheKey] = true
+
+    result.push([datasourceId, tableId, id])
   }
 
   return result

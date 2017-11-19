@@ -32,10 +32,41 @@ const INITIAL_STATE = {
 export default (state=INITIAL_STATE, action) => {
   if (action.type === FETCH_COLLECTION_SUCCESS) {
     console.log("RECEIVING COLLECTION", action)
+    let { data, tableId } = action
+
+    let table = {
+      ...this.state.tables[tableId]
+    }
+
+    data.forEach(itm => {
+      table[itm.id] = itm
+    })
+
+    return {
+      ...state,
+      tables: {
+        ...state.tables,
+        [tableId]: table
+      }
+    }
   }
 
   if (action.type === FETCH_ITEM_SUCCESS) {
     console.log("RECEIVING ITEM", action)
+
+    let { tableId } = action
+    let item = action.data
+
+    return {
+      ...state,
+      tables: {
+        ...state.tables,
+        [tableId]: {
+          ...state.tables[tableId],
+          [item.id]: item
+        }
+      }
+    }
   }
 
   return INITIAL_STATE
@@ -48,6 +79,7 @@ export const fetchCollection = (datasourceId, tableId) => dispatch => {
     .then(response => {
       dispatch({
         type: FETCH_COLLECTION_SUCCESS,
+        tableId,
         data: response.data
       })
     })
@@ -57,16 +89,26 @@ export const fetchCollection = (datasourceId, tableId) => dispatch => {
 }
 
 export const fetchItem = (datasourceId, tableId, id) => dispatch => {
+  console.log(buildUrl(datasourceId, tableId, id))
   axios.get(buildUrl(datasourceId, tableId, id))
     .then(response => {
       dispatch({
         type: FETCH_ITEM_SUCCESS,
+        tableId,
         data: response.data
       })
     })
     .catch(err => {
       console.error("ERROR FETCHING ITEM.", err)
     })
+}
+
+export const fetch = (datasourceId, tablesId, id=null) => {
+  if (id === null) {
+    return fetchCollection(datasourceId, tableId)
+  } else {
+    return fetchItem(datasourceId, tablesId, id)
+  }
 }
 
 // SELECTORS

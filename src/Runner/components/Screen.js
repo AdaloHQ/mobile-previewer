@@ -2,20 +2,23 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
-import { buildMapFunc } from '../utils/dependencies'
+import { buildMapFunc, getDependencies } from '../utils/dependencies'
+import { fetch } from '../ducks/data'
 import ObjectRenderer from './ObjectRenderer'
 
 class Screen extends Component {
   componentWillMount() {
     // Figure out what data is needed and fetch it
-    let { component } = this.props
-    let { dataBindings } = component
+    let { component, fetch } = this.props
+    let dependencies = getDependencies(component, {})
 
-    // Object.keys(dataBindings).forEach(
+    dependencies.forEach(dep => {
+      fetch(...dep)
+    })
   }
 
   render() {
-    let { component, offsetX } = this.props
+    let { bindingData, component, offsetX } = this.props
 
     let { width, height, objects } = component
 
@@ -26,6 +29,7 @@ class Screen extends Component {
             key={obj.id}
             object={obj}
             component={component}
+            bindingData={bindingData}
           />
         ))}
       </View>
@@ -39,7 +43,8 @@ const styles = StyleSheet.create({
   }
 })
 
-const mapStateToProps = (state, { component, params }) =>
-  buildMapFunc(component, params)(state)
+const mapStateToProps = (state, { component, params }) => ({
+  bindingData: buildMapFunc(component, params)(state)
+})
 
-export default connect(mapStateToProps)(Screen)
+export default connect(mapStateToProps, { fetch })(Screen)

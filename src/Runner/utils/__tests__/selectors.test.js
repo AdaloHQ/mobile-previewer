@@ -19,5 +19,5 @@ test('currentUserSelector', () => {
 
   let token = fakeJWT({ userId: 2 })
 
-  expect(currentUserSelector(usersMap, null, token)).toEqual(usersMap['2'])
+  expect(currentUserSelector(null, token)).toEqual(2)
 })

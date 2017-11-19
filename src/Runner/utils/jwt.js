@@ -1,3 +1,5 @@
+import { Buffer } from 'buffer/'
+
 export const getPayload = jwt => {
   let pieces = jwt.split('.')
   let payload = JSON.parse(Buffer.from(pieces[1], 'base64'))

@@ -4,7 +4,19 @@ import ActionWrapper from './ActionWrapper'
 
 export default class Label extends Component {
   render() {
-    let { object, component } = this.props
+    let { object, component, bindingData } = this.props
+
+    let binding = component.dataBindings[object.id]
+
+    let text = object.text
+
+    if (binding) {
+      if (bindingData[object.id]) {
+        text = bindingData[object.id]
+      } else {
+        text = ""
+      }
+    }
 
     let wrapperStyles = {
       position: 'absolute',
@@ -27,7 +39,7 @@ export default class Label extends Component {
       <View style={wrapperStyles}>
         <ActionWrapper action={component.links[object.id]}>
           <Text style={textStyles}>
-            {object.text}
+            {text}
           </Text>
         </ActionWrapper>
       </View>

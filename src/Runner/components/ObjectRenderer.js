@@ -7,13 +7,25 @@ import Section from './Section'
 
 export default class ObjectRenderer extends Component {
   render() {
-    let { component, object } = this.props
+    let { component, object, bindingData } = this.props
 
     switch (object.type) {
       case LABEL:
-        return <Label component={component} object={object} />
+        return (
+          <Label
+            component={component}
+            bindingData={bindingData}
+            object={object}
+          />
+        )
       case SECTION:
-        return <Section component={component} object={object} />
+        return (
+          <Section
+            component={component}
+            bindingData={bindingData}
+            object={object}
+          />
+        )
       case GROUP:
         return (
           <View style={styles.group}>
@@ -21,6 +33,7 @@ export default class ObjectRenderer extends Component {
               <ObjectRenderer
                 key={child.id}
                 component={component}
+                bindingData={bindingData}
                 object={child}
               />
             ))}
