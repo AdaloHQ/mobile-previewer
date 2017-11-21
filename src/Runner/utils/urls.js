@@ -1,4 +1,4 @@
-const BASE_URL = 'http://bdd762b7.ngrok.io'
+const BASE_URL = 'http://9ceb62ef.ngrok.io'
 
 export const buildUrl = (datasourceId, tableId, id=null) => {
   let collectionUrl = `${BASE_URL}/databases/${datasourceId}/tables/${tableId}`
