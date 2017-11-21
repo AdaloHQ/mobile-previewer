@@ -7,6 +7,8 @@ import {
 } from 'react-native'
 import { GROUP_TYPE_INPUT } from 'apto-constants'
 
+import Group from '../Group'
+
 export default class Input extends Component {
   handlePress = () => {
     if (this.input) {
@@ -61,7 +63,7 @@ export default class Input extends Component {
     }
 
     return (
-      <View style={styles.wrapper}>
+      <Group>
         {renderChildren(otherChildren)}
         <TouchableHighlight
           onPress={this.handlePress}
@@ -71,19 +73,18 @@ export default class Input extends Component {
           <View />
         </TouchableHighlight>
         <View style={[styles.input, inputPosition]}>
-          <TextInput style={inputStyle} ref={this.inputRef} />
+          <TextInput
+            style={inputStyle}
+            ref={this.inputRef}
+            returnKeyType="done"
+          />
         </View>
-      </View>
+      </Group>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    position: 'absolute',
-    top: 0,
-    left: 0
-  },
   input: {
     position: 'absolute'
   }

@@ -75,7 +75,8 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderWidth: 1,
     padding: 10,
-    borderRadius: 3
+    borderRadius: 3,
+    fontSize: 14
   },
   label: {
     marginBottom: 8

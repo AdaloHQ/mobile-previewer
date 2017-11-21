@@ -23,6 +23,7 @@ export default class Navigator extends Component {
 
     this.state = {
       routeStack,
+      navigationInProgress: false,
       currentViewOffset: 0,
       previousViewOffset: 0
     }
@@ -34,6 +35,10 @@ export default class Navigator extends Component {
 
   navigate = action => {
     let { width } = Dimensions.get('window')
+
+    if (this.state.navigationInProgress) {
+      return
+    }
 
     if (action.type === NAVIGATION_BACK) {
       let currentViewOffset = new Animated.Value(0)
@@ -49,7 +54,8 @@ export default class Navigator extends Component {
       ).start()
 
       this.setState(state => ({
-        currentViewOffset
+        currentViewOffset,
+        navigationInProgress: true
       }))
 
       setTimeout(this.postPop, 400)
@@ -66,8 +72,13 @@ export default class Navigator extends Component {
         }
       ).start()
 
+      setTimeout(() => {
+        this.setState({ navigationInProgress: false })
+      }, 400)
+
       this.setState(state => ({
         currentViewOffset,
+        navigationInProgress: true,
         routeStack: push(
           state.routeStack,
           { params: {}, ...action }
@@ -92,6 +103,7 @@ export default class Navigator extends Component {
 
      this.setState({
         routeStack,
+        navigationInProgress: false,
         currentViewOffset,
         previousViewOffset: 0
      })

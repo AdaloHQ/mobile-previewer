@@ -37,6 +37,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#fff',
+    paddingLeft: 16,
+    paddingRight: 16,
     paddingTop: '20%'
   },
   header: {

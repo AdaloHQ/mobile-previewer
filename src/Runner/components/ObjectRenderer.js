@@ -5,6 +5,7 @@ import { LABEL, SECTION, GROUP, GROUP_TYPE_INPUT } from 'apto-constants'
 import Label from './Label'
 import Section from './Section'
 import Input from './Input'
+import Group from './Group'
 
 export default class ObjectRenderer extends Component {
   renderChildren = children => {
@@ -55,9 +56,9 @@ export default class ObjectRenderer extends Component {
         }
 
         return (
-          <View style={styles.group}>
+          <Group>
             {this.renderChildren(object.children)}
-          </View>
+          </Group>
         )
       default:
         return null
@@ -65,10 +66,3 @@ export default class ObjectRenderer extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  group: {
-    position: 'absolute',
-    left: 0,
-    top: 0
-  }
-})

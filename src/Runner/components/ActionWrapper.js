@@ -9,6 +9,8 @@ export default class ActionWrapper extends Component {
     let { action } = this.props
     let { navigate } = this.context
 
+    console.log("PRESSED BUTTON...")
+
     navigate(action)
   }
 
