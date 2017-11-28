@@ -2,7 +2,7 @@ import io from 'socket.io-client'
 
 import { loadApp } from '../ducks/apps'
 
-export const socket = io('https://03317221.ngrok.io')
+export const socket = io('http://localhost:8084')
 
 export const connectSocket = store => {
   socket.on('app', result => {

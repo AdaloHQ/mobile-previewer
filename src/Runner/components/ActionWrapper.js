@@ -9,8 +9,6 @@ export default class ActionWrapper extends Component {
     let { action } = this.props
     let { navigate } = this.context
 
-    console.log("PRESSED BUTTON...")
-
     navigate(action)
   }
 
@@ -35,8 +33,5 @@ export default class ActionWrapper extends Component {
 
 const styles = StyleSheet.create({
   touchable: {
-    margin: -5,
-    padding: 5,
-    borderRadius: 4
   }
 })

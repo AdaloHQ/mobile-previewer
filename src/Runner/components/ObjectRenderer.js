@@ -49,6 +49,7 @@ export default class ObjectRenderer extends Component {
         if (object.groupType === GROUP_TYPE_INPUT) {
           return (
             <Input
+              component={component}
               object={object}
               renderChildren={this.renderChildren}
             />
@@ -56,7 +57,7 @@ export default class ObjectRenderer extends Component {
         }
 
         return (
-          <Group>
+          <Group component={component} object={object}>
             {this.renderChildren(object.children)}
           </Group>
         )

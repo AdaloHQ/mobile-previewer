@@ -21,7 +21,7 @@ export default class Input extends Component {
   }
 
   render() {
-    let { object, renderChildren } = this.props
+    let { object, component, renderChildren } = this.props
 
     let {
       groupTypeOptions,
@@ -63,7 +63,7 @@ export default class Input extends Component {
     }
 
     return (
-      <Group>
+      <Group component={component} object={object}>
         {renderChildren(otherChildren)}
         <TouchableHighlight
           onPress={this.handlePress}

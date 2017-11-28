@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import ActionWrapper from './ActionWrapper'
+import ObjectWrapper from './ObjectWrapper'
 
 export default class Label extends Component {
   render() {
@@ -18,31 +19,29 @@ export default class Label extends Component {
       }
     }
 
-    let wrapperStyles = {
-      position: 'absolute',
-      left: object.x,
-      top: object.y,
-      backgroundColor: 'transparent'
-    }
+    let wrapperStyles = {}
 
     let textStyles = {
       color: object.color,
       fontSize: object.fontSize
     }
 
+    textStyles.textAlign = object.textAlignment
+
     if (!object.autoWidth) {
       wrapperStyles.width = object.width
-      textStyles.textAlign = object.textAlignment
+    } else {
+      wrapperStyles.minWidth = object.width
     }
 
     return (
-      <View style={wrapperStyles}>
+      <ObjectWrapper object={object} style={wrapperStyles}>
         <ActionWrapper action={component.links[object.id]}>
           <Text style={textStyles}>
             {text}
           </Text>
         </ActionWrapper>
-      </View>
+      </ObjectWrapper>
     )
   }
 }

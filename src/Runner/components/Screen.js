@@ -20,10 +20,14 @@ class Screen extends Component {
   render() {
     let { bindingData, component, offsetX } = this.props
 
-    let { width, height, objects } = component
+    let { backgroundColor, width, height, objects } = component
+
+    backgroundColor = backgroundColor || '#fff'
+
+    let styles = { width, height, backgroundColor }
 
     return (
-      <View style={[styles.screen, { width, height }]}>
+      <View style={styles}>
         {objects.map(obj => (
           <ObjectRenderer
             key={obj.id}
@@ -36,12 +40,6 @@ class Screen extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  screen: {
-    backgroundColor: '#fff',
-  }
-})
 
 const mapStateToProps = (state, { component, params }) => ({
   bindingData: buildMapFunc(component, params)(state)
