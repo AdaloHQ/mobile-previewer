@@ -49,16 +49,15 @@ export default class Navigator extends Component {
           toValue: width,
           easing: Easing.in(Easing.ease),
           duration: 200,
-          delay: 20
+          delay: 20,
+          useNativeDriver: true
         }
-      ).start()
+      ).start(this.postPop)
 
       this.setState(state => ({
         currentViewOffset,
         navigationInProgress: true
       }))
-
-      setTimeout(this.postPop, 400)
     } else {
       let currentViewOffset = new Animated.Value(width)
 
@@ -68,13 +67,12 @@ export default class Navigator extends Component {
           toValue: 0,
           easing: Easing.out(Easing.ease),
           duration: 200,
-          delay: 50
+          delay: 50,
+          useNativeDriver: true
         }
-      ).start()
-
-      setTimeout(() => {
+      ).start(() => {
         this.setState({ navigationInProgress: false })
-      }, 400)
+      })
 
       this.setState(state => ({
         currentViewOffset,
@@ -89,24 +87,24 @@ export default class Navigator extends Component {
 
   // Cleanup that happens after animation finishes
   postPop = () => {
-     let [head, routeStack] = pop(this.state.routeStack)
+    let [head, routeStack] = pop(this.state.routeStack)
 
-      let currentViewOffset = new Animated.Value(0)
+    let currentViewOffset = new Animated.Value(0)
 
-      Animated.timing(
-        currentViewOffset,
-        {
-          toValue: 0,
-          duration: 1
-        }
-      ).start()
+    Animated.timing(
+      currentViewOffset,
+      {
+        toValue: 0,
+        duration: 1
+      }
+    ).start()
 
-     this.setState({
-        routeStack,
-        navigationInProgress: false,
-        currentViewOffset,
-        previousViewOffset: 0
-     })
+    this.setState({
+      routeStack,
+      navigationInProgress: false,
+      currentViewOffset,
+      previousViewOffset: 0
+    })
   }
 
   render() {
@@ -123,16 +121,12 @@ export default class Navigator extends Component {
     let currentComponent = app.components[currentRoute.target]
     let previousComponent = previousRoute && app.components[previousRoute.target]
 
-    let currentViewStyles = {
-      left: currentViewOffset
-    }
-
     let children = []
 
     if (previousComponent) {
       children.push(
         <Animated.View
-          style={[styles.inner, { left: 0 }]}
+          style={styles.inner}
           key={previousRoute.target}
         >
           <Screen
@@ -145,8 +139,8 @@ export default class Navigator extends Component {
 
     children.push(
       <Animated.View
-        style={[styles.inner, currentViewStyles]}
         key={currentRoute.target || '0'}
+        style={[styles.inner, { transform: [{ translateX: currentViewOffset }] }]}
       >
         <Screen
           component={currentComponent}
@@ -169,6 +163,7 @@ const styles = StyleSheet.create({
   },
   inner: {
     position: 'absolute',
-    top: 0
+    top: 0,
+    left: 0
   }
 })

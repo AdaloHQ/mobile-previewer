@@ -24,10 +24,10 @@ class Screen extends Component {
 
     backgroundColor = backgroundColor || '#fff'
 
-    let styles = { width, height, backgroundColor }
+    let calculatedStyles = { width, height, backgroundColor }
 
     return (
-      <View style={styles}>
+      <View style={[styles.wrapper, calculatedStyles]}>
         {objects.map(obj => (
           <ObjectRenderer
             key={obj.id}
@@ -40,6 +40,12 @@ class Screen extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  wrapper: {
+    overflow: 'hidden'
+  }
+})
 
 const mapStateToProps = (state, { component, params }) => ({
   bindingData: buildMapFunc(component, params)(state)
