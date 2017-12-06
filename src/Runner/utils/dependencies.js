@@ -22,7 +22,9 @@ export const buildMapFunc = (component, params) => state => {
     let id = selectorFunc(params, authToken)
     let bindingData = map[id]
 
-    result[bindingId] = bindingData[fieldId]
+    if (bindingData) {
+      result[bindingId] = bindingData[fieldId]
+    }
   }
 
   console.log('BUILT DEPENDENCIES:', result)
