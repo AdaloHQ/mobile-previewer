@@ -8,7 +8,7 @@ export default class Group extends Component {
     let { object, children, component } = this.props
 
     return (
-      <ActionWrapper action={component.links[object.id]}>
+      <ActionWrapper component={component} object={object}>
         <View style={styles.group} pointerEvents="box-none">
           {children}
         </View>

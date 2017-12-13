@@ -26,6 +26,9 @@ class Runner extends Component {
     let { launchComponentId, components } = app
     let launchComponent = components[launchComponentId]
 
+    authenticated = true
+    authScreenVisible = false
+
     return (
       <View style={styles.wrapper}>
         {authenticated

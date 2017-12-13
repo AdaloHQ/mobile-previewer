@@ -1,28 +1,65 @@
 import React, { Component } from 'react'
-import { TouchableHighlight, StyleSheet } from 'react-native'
+import { TouchableHighlight } from 'react-native'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { events } from 'apto-constants'
 
-export default class ActionWrapper extends Component {
+import { getActionDependencies } from '../utils/dependencies'
+import { executeAction } from '../utils/actions'
+
+class ActionWrapper extends Component {
   static contextTypes = { navigate: PropTypes.func }
 
-  handlePress = () => {
-    let { action } = this.props
-    let { navigate } = this.context
+  getLink() {
+    let { component, object } = this.props
+    return component && component.links && component.links[object.id]
+  }
 
-    navigate(action)
+  getActions() {
+    let { component, object } = this.props
+
+    return component && component.actions &&
+              component.actions[object.id] || {}
+  }
+
+  hasActions() {
+    let actions = this.getActions()
+
+    return Object.keys(actions).length > 0
+  }
+
+  handlePress = () => {
+    let { navigate } = this.context
+    let { dependencies, dispatch } = this.props
+
+    let link = this.getLink()
+    let actions = this.getActions()
+
+    actions = Object.keys(actions)
+      .filter(id => actions[id].eventType === events.TAP)
+      .forEach(id => {
+        executeAction(actions[id], dependencies[id], dispatch)
+      })
+
+    if (link) {
+      navigate(link)
+    }
   }
 
   render() {
-    let { action, children } = this.props
+    let { children, dependencies } = this.props
 
-    if (action) {
+    console.log("DEPENDENCIES:", dependencies)
+
+    let hasAction = this.hasActions() || this.getLink()
+
+    if (hasAction) {
       return (
         <TouchableHighlight
           underlayColor="transparent"
           activeOpacity={0.7}
           onPress={this.handlePress}
           children={children}
-          style={styles.touchable}
         />
       )
     }
@@ -31,7 +68,8 @@ export default class ActionWrapper extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  touchable: {
-  }
+const mapStateToProps = (state, { component, object }) => ({
+  dependencies: getActionDependencies(state, component, object)
 })
+
+export default connect(mapStateToProps)(ActionWrapper)

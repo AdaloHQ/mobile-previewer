@@ -1,5 +1,8 @@
+import { SOURCE_TYPE_INPUT, actionTypes } from 'apto-constants'
+
 import { getTableData } from '../ducks/data'
 import { unsafeGetToken } from '../ducks/auth'
+import { getValue } from '../ducks/formInputs'
 
 import selectors from './selectors'
 
@@ -27,9 +30,40 @@ export const buildMapFunc = (component, params) => state => {
     }
   }
 
-  console.log('BUILT DEPENDENCIES:', result)
+  // console.log('BUILT DEPENDENCIES:', result)
 
   return result
+}
+
+export const getActionDependencies = (state, component, object) => {
+  let values = {}
+
+  let actions = component.actions[object.id] || {}
+
+  Object.keys(actions).forEach(id => {
+    let action = actions[id]
+
+    let fieldTypes = [actionTypes.CREATE_OBJECT, actionTypes.UPDATE_OBJECTS]
+    if (fieldTypes.indexOf(action.actionType) >= 0) {
+      values[id] = {
+        fields: {}
+      }
+
+      action.options.fields.forEach(field => {
+        if (!field || !field.source || !field.fieldId) { return }
+
+        let { source } = field
+
+        if (!source || source.type !== SOURCE_TYPE_INPUT) {
+          return console.error(`Unsupported source type: ${source.type}`)
+        }
+
+        values[id].fields[field.fieldId] = getValue(state, source.objectId)
+      })
+    }
+  })
+
+  return values
 }
 
 export const getDependencies = (component, params) => {

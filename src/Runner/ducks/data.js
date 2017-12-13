@@ -6,21 +6,21 @@ const FETCH_COLLECTION_REQUEST = Symbol('FETCH_COLLECTION_REQUEST')
 const FETCH_COLLECTION_SUCCESS = Symbol('FETCH_COLLECTION_SUCCESS')
 const FETCH_COLLECTION_FAILURE = Symbol('FETCH_COLLECTION_FAILURE')
 
-const FETCH_ITEM_REQUEST = Symbol('FETCH_ITEM_REQUEST')
-const FETCH_ITEM_SUCCESS = Symbol('FETCH_ITEM_SUCCESS')
-const FETCH_ITEM_FAILURE = Symbol('FETCH_ITEM_FAILURE')
+const FETCH_OBJECT_REQUEST = Symbol('FETCH_OBJECT_REQUEST')
+const FETCH_OBJECT_SUCCESS = Symbol('FETCH_OBJECT_SUCCESS')
+const FETCH_OBJECT_FAILURE = Symbol('FETCH_OBJECT_FAILURE')
 
-const CREATE_ITEM_REQUEST = Symbol('CREATE_ITEM_REQUEST')
-const CREATE_ITEM_SUCCESS = Symbol('CREATE_ITEM_SUCCESS')
-const CREATE_ITEM_FAILURE = Symbol('CREATE_ITEM_FAILURE')
+const CREATE_OBJECT_REQUEST = Symbol('CREATE_OBJECT_REQUEST')
+const CREATE_OBJECT_SUCCESS = Symbol('CREATE_OBJECT_SUCCESS')
+const CREATE_OBJECT_FAILURE = Symbol('CREATE_OBJECT_FAILURE')
 
-const UPDATE_ITEM_REQUEST = Symbol('UPDATE_ITEM_REQUEST')
-const UPDATE_ITEM_SUCCESS = Symbol('UPDATE_ITEM_SUCCESS')
-const UPDATE_ITEM_FAILURE = Symbol('UPDATE_ITEM_FAILURE')
+const UPDATE_OBJECT_REQUEST = Symbol('UPDATE_OBJECT_REQUEST')
+const UPDATE_OBJECT_SUCCESS = Symbol('UPDATE_OBJECT_SUCCESS')
+const UPDATE_OBJECT_FAILURE = Symbol('UPDATE_OBJECT_FAILURE')
 
-const DELETE_ITEM_REQUEST = Symbol('DELETE_ITEM_REQUEST')
-const DELETE_ITEM_SUCCESS = Symbol('DELETE_ITEM_SUCCESS')
-const DELETE_ITEM_FAILURE = Symbol('DELETE_ITEM_FAILURE')
+const DELETE_OBJECT_REQUEST = Symbol('DELETE_OBJECT_REQUEST')
+const DELETE_OBJECT_SUCCESS = Symbol('DELETE_OBJECT_SUCCESS')
+const DELETE_OBJECT_FAILURE = Symbol('DELETE_OBJECT_FAILURE')
 
 const INITIAL_STATE = {
   tables: {},
@@ -51,8 +51,10 @@ export default (state=INITIAL_STATE, action) => {
     }
   }
 
-  if (action.type === FETCH_ITEM_SUCCESS) {
-    console.log("RECEIVING ITEM", action)
+  if (action.type === FETCH_OBJECT_SUCCESS ||
+      action.type === CREATE_OBJECT_SUCCESS) {
+
+    console.log("RECEIVING OBJECT", action)
 
     let { tableId } = action
     let item = action.data
@@ -93,13 +95,13 @@ export const fetchItem = (datasourceId, tableId, id) => dispatch => {
   axios.get(buildUrl(datasourceId, tableId, id))
     .then(response => {
       dispatch({
-        type: FETCH_ITEM_SUCCESS,
+        type: FETCH_OBJECT_SUCCESS,
         tableId,
         data: response.data
       })
     })
     .catch(err => {
-      console.error("ERROR FETCHING ITEM.", err)
+      console.error("ERROR FETCHING OBJECT.", err)
     })
 }
 
@@ -109,6 +111,20 @@ export const fetch = (datasourceId, tablesId, id=null) => {
   } else {
     return fetchItem(datasourceId, tablesId, id)
   }
+}
+
+export const createObject = (datasourceId, tableId, object) => dispatch => {
+  axios.post(buildUrl(datasourceId, tableId), object)
+    .then(response => {
+      dispatch({
+        type: CREATE_OBJECT_SUCCESS,
+        tableId,
+        data: response.data
+      })
+    })
+    .catch(err => {
+      console.error("ERROR CREATING OBJECT.", err)
+    })
 }
 
 // SELECTORS

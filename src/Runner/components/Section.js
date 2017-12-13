@@ -19,7 +19,7 @@ export default class Section extends Component {
     }
 
     return (
-      <ActionWrapper action={component.links[object.id]}>
+      <ActionWrapper component={component} object={object}>
         <View style={styles} />
       </ActionWrapper>
     )

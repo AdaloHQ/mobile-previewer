@@ -5,15 +5,23 @@ import {
   TouchableHighlight,
   StyleSheet
 } from 'react-native'
+import { connect } from 'react-redux'
 import { GROUP_TYPE_INPUT } from 'apto-constants'
 
+import { changeValue, getValue } from '../../ducks/formInputs'
 import Group from '../Group'
 
-export default class Input extends Component {
+class Input extends Component {
   handlePress = () => {
     if (this.input) {
       this.input.focus()
     }
+  }
+
+  handleChange = text => {
+    let { changeValue, object } = this.props
+
+    changeValue(object.id, text)
   }
 
   inputRef = input => {
@@ -21,7 +29,7 @@ export default class Input extends Component {
   }
 
   render() {
-    let { object, component, renderChildren } = this.props
+    let { object, component, renderChildren, value } = this.props
 
     let {
       groupTypeOptions,
@@ -77,6 +85,8 @@ export default class Input extends Component {
             style={inputStyle}
             ref={this.inputRef}
             returnKeyType="done"
+            onChangeText={this.handleChange}
+            value={value || ''}
           />
         </View>
       </Group>
@@ -89,3 +99,9 @@ const styles = StyleSheet.create({
     position: 'absolute'
   }
 })
+
+const mapStateToProps = (state, { object }) => ({
+  value: getValue(state, object.id)
+})
+
+export default connect(mapStateToProps, { changeValue })(Input)
