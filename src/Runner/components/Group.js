@@ -5,11 +5,11 @@ import ActionWrapper from './ActionWrapper'
 
 export default class Group extends Component {
   render() {
-    let { object, children, component } = this.props
+    let { object, children, component, styleOverrides } = this.props
 
     return (
       <ActionWrapper component={component} object={object}>
-        <View style={styles.group} pointerEvents="box-none">
+        <View style={[styles.group, styleOverrides]} pointerEvents="box-none">
           {children}
         </View>
       </ActionWrapper>

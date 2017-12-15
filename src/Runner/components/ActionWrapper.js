@@ -49,8 +49,6 @@ class ActionWrapper extends Component {
   render() {
     let { children, dependencies } = this.props
 
-    console.log("DEPENDENCIES:", dependencies)
-
     let hasAction = this.hasActions() || this.getLink()
 
     if (hasAction) {

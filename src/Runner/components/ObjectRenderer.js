@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { View, StyleSheet } from 'react-native'
-import { LABEL, SECTION, GROUP, GROUP_TYPE_INPUT } from 'apto-constants'
+import { LABEL, SECTION, GROUP, LIST, GROUP_TYPE_INPUT } from 'apto-constants'
 
 import Label from './Label'
 import Section from './Section'
 import Input from './Input'
 import Group from './Group'
+import List from './List'
 
 export default class ObjectRenderer extends Component {
   renderChildren = children => {
@@ -60,6 +61,15 @@ export default class ObjectRenderer extends Component {
           <Group component={component} object={object}>
             {this.renderChildren(object.children)}
           </Group>
+        )
+      case LIST:
+        return (
+          <List
+            component={component}
+            bindingData={bindingData}
+            object={object}
+            renderChildren={this.renderChildren}
+          />
         )
       default:
         return null

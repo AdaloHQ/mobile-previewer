@@ -35,7 +35,7 @@ export default (state=INITIAL_STATE, action) => {
     let { data, tableId } = action
 
     let table = {
-      ...this.state.tables[tableId]
+      ...state.tables[tableId]
     }
 
     data.forEach(itm => {
@@ -105,7 +105,7 @@ export const fetchItem = (datasourceId, tableId, id) => dispatch => {
     })
 }
 
-export const fetch = (datasourceId, tablesId, id=null) => {
+export const fetch = (datasourceId, tableId, id=null) => {
   if (id === null) {
     return fetchCollection(datasourceId, tableId)
   } else {

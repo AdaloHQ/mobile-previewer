@@ -1,5 +1,6 @@
 import { SOURCE_TYPE_INPUT, actionTypes } from 'apto-constants'
 
+import { values } from './arrays'
 import { getTableData } from '../ducks/data'
 import { unsafeGetToken } from '../ducks/auth'
 import { getValue } from '../ducks/formInputs'
@@ -14,23 +15,29 @@ export const buildMapFunc = (component, params) => state => {
   for (let bindingId in dataBindings) {
     let binding = dataBindings[bindingId]
 
-    let { datasourceId, tableId, fieldId, selector } = binding
+    let { source } = binding
+    let { datasourceId, tableId, fieldId, selector } = source
     let authToken = unsafeGetToken(datasourceId)
 
-    let selectorFunc = selectors[selector.type]    
     let map = getTableData(state, tableId)
 
-    if (!map || !selectorFunc) { continue }
+    let bindingData = map
 
-    let id = selectorFunc(params, authToken)
-    let bindingData = map[id]
+    if (map && selector) {
+      let selectorFunc = selectors[selector.type]
+
+      if (!map || !selectorFunc) { continue }
+
+      let id = selectorFunc(params, authToken)
+      bindingData = map[id]
+    }
 
     if (bindingData) {
-      result[bindingId] = bindingData[fieldId]
+      result[bindingId] = fieldId ? bindingData[fieldId] : values(bindingData)
     }
   }
 
-  // console.log('BUILT DEPENDENCIES:', result)
+  console.log('BUILT DEPENDENCIES:', result)
 
   return result
 }
@@ -76,13 +83,20 @@ export const getDependencies = (component, params) => {
   for (let bindingId in dataBindings) {
     let binding = dataBindings[bindingId]
 
-    let { datasourceId, tableId, fieldId, selector } = binding
+    let { source } = binding
+    let { datasourceId, tableId, fieldId, selector } = source
     let authToken = unsafeGetToken(datasourceId)
 
-    let selectorFunc = selectors[selector.type]    
-    let id = selectorFunc(params, authToken)
+    let id = null
 
-    let cacheKey = `${datasourceId}.${tableId}.${id}`
+    if (selector) {
+      let selectorFunc = selectors[selector.type]
+      id = selectorFunc(params, authToken)
+    }
+
+    let cacheKey = `${datasourceId}.${tableId}`
+
+    if (id) { cacheKey = `${cacheKey}.${id}` }
 
     if (cache[cacheKey]) { continue }
 
