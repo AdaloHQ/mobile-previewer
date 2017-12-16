@@ -87,6 +87,7 @@ class Input extends Component {
             returnKeyType="done"
             onChangeText={this.handleChange}
             value={value || ''}
+            placeholder="Enter Text"
           />
         </View>
       </Group>

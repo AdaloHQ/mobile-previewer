@@ -37,8 +37,6 @@ export const buildMapFunc = (component, params) => state => {
     }
   }
 
-  console.log('BUILT DEPENDENCIES:', result)
-
   return result
 }
 
