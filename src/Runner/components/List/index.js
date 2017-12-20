@@ -51,6 +51,7 @@ export default class List extends Component {
           data={listItems}
           renderItem={this.renderItem}
           style={listStyles}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     )
