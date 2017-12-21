@@ -1,4 +1,4 @@
-import { SOURCE_TYPE_INPUT, actionTypes } from 'apto-constants'
+import { sourceTypes, actionTypes } from 'apto-constants'
 
 import { values } from './arrays'
 import { getTableData } from '../ducks/data'
@@ -59,7 +59,7 @@ export const getActionDependencies = (state, component, object) => {
 
         let { source } = field
 
-        if (!source || source.type !== SOURCE_TYPE_INPUT) {
+        if (!source || source.type !== sourceTypes.INPUT) {
           return console.error(`Unsupported source type: ${source.type}`)
         }
 
@@ -85,6 +85,8 @@ export const getDependencies = (component, params) => {
     let { datasourceId, tableId, fieldId, selector } = source
     let authToken = unsafeGetToken(datasourceId)
 
+    if (!datasourceId || !tableId) { continue }
+
     let id = null
 
     if (selector) {
@@ -104,4 +106,31 @@ export const getDependencies = (component, params) => {
   }
 
   return result
+}
+
+export const bindingValue = (id, binding, bindingData, parentBindingData) => {
+  return bindingSourceValue(id, binding.source, bindingData, parentBindingData)
+}
+
+const bindingSourceValue = (id, source, bindingData, parentBindingData) => {
+  let parentVal = null
+
+  if (source.source) {
+    parentVal = bindingSourceValue(
+      id, source.source, bindingData, parentBindingData)
+  }
+
+  if (source.type === sourceTypes.FIELD) {
+    let { fieldId } = source
+    return parentVal && parentVal[fieldId]
+  }
+
+  if (source.type === sourceTypes.DATA) {
+    return bindingData[id]
+  }
+
+  if (source.type === sourceTypes.LIST_ITEM) {
+    let { listObjectId } = source
+    return parentBindingData[listObjectId]
+  }
 }

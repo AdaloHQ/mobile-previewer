@@ -9,51 +9,57 @@ import Group from './Group'
 import List from './List'
 
 export default class ObjectRenderer extends Component {
-  renderChildren = children => {
-    let { component, bindingData } = this.props
+  static defaultProps = {
+    parentBindingData: {}
+  }
+
+  renderChildren = (children, newBindings=null) => {
+    let { component, bindingData, parentBindingData } = this.props
+
+    parentBindingData = {
+      ...parentBindingData,
+      ...newBindings
+    }
 
     return children.map(child => (
       <ObjectRenderer
         key={child.id}
         component={component}
-        bindingData={bindingData}
         object={child}
+        bindingData={bindingData}
+        parentBindingData={parentBindingData}
       />
     ))
   }
 
   render() {
-    let { component, object, bindingData } = this.props
+    let { component, object, bindingData, parentBindingData } = this.props
 
     if (object.hidden) {
       return null
     }
 
+    let baseProps = {
+      component,
+      object,
+      bindingData,
+      parentBindingData,
+      renderChildren: this.renderChildren
+    }
+
     switch (object.type) {
       case LABEL:
         return (
-          <Label
-            component={component}
-            bindingData={bindingData}
-            object={object}
-          />
+          <Label {...baseProps} />
         )
       case SECTION:
         return (
-          <Section
-            component={component}
-            bindingData={bindingData}
-            object={object}
-          />
+          <Section {...baseProps} />
         )
       case GROUP:
         if (object.groupType === GROUP_TYPE_INPUT) {
           return (
-            <Input
-              component={component}
-              object={object}
-              renderChildren={this.renderChildren}
-            />
+            <Input {...baseProps} />
           )
         }
 
@@ -64,12 +70,7 @@ export default class ObjectRenderer extends Component {
         )
       case LIST:
         return (
-          <List
-            component={component}
-            bindingData={bindingData}
-            object={object}
-            renderChildren={this.renderChildren}
-          />
+          <List {...baseProps} />
         )
       default:
         return null

@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
+
+import { bindingValue } from '../utils/dependencies'
 import ActionWrapper from './ActionWrapper'
 import ObjectWrapper from './ObjectWrapper'
 
 export default class Label extends Component {
   render() {
-    let { object, component, bindingData } = this.props
+    let { object, component, bindingData, parentBindingData } = this.props
 
     let binding = component.dataBindings[object.id]
 
     let text = object.text
 
     if (binding) {
-      if (bindingData[object.id]) {
-        text = bindingData[object.id]
+      if (object.id in bindingData) {
+        text = bindingData[object.id] || ''
       } else {
-        text = ""
+        text = bindingValue(object.id, binding, bindingData, parentBindingData)
       }
     }
 

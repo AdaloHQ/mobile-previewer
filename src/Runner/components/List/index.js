@@ -25,7 +25,7 @@ export default class List extends Component {
     return (
       <View style={[styles.row, { height }]} pointerEvents="box-none">
         <View style={[styles.wrapper, innerStyles]} pointerEvents="box-none">
-          {renderChildren([prototype])}
+          {renderChildren([prototype], { [object.id]: item })}
         </View>
       </View>
     )
