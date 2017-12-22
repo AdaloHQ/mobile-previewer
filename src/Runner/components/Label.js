@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
+import { bindingTypes } from 'apto-constants'
 
+import { relativeDate } from '../utils/dates'
 import { bindingValue } from '../utils/dependencies'
 import ActionWrapper from './ActionWrapper'
 import ObjectWrapper from './ObjectWrapper'
@@ -14,10 +16,20 @@ export default class Label extends Component {
     let text = object.text
 
     if (binding) {
+      let bindingVal
+
       if (object.id in bindingData) {
-        text = bindingData[object.id] || ''
+        bindingVal = bindingData[object.id] || ''
       } else {
-        text = bindingValue(object.id, binding, bindingData, parentBindingData)
+        bindingVal = bindingValue(object.id, binding, bindingData, parentBindingData)
+      }
+
+      if (bindingVal !== undefined) {
+        if (binding.bindingType === bindingTypes.SET_TEXT) {
+          text = bindingVal
+        } else if (binding.bindingType === bindingTypes.DATE) {
+          text = relativeDate(bindingVal)
+        }
       }
     }
 

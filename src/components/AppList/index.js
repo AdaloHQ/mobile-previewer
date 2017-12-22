@@ -3,10 +3,9 @@ import { StyleSheet, Text, View } from 'react-native'
 import { connect } from 'react-redux'
 import { StackNavigator } from 'react-navigation'
 
-import { getApps, requestApps } from '../../ducks/apps'
+import { getApps, getLoading, requestApps } from '../../ducks/apps'
 import Loader from '../Shared/Loader'
 import ListView from './List'
-import RefreshButton from './RefreshButton'
 import LogoutButton from './LogoutButton'
 
 class ListWrapper extends Component {
@@ -21,19 +20,16 @@ class ListWrapper extends Component {
   }
 
   render() {
-    let { apps } = this.props
-
-    if (apps.length === 0) {
-      return (
-        <View style={styles.body}>
-          <Loader />
-        </View>
-      )
-    }
+    let { apps, loading, requestApps } = this.props
 
     return (
       <View style={styles.body}>
-        <ListView apps={apps} onPressItem={this.handlePress} />
+        <ListView
+          apps={apps}
+          loading={loading}
+          onPressItem={this.handlePress}
+          onRefresh={requestApps}
+        />
       </View>
     )
   }
@@ -47,7 +43,8 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
-  apps: getApps(state)
+  apps: getApps(state),
+  loading: getLoading(state)
 })
 
 const ConnectedListWrapper = connect(
@@ -61,7 +58,6 @@ export default StackNavigator(
       screen: ConnectedListWrapper,
       navigationOptions: {
         title: 'My Apps',
-        headerRight: <RefreshButton />,
         headerLeft: <LogoutButton />
       }
     }

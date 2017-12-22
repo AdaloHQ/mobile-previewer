@@ -115,3 +115,7 @@ export const getScreens = (state, appId) => {
 
   return components
 }
+
+export const getLoading = state => {
+  return state.apps.loading
+}

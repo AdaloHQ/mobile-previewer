@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { FlatList, StyleSheet } from 'react-native'
+import { FlatList, RefreshControl, StyleSheet } from 'react-native'
 import AppItem from './Item'
 
 export default class ListView extends Component {
   render() {
-    let { apps, onPressItem } = this.props
+    let { apps, onPressItem, loading, onRefresh } = this.props
 
     apps = apps.map(app => ({
       ...app,
@@ -16,6 +16,12 @@ export default class ListView extends Component {
         data={apps}
         renderItem={({ item }) => (
           <AppItem app={item} onPress={onPressItem} />
+        )}
+        refreshControl={(
+          <RefreshControl
+            refreshing={loading}
+            onRefresh={onRefresh}
+          />
         )}
       />
     )
