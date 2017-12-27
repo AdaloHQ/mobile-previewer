@@ -23,6 +23,7 @@ export default class ListView extends Component {
             onRefresh={onRefresh}
           />
         )}
+        showsVerticalScrollIndicator={false}
       />
     )
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, ScrollView, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
 import { buildMapFunc, getDependencies } from '../utils/dependencies'
@@ -20,7 +20,7 @@ class Screen extends Component {
   render() {
     let { bindingData, component, offsetX } = this.props
 
-    let { backgroundColor, width, height, objects } = component
+    let { backgroundColor, width, height, layout } = component
 
     backgroundColor = backgroundColor || '#fff'
 
@@ -28,14 +28,16 @@ class Screen extends Component {
 
     return (
       <View style={[styles.wrapper, calculatedStyles]}>
-        {objects.map(obj => (
-          <ObjectRenderer
-            key={obj.id}
-            object={obj}
-            component={component}
-            bindingData={bindingData}
-          />
-        ))}
+        <ScrollView style={styles.scrollView}>
+          {layout.body.map(obj => (
+            <ObjectRenderer
+              key={obj.id}
+              object={obj}
+              component={component}
+              bindingData={bindingData}
+            />
+          ))}
+        </ScrollView>
       </View>
     )
   }
@@ -43,7 +45,17 @@ class Screen extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
-    overflow: 'hidden'
+    overflow: 'hidden',
+    width: '100%',
+    height: '100%'
+  },
+  scrollView: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#00f'
   }
 })
 

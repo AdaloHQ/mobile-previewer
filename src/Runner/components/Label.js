@@ -51,7 +51,7 @@ export default class Label extends Component {
     return (
       <ObjectWrapper object={object} style={wrapperStyles}>
         <ActionWrapper component={component} object={object}>
-          <Text style={textStyles}>
+          <Text style={textStyles} numberOfLines={1}>
             {text}
           </Text>
         </ActionWrapper>
