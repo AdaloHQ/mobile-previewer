@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TouchableHighlight } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableHighlight } from 'react-native'
 
 import { relativeDate } from '../../utils/dates'
+import IconImage from './default-icon.png'
 
 export default class ListView extends Component {
   handlePress = () => {
@@ -16,17 +17,19 @@ export default class ListView extends Component {
       <View style={styles.wrapper}>
         <TouchableHighlight
           onPress={this.handlePress}
-          underlayColor="#fff"
-          activeOpacity={0.7}
+          underlayColor="#04f"
           style={styles.touchableHighlight}
         >
           <View style={styles.item}>
-            <Text style={styles.title}>
-              {app.name}
-            </Text>
-            <Text style={styles.date}>
-              Updated {relativeDate(app.updatedAt)}
-            </Text>
+            <Image source={IconImage} style={styles.icon} />
+            <View style={styles.details}>
+              <Text style={styles.title}>
+                {app.name}
+              </Text>
+              <Text style={styles.date}>
+                Updated {relativeDate(app.updatedAt)}
+              </Text>
+            </View>
           </View>
         </TouchableHighlight>
       </View>
@@ -37,33 +40,32 @@ export default class ListView extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
-    padding: 8
+    borderBottomColor: 'rgba(126, 216, 255, 0.6)',
+    borderBottomWidth: 0.5
   },
   touchableHighlight: {
-    borderRadius: 8,
-    borderColor: '#ccc',
-    borderWidth: 0.5,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowRadius: 2,
-    shadowOpacity: 0.1
   },
   item: {
-    paddingTop: 120,
-    paddingBottom: 12,
-    paddingLeft: 16,
-    paddingRight: 16,
-    borderRadius: 8,
-    backgroundColor: '#fff',
+    padding: 16,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  icon: {
+    width: 60,
+    height: 60,
+    marginRight: 16
+  },
+  details: {
+    flex: 1
   },
   title: {
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: '600',
-    color: '#444'
+    color: '#fff',
   },
   date: {
-    color: '#444',
-    fontSize: 11,
-    opacity: 0.8
+    color: '#00B1FF',
+    fontSize: 12,
+    marginTop: 6
   }
 })

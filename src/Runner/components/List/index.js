@@ -12,21 +12,16 @@ import Group from '../Group'
 export default class List extends Component {
   renderItem = ({ item }) => {
     let { object, component, renderChildren } = this.props
-    let { rowHeight, rowMargin } = object
+    let { attributes } = object
+    let { rowMargin } = attributes
     let prototype = object.children[0]
 
-    let height = rowHeight + rowMargin
-
-    let innerStyles = {
-      left: -prototype.x,
-      top: -prototype.y,
-    }
-
     return (
-      <View style={[styles.row, { height }]} pointerEvents="box-none">
-        <View style={[styles.wrapper, innerStyles]} pointerEvents="box-none">
-          {renderChildren([prototype], { [object.id]: item })}
-        </View>
+      <View
+        style={[styles.row, { marginBottom: rowMargin }]}
+        pointerEvents="box-none"
+      >
+        {renderChildren([prototype], { [object.id]: item })}
       </View>
     )
   }
@@ -34,7 +29,7 @@ export default class List extends Component {
   render() {
     let { object, component, renderChildren, bindingData } = this.props
 
-    let { x, y, width, height } = object
+    let { layout } = object
 
     let listItems = bindingData[object.id]
 
@@ -42,15 +37,15 @@ export default class List extends Component {
 
     listItems = listItems.map(itm => ({ ...itm, key: itm.id }))
 
-    let wrapperStyles = { left: x, top: y }
-    let listStyles = { width, height }
+    let wrapperStyles = {
+      ...layout
+    }
 
     return (
-      <View style={[styles.wrapper, wrapperStyles]} pointerEvents="box-none">
+      <View style={wrapperStyles} pointerEvents="box-none">
         <FlatList
           data={listItems}
           renderItem={this.renderItem}
-          style={listStyles}
           showsVerticalScrollIndicator={false}
         />
       </View>
@@ -59,11 +54,6 @@ export default class List extends Component {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-  },
   row: {
     // Something here?
   },

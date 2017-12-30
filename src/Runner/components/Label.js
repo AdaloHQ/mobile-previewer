@@ -12,8 +12,9 @@ export default class Label extends Component {
     let { object, component, bindingData, parentBindingData } = this.props
 
     let binding = component.dataBindings[object.id]
+    let { attributes } = object
 
-    let text = object.text
+    let text = attributes.text
 
     if (binding) {
       let bindingVal
@@ -33,19 +34,14 @@ export default class Label extends Component {
       }
     }
 
-    let wrapperStyles = {}
-
-    let textStyles = {
-      color: object.color,
-      fontSize: object.fontSize
+    let wrapperStyles = {
+      minWidth: attributes.width
     }
 
-    textStyles.textAlign = object.textAlignment
-
-    if (!object.autoWidth) {
-      wrapperStyles.width = object.width
-    } else {
-      wrapperStyles.minWidth = object.width
+    let textStyles = {
+      color: attributes.color,
+      fontSize: attributes.fontSize,
+      textAlign: attributes.textAlignment
     }
 
     return (

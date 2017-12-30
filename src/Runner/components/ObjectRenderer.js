@@ -54,10 +54,12 @@ export default class ObjectRenderer extends Component {
         )
       case SECTION:
         return (
-          <Section {...baseProps} />
+          <Section {...baseProps}>
+            {this.renderChildren(object.children)}
+          </Section>
         )
       case GROUP:
-        if (object.groupType === GROUP_TYPE_INPUT) {
+        if (object.attributes.groupType === GROUP_TYPE_INPUT) {
           return (
             <Input {...baseProps} />
           )

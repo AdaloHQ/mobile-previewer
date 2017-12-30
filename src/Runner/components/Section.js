@@ -5,22 +5,22 @@ import ActionWrapper from './ActionWrapper'
 
 export default class Section extends Component {
   render() {
-    let { object, component } = this.props
+    let { object, component, children } = this.props
+
+    let { attributes, layout } = object
 
     let styles = {
-      position: 'absolute',
-      left: object.x,
-      top: object.y,
-      width: object.width,
-      height: object.height,
-      opacity: object.opacity,
-      borderRadius: object.borderRadius,
-      backgroundColor: object.backgroundColor
+      ...layout,
+      opacity: attributes.opacity,
+      borderRadius: attributes.borderRadius,
+      backgroundColor: attributes.backgroundColor
     }
 
     return (
       <ActionWrapper component={component} object={object}>
-        <View style={styles} />
+        <View style={styles}>
+          {children}
+        </View>
       </ActionWrapper>
     )
   }

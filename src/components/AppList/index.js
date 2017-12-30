@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
 import { StackNavigator } from 'react-navigation'
 
@@ -24,6 +24,7 @@ class ListWrapper extends Component {
 
     return (
       <View style={styles.body}>
+        <StatusBar barStyle="light-content" />
         <ListView
           apps={apps}
           loading={loading}
@@ -38,7 +39,13 @@ class ListWrapper extends Component {
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    backgroundColor: '#eeeeee',
+    backgroundColor: '#00009e',
+  },
+  header: {
+    backgroundColor: '#0000ff',
+  },
+  headerTitle: {
+    color: '#fff'
   }
 })
 
@@ -58,7 +65,9 @@ export default StackNavigator(
       screen: ConnectedListWrapper,
       navigationOptions: {
         title: 'My Apps',
-        headerLeft: <LogoutButton />
+        headerStyle: styles.header,
+        headerTitleStyle: styles.headerTitle,
+        //headerLeft: <LogoutButton />
       }
     }
   }

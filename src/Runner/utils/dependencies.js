@@ -43,7 +43,7 @@ export const buildMapFunc = (component, params) => state => {
 export const getActionDependencies = (state, component, object) => {
   let values = {}
 
-  let actions = component.actions[object.id] || {}
+  let actions = (component.actions || {})[object.id] || {}
 
   Object.keys(actions).forEach(id => {
     let action = actions[id]

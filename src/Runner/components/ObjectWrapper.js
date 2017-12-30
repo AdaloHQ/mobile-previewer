@@ -5,11 +5,11 @@ export default class ObjectWrapper extends Component {
   render() {
     let { object, style, children } = this.props
 
+    let { attributes, layout } = object
+
     let wrapperStyles = {
-      position: 'absolute',
-      opacity: object.opacity || 1,
-      left: object.x,
-      top: object.y,
+      ...layout,
+      opacity: attributes.opacity || 1,
       backgroundColor: 'transparent'
     }
 

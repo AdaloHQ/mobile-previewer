@@ -20,11 +20,11 @@ class Screen extends Component {
   render() {
     let { bindingData, component, offsetX } = this.props
 
-    let { backgroundColor, width, height, layout } = component
+    let { backgroundColor, layout } = component
 
     backgroundColor = backgroundColor || '#fff'
 
-    let calculatedStyles = { width, height, backgroundColor }
+    let calculatedStyles = { backgroundColor }
 
     return (
       <View style={[styles.wrapper, calculatedStyles]}>
@@ -38,6 +38,16 @@ class Screen extends Component {
             />
           ))}
         </ScrollView>
+        <View style={styles.fixedTop}>
+          {layout.fixedTop.map(obj => (
+            <ObjectRenderer
+              key={obj.id}
+              object={obj}
+              component={component}
+              bindingData={bindingData}
+            />
+          ))}
+        </View>
       </View>
     )
   }
@@ -55,7 +65,12 @@ const styles = StyleSheet.create({
     top: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: '#00f'
+  },
+  fixedTop: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    width: '100%'
   }
 })
 

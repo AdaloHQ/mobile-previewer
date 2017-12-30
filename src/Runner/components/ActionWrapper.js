@@ -11,15 +11,13 @@ class ActionWrapper extends Component {
   static contextTypes = { navigate: PropTypes.func }
 
   getLink() {
-    let { component, object } = this.props
-    return component && component.links && component.links[object.id]
+    let { object } = this.props
+    return object.link
   }
 
   getActions() {
-    let { component, object } = this.props
-
-    return component && component.actions &&
-              component.actions[object.id] || {}
+    let { object } = this.props
+    return object.actions || {}
   }
 
   hasActions() {
@@ -47,7 +45,9 @@ class ActionWrapper extends Component {
   }
 
   render() {
-    let { children, dependencies } = this.props
+    let { children, dependencies, object } = this.props
+
+    console.log("OBJECT:", object)
 
     let hasAction = this.hasActions() || this.getLink()
 

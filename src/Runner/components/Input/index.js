@@ -31,11 +31,11 @@ class Input extends Component {
   render() {
     let { object, component, renderChildren, value } = this.props
 
+    let { attributes, children } = object
     let {
       groupTypeOptions,
-      children,
       x, y, width, height
-    } = object
+    } = attributes
 
     let prototypeId = groupTypeOptions[GROUP_TYPE_INPUT].textInputObject
     let prototype = children.filter(c => c.id === prototypeId)[0]
@@ -52,22 +52,9 @@ class Input extends Component {
       fontSize = prototype.fontSize
     }
 
-    let inputPosition = {
-      left: x,
-      top: y
-    }
-
     let inputStyle = {
-      width,
       color,
       fontSize
-    }
-
-    let targetPosition = {
-      left: object.x,
-      top: object.y,
-      width: object.width,
-      height: object.height
     }
 
     return (
@@ -75,30 +62,25 @@ class Input extends Component {
         {renderChildren(otherChildren)}
         <TouchableHighlight
           onPress={this.handlePress}
-          style={[styles.tapTarget, targetPosition]}
           underlayColor="transparent"
         >
-          <View />
+          <View style={[styles.input]}>
+            <TextInput
+              style={inputStyle}
+              ref={this.inputRef}
+              returnKeyType="done"
+              onChangeText={this.handleChange}
+              value={value || ''}
+              placeholder="Enter Text"
+            />
+          </View>
         </TouchableHighlight>
-        <View style={[styles.input, inputPosition]}>
-          <TextInput
-            style={inputStyle}
-            ref={this.inputRef}
-            returnKeyType="done"
-            onChangeText={this.handleChange}
-            value={value || ''}
-            placeholder="Enter Text"
-          />
-        </View>
       </Group>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  input: {
-    position: 'absolute'
-  }
 })
 
 const mapStateToProps = (state, { object }) => ({
