@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
 import { View, StyleSheet } from 'react-native'
-import { LABEL, SECTION, GROUP, LIST, GROUP_TYPE_INPUT } from 'apto-constants'
+import {
+  LABEL,
+  SECTION,
+  GROUP,
+  LIST,
+  ROW,
+  COLUMN,
+  GROUP_TYPE_INPUT
+} from 'apto-constants'
 
 import Label from './Label'
 import Section from './Section'
 import Input from './Input'
 import Group from './Group'
 import List from './List'
+import Row from './Row'
+import Column from './Column'
 
 export default class ObjectRenderer extends Component {
   static defaultProps = {
@@ -69,6 +79,18 @@ export default class ObjectRenderer extends Component {
           <Group component={component} object={object}>
             {this.renderChildren(object.children)}
           </Group>
+        )
+      case ROW:
+        return (
+          <Row {...baseProps}>
+            {this.renderChildren(object.children)}
+          </Row>
+        )
+      case COLUMN:
+        return (
+          <Column {...baseProps}>
+            {this.renderChildren(object.children)}
+          </Column>
         )
       case LIST:
         return (
