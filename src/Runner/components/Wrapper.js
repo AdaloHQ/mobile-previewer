@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { View, StyleSheet } from 'react-native'
 
-export default class Row extends Component {
+export default class Wrapper extends Component {
   render() {
     let { children, object: { layout } } = this.props
 
     return (
-      <View style={[styles.wrapper, layout]}>
+      <View style={[styles.wrapper, layout]} pointerEvents="box-none">
         {children}
       </View>
     )
@@ -15,7 +15,6 @@ export default class Row extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flexDirection: 'row',
     flex: 1
   }
 })

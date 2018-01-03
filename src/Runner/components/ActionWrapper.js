@@ -56,6 +56,12 @@ class ActionWrapper extends Component {
           activeOpacity={0.7}
           onPress={this.handlePress}
           children={children}
+          hitSlop={{
+            top: 5,
+            bottom: 5,
+            left: 5,
+            right: 5
+          }}
         />
       )
     }

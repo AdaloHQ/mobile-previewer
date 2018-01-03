@@ -38,7 +38,7 @@ class Screen extends Component {
             />
           ))}
         </ScrollView>
-        <View style={styles.fixedTop}>
+        <View style={styles.fixedTop} pointerEvents="box-none">
           {layout.fixedTop.map(obj => (
             <ObjectRenderer
               key={obj.id}

@@ -3,10 +3,12 @@ import { View, StyleSheet } from 'react-native'
 import {
   LABEL,
   SECTION,
+  WRAPPER,
   GROUP,
   LIST,
   ROW,
   COLUMN,
+  ROW_SPACER,
   GROUP_TYPE_INPUT
 } from 'apto-constants'
 
@@ -15,8 +17,10 @@ import Section from './Section'
 import Input from './Input'
 import Group from './Group'
 import List from './List'
+import Wrapper from './Wrapper'
 import Row from './Row'
 import Column from './Column'
+import RowSpacer from './RowSpacer'
 
 export default class ObjectRenderer extends Component {
   static defaultProps = {
@@ -80,6 +84,12 @@ export default class ObjectRenderer extends Component {
             {this.renderChildren(object.children)}
           </Group>
         )
+      case WRAPPER:
+        return (
+          <Wrapper {...baseProps}>
+            {this.renderChildren(object.children)}
+          </Wrapper>
+        )
       case ROW:
         return (
           <Row {...baseProps}>
@@ -95,6 +105,10 @@ export default class ObjectRenderer extends Component {
       case LIST:
         return (
           <List {...baseProps} />
+        )
+      case ROW_SPACER:
+        return (
+          <RowSpacer {...baseProps} />
         )
       default:
         return null
