@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
 
 import { getApp } from '../../ducks/apps'
-import Runner from '../../Runner'
+import Runner from 'apto-runner'
 
 class Viewer extends Component {
   handleClose = () => {
