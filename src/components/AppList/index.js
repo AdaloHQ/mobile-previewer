@@ -24,7 +24,7 @@ class ListWrapper extends Component {
 
     return (
       <View style={styles.body}>
-        <StatusBar barStyle="light-content" />
+        <StatusBar barStyle="dark-content" />
         <ListView
           apps={apps}
           loading={loading}
@@ -39,13 +39,13 @@ class ListWrapper extends Component {
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    backgroundColor: '#00009e',
+    backgroundColor: '#fff',
   },
   header: {
-    backgroundColor: '#0000ff',
+    backgroundColor: '#fff',
   },
   headerTitle: {
-    color: '#fff'
+    color: '#000'
   }
 })
 

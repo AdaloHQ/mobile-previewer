@@ -17,7 +17,7 @@ export default class ListView extends Component {
       <View style={styles.wrapper}>
         <TouchableHighlight
           onPress={this.handlePress}
-          underlayColor="#04f"
+          underlayColor="#ccc"
           style={styles.touchableHighlight}
         >
           <View style={styles.item}>
@@ -61,10 +61,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 17,
     fontWeight: '600',
-    color: '#fff',
+    color: '#000',
   },
   date: {
-    color: '#00B1FF',
+    color: '#9a9a9a',
     fontSize: 12,
     marginTop: 6
   }
