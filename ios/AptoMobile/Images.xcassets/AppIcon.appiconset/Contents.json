@@ -3,49 +3,49 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "notifications-icon@2x.png",
+      "filename" : "notifications-icon-dev@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "notifications-icon@3x.png",
+      "filename" : "notifications-icon-dev@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "settings icon@2x.png",
+      "filename" : "settings-icon-dev@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "settings icon@3x.png",
+      "filename" : "settings-icon-dev@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "spotlight-icon@2x.png",
+      "filename" : "spotlight-icon-dev@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "spotlight-icon@3x.png",
+      "filename" : "spotlight-icon-dev@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "app-icon@2x-1.png",
+      "filename" : "app-icon-dev@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "app-icon@3x-1.png",
+      "filename" : "app-icon-dev@3x.png",
       "scale" : "3x"
     },
     {
