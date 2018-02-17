@@ -1153,7 +1153,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.protonapp.ProtonDev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.protonapp.Proton;
 				PRODUCT_NAME = AptoMobile;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1173,7 +1173,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.protonapp.ProtonDev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.protonapp.Proton;
 				PRODUCT_NAME = AptoMobile;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
