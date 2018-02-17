@@ -39,14 +39,13 @@ export default class ListView extends Component {
 
 
 const styles = StyleSheet.create({
-  wrapper: {
-    borderBottomColor: 'rgba(126, 216, 255, 0.6)',
-    borderBottomWidth: 0.5
-  },
   touchableHighlight: {
   },
   item: {
-    padding: 16,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
     flexDirection: 'row',
     alignItems: 'center'
   },
