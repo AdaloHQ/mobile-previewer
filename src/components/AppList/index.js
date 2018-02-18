@@ -6,7 +6,7 @@ import { StackNavigator } from 'react-navigation'
 import { getApps, getLoading, requestApps } from '../../ducks/apps'
 import Loader from '../Shared/Loader'
 import ListView from './List'
-import LogoutButton from './LogoutButton'
+import MenuButton from './MenuButton'
 import LogoImage from './images/proton-logo.png'
 
 class ListWrapper extends Component {
@@ -73,7 +73,7 @@ export default StackNavigator(
           //<Text style={{ color: '#f00' }}>My Apps</Text>
         ),
         headerStyle: styles.header,
-        //headerLeft: <LogoutButton />
+        headerLeft: <MenuButton />,
       }
     }
   }
