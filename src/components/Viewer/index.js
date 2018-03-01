@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableHighlight } from 'react-native'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
+import ShakeEvent from 'react-native-shake-event'
 
 import { getApp } from '../../ducks/apps'
 import Runner from 'apto-runner'
@@ -11,6 +12,18 @@ class Viewer extends Component {
     let { navigation } = this.props
 
     navigation.dispatch(NavigationActions.back())
+  }
+
+  handleShake = () => {
+    console.log('-------> SHAKE!')
+  }
+
+  componentWillMount() {
+    ShakeEvent.addEventListener('shake', this.handleShake)
+  }
+
+  componentWillUnmount() {
+    ShakeEvents.removeEventListener('shake')
   }
 
   render() {

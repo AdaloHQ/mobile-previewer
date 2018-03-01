@@ -8,6 +8,7 @@
     "react-test-renderer": "16.0.0-beta.5"
   },
   "scripts": {
+    "help": "react-native start --help",
     "start": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -24,6 +25,7 @@
     "prop-types": "^15.6.0",
     "react": "16.0.0-beta.5",
     "react-native": "^0.49.5",
+    "react-native-shake-event": "^4.0.1",
     "react-navigation": "^1.0.0-beta.19",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
