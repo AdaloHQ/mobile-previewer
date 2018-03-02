@@ -1,17 +1,12 @@
 import React, { Component } from 'react'
-
-import {
-  TouchableOpacity,
-  Image,
-  ActionSheetIOS,
-  StyleSheet
-} from 'react-native'
+import { TouchableOpacity, Image, StyleSheet } from 'react-native'
+import { connectActionSheet } from '@expo/react-native-action-sheet'
 
 import MenuImage from './images/menu-icon.png'
 
-export default class MenuButton extends Component {
+class MenuButton extends Component {
   handlePress = () => {
-    ActionSheetIOS.showActionSheetWithOptions({
+    this.props.showActionSheetWithOptions({
       options: ['Cancel', 'Logout'],
       destructiveButtonIndex: 1,
       cancelButtonIndex: 0
@@ -30,6 +25,8 @@ export default class MenuButton extends Component {
     )
   }
 }
+
+export default connectActionSheet(MenuButton)
 
 const styles = StyleSheet.create({
   button: {

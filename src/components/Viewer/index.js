@@ -3,11 +3,14 @@ import { View, Text, StyleSheet, TouchableHighlight } from 'react-native'
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
 import ShakeEvent from 'react-native-shake-event'
+import { connectActionSheet } from '@expo/react-native-action-sheet'
 
 import { getApp } from '../../ducks/apps'
 import Runner from 'apto-runner'
 
 class Viewer extends Component {
+  menuOpen = false
+
   handleClose = () => {
     let { navigation } = this.props
 
@@ -15,7 +18,23 @@ class Viewer extends Component {
   }
 
   handleShake = () => {
-    console.log('-------> SHAKE!')
+    if (this.menuOpen) { return }
+    this.menuOpen = true
+
+    this.props.showActionSheetWithOptions({
+      options: ['Cancel', 'Reload', 'All Apps'],
+      cancelButtonIndex: 0
+    }, index => {
+      this.menuOpen = false
+
+      if (index === 1) {
+        // Reload
+        console.log("CLICKED RELOAD!")
+      } else if (index === 2) {
+        // Exit
+        this.handleClose()
+      }
+    })
   }
 
   componentWillMount() {
@@ -23,7 +42,7 @@ class Viewer extends Component {
   }
 
   componentWillUnmount() {
-    ShakeEvents.removeEventListener('shake')
+    ShakeEvent.removeEventListener('shake')
   }
 
   render() {
@@ -32,16 +51,6 @@ class Viewer extends Component {
     return (
       <View style={styles.view}>
         <Runner app={app} />
-        <TouchableHighlight
-          onPress={this.handleClose}
-          style={styles.backButtonWrapper}
-        >
-          <View style={styles.backButton}>
-            <Text style={styles.backButtonText}>
-              ╋
-            </Text>
-          </View>
-        </TouchableHighlight>
       </View>
     )
   }
@@ -51,33 +60,10 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
   },
-  backButtonWrapper: {
-    position: 'absolute',
-    right: 0,
-    bottom: 100,
-    width: 32,
-    height: 32,
-    borderTopLeftRadius: 16,
-    borderBottomLeftRadius: 16,
-  },
-  backButton: {
-    flex: 1,
-    borderTopLeftRadius: 16,
-    borderBottomLeftRadius: 16,
-    backgroundColor: '#444',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  backButtonText: {
-    backgroundColor: 'transparent',
-    color: '#fff',
-    fontSize: 16,
-    transform: [{ rotate: '45deg' }]
-  },
 })
 
 const mapStateToProps = (state, ownProps) => ({
   app: getApp(state, ownProps.navigation.state.params.appId)
 })
 
-export default connect(mapStateToProps)(Viewer)
+export default connectActionSheet(connect(mapStateToProps)(Viewer))

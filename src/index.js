@@ -1,6 +1,7 @@
 import React from 'react'
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
+import { ActionSheetProvider } from '@expo/react-native-action-sheet'
 
 import * as reducers from './ducks'
 import App from './components/App'
@@ -12,6 +13,8 @@ connectSocket(store)
 
 export default () => (
   <Provider store={store}>
-    <App />
+    <ActionSheetProvider>
+      <App />
+    </ActionSheetProvider>
   </Provider>
 )
