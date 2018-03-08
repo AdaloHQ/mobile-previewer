@@ -1,14 +1,40 @@
+import { AsyncStorage } from 'react-native'
 import io from 'socket.io-client'
 
 import { loadApp } from '../ducks/apps'
+import { setCurrentUser, setAuthVisible } from '../ducks/users'
 
-export const socket = io('http://localhost:8084')
+let socket
+let store
 
-export const connectSocket = store => {
+AsyncStorage.getItem('protonSession')
+  .then(token => setToken(token))
+
+export const ioReady = () => !!socket
+
+export const setToken = token => {
+  socket = io(`http://localhost:8084/?sessionToken=${token}`)
+
   socket.on('app', result => {
     store.dispatch(loadApp(result))
   })
+
+  socket.on('userProfile', user => {
+    store.dispatch(setCurrentUser(user))
+  })
+
+  socket.on('unauthorized', () => {
+    store.dispatch(setAuthVisible())
+  })
 }
+
+// Receiving
+
+export const connectSocket = newStore => {
+  store = newStore
+}
+
+// Sending
 
 export const requestAll = () => {
   socket.emit('requestAll')
@@ -16,5 +42,9 @@ export const requestAll = () => {
 
 export const requestApp = appId => {
   socket.emit('requestApp', { appId })
+}
+
+export const authenticate = (data, callback) => {
+  socket.emit('authenticate', data, callback)
 }
 

@@ -1,80 +1,29 @@
 import React, { Component } from 'react'
-import { StyleSheet, Image, Text, View, StatusBar } from 'react-native'
+import { View } from 'react-native'
 import { connect } from 'react-redux'
-import { StackNavigator } from 'react-navigation'
 
-import { getApps, getLoading, requestApps } from '../../ducks/apps'
-import Loader from '../Shared/Loader'
-import ListView from './List'
-import MenuButton from './MenuButton'
-import LogoImage from './images/proton-logo.png'
+import { ioReady } from '../../utils/io'
+import { getAuthVisible } from '../../ducks/users'
+import ListWrapper from './ListWrapper'
 
-class ListWrapper extends Component {
-  componentWillMount() {
-    this.props.requestApps()
-  }
-
-  handlePress = appId => {
-    let { navigation } = this.props
-
-    navigation.navigate('Viewer', { appId })
-  }
-
+class AppList extends Component {
   render() {
-    let { apps, loading, requestApps } = this.props
+    let { navigation, authVisible } = this.props
+
+    if (!ioReady()) { return null }
+
+    if (authVisible && !global.authIsMounted) {
+      navigation.navigate('Login')
+    }
 
     return (
-      <View style={styles.body}>
-        <StatusBar barStyle="dark-content" />
-        <ListView
-          apps={apps}
-          loading={loading}
-          onPressItem={this.handlePress}
-          onRefresh={requestApps}
-        />
-      </View>
+      <ListWrapper navigation={navigation} />
     )
   }
 }
 
-const styles = StyleSheet.create({
-  body: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  header: {
-    backgroundColor: '#fff',
-    shadowColor: 'transparent',
-    shadowRadius: 0,
-    shadowOffset: {
-      height: 0
-    },
-    borderBottomWidth: 0
-  },
-})
-
 const mapStateToProps = state => ({
-  apps: getApps(state),
-  loading: getLoading(state)
+  authVisible: getAuthVisible(state)
 })
 
-const ConnectedListWrapper = connect(
-  mapStateToProps,
-  { requestApps }
-)(ListWrapper)
-
-export default StackNavigator(
-  {
-    Main: {
-      screen: ConnectedListWrapper,
-      navigationOptions: {
-        title: (
-          <Image source={LogoImage} />
-          //<Text style={{ color: '#f00' }}>My Apps</Text>
-        ),
-        headerStyle: styles.header,
-        headerLeft: <MenuButton />,
-      }
-    }
-  }
-)
+export default connect(mapStateToProps)(AppList)
