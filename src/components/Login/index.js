@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet } from 'react-native'
+import LogoImage from '../AppList/images/proton-logo.png'
+import { StackNavigator } from 'react-navigation'
+import FormWrapper from './Login'
 
-export default class Login extends Component {
+class Login extends Component {
   componentWillMount() {
     global.authIsMounted = true
   }
@@ -11,8 +14,40 @@ export default class Login extends Component {
   }
 
   render() {
+    let { navigation } = this.props
+
     return (
-      <View style={{ flex: 1, backgroundColor: '#f00' }} />
+      <View style={styles.body}>
+        <FormWrapper navigation={navigation} />
+      </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  body: {
+    flex: 1,
+    backgroundColor: '#fff'
+  },
+  header: {
+    backgroundColor: '#fff',
+    shadowColor: 'transparent',
+    shadowRadius: 0,
+    shadowOffset: {
+      height: 0
+    },
+    borderBottomWidth: 0
+  },
+})
+
+export default StackNavigator(
+  {
+    Main: {
+      screen: Login,
+      navigationOptions: {
+        title: 'Sign In',
+        headerStyle: styles.header,
+      }
+    }
+  }
+)

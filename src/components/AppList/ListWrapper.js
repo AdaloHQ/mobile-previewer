@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import { StyleSheet, Image, Text, View, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
-import { StackNavigator } from 'react-navigation'
 
 import { getApps, getLoading, requestApps } from '../../ducks/apps'
 import Loader from '../Shared/Loader'
 import ListView from './List'
-import MenuButton from './MenuButton'
-import LogoImage from './images/proton-logo.png'
 
 class ListWrapper extends Component {
   componentWillMount() {
@@ -42,15 +39,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  header: {
-    backgroundColor: '#fff',
-    shadowColor: 'transparent',
-    shadowRadius: 0,
-    shadowOffset: {
-      height: 0
-    },
-    borderBottomWidth: 0
-  },
 })
 
 const mapStateToProps = state => ({
@@ -62,19 +50,3 @@ export default ConnectedListWrapper = connect(
   mapStateToProps,
   { requestApps }
 )(ListWrapper)
-
-//export default StackNavigator(
-//  {
-//    Main: {
-//      screen: ConnectedListWrapper,
-//      navigationOptions: {
-//        title: (
-//          <Image source={LogoImage} />
-//          //<Text style={{ color: '#f00' }}>My Apps</Text>
-//        ),
-//        headerStyle: styles.header,
-//        headerLeft: <MenuButton />,
-//      }
-//    }
-//  }
-//)
