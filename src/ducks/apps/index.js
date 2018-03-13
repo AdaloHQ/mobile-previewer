@@ -58,7 +58,7 @@ export default mergeReducers(
         loading: false,
         apps: {
           ...state.apps,
-          [app._id]: app
+          [app.id]: app
         }
       }
     }

@@ -7,7 +7,7 @@ import IconImage from './default-icon.png'
 export default class ListView extends Component {
   handlePress = () => {
     let { app, onPress } = this.props
-    onPress(app._id)
+    onPress(app.id)
   }
 
   render() {

@@ -8,7 +8,7 @@ export default class ListView extends Component {
 
     apps = apps.map(app => ({
       ...app,
-      key: app._id
+      key: app.id
     }))
 
     return (
