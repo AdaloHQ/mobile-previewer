@@ -1,47 +1,40 @@
 import React, { Component } from 'react'
-import { StyleSheet, Image, Text, View, StatusBar } from 'react-native'
+import { View, Image, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import { StackNavigator } from 'react-navigation'
 
-import { getApps, getLoading, requestApps } from '../../ducks/apps'
-import Loader from '../Shared/Loader'
-import ListView from './List'
-import LogoutButton from './LogoutButton'
+import { ioReady } from '../../utils/io'
+import { getAuthVisible, getCurrentUser } from '../../ducks/users'
+import ListWrapper from './ListWrapper'
+import MenuButton from './MenuButton'
 import LogoImage from './images/proton-logo.png'
 
-class ListWrapper extends Component {
-  componentWillMount() {
-    this.props.requestApps()
-  }
-
-  handlePress = appId => {
-    let { navigation } = this.props
-
-    navigation.navigate('Viewer', { appId })
-  }
-
+class AppList extends Component {
   render() {
-    let { apps, loading, requestApps } = this.props
+    let { navigation, authVisible, currentUser } = this.props
+
+    if (!ioReady()) { return null }
+
+    if (authVisible && !global.authIsMounted) {
+      navigation.navigate('Login')
+    }
+
+    if (!currentUser) { return null }
 
     return (
-      <View style={styles.body}>
-        <StatusBar barStyle="dark-content" />
-        <ListView
-          apps={apps}
-          loading={loading}
-          onPressItem={this.handlePress}
-          onRefresh={requestApps}
-        />
-      </View>
+      <ListWrapper navigation={navigation} />
     )
   }
 }
 
+const mapStateToProps = state => ({
+  authVisible: getAuthVisible(state),
+  currentUser: getCurrentUser(state)
+})
+
+const ConnectedAppList = connect(mapStateToProps)(AppList)
+
 const styles = StyleSheet.create({
-  body: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
   header: {
     backgroundColor: '#fff',
     shadowColor: 'transparent',
@@ -53,28 +46,18 @@ const styles = StyleSheet.create({
   },
 })
 
-const mapStateToProps = state => ({
-  apps: getApps(state),
-  loading: getLoading(state)
-})
-
-const ConnectedListWrapper = connect(
-  mapStateToProps,
-  { requestApps }
-)(ListWrapper)
-
 export default StackNavigator(
   {
     Main: {
-      screen: ConnectedListWrapper,
-      navigationOptions: {
+      screen: ConnectedAppList,
+      navigationOptions: ({ navigation }) => ({
         title: (
           <Image source={LogoImage} />
-          //<Text style={{ color: '#f00' }}>My Apps</Text>
         ),
         headerStyle: styles.header,
-        //headerLeft: <LogoutButton />
-      }
+        headerLeft:  <MenuButton navigation={navigation} />,
+      })
     }
   }
 )
+
