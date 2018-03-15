@@ -13,16 +13,16 @@ class AppList extends Component {
   render() {
     let { navigation, authVisible, currentUser } = this.props
 
-    if (!ioReady()) { return null }
-
-    if (authVisible && !global.authIsMounted) {
+    if (ioReady() && authVisible && !global.authIsMounted) {
       navigation.navigate('Login')
     }
 
-    if (!currentUser) { return null }
-
     return (
-      <ListWrapper navigation={navigation} />
+      <ListWrapper
+        ioReady={ioReady()}
+        userLoading={!currentUser}
+        navigation={navigation}
+      />
     )
   }
 }
