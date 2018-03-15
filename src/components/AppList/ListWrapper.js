@@ -7,25 +7,33 @@ import Loader from '../Shared/Loader'
 import ListView from './List'
 
 class ListWrapper extends Component {
-  componentWillMount() {
-    this.props.requestApps()
-  }
-
   handlePress = appId => {
     let { navigation } = this.props
 
     navigation.navigate('Viewer', { appId })
   }
 
+  shouldComponentUpdate = newProps => {
+    let { ioReady, userLoading } = this.props
+
+    if (newProps.ioReady && !newProps.userLoading &&
+        (!ioReady || userLoading)) {
+
+      this.props.requestApps()
+    }
+
+    return true
+  }
+
   render() {
-    let { apps, loading, requestApps } = this.props
+    let { apps, loading, userLoading, requestApps } = this.props
 
     return (
       <View style={styles.body}>
         <StatusBar barStyle="dark-content" />
         <ListView
           apps={apps}
-          loading={loading}
+          loading={loading || userLoading}
           onPressItem={this.handlePress}
           onRefresh={requestApps}
         />
