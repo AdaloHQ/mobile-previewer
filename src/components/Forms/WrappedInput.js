@@ -41,6 +41,7 @@ export default class WrappedInput extends Component {
           value={value}
           placeholder={placeholder}
           onChangeText={onChange}
+          underlineColorAndroid="transparent"
         />
       </View>
     )

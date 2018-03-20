@@ -6,7 +6,7 @@ import ShakeEvent from 'react-native-shake-event'
 import { connectActionSheet } from '@expo/react-native-action-sheet'
 
 import { getApp } from '../../ducks/apps'
-import Runner from 'apto-runner'
+import Runner from '@protonapp/proton-runner'
 
 class Viewer extends Component {
   menuOpen = false
@@ -48,9 +48,12 @@ class Viewer extends Component {
   render() {
     let { app } = this.props
 
+    //let baseURL = 'https://proton-database.herokuapp.com'
+    let baseURL = 'http://localhost:3030'
+
     return (
       <View style={styles.view}>
-        <Runner app={app} />
+        <Runner app={app} baseURL={baseURL} />
       </View>
     )
   }

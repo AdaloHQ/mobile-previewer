@@ -3,6 +3,7 @@ import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import { ActionSheetProvider } from '@expo/react-native-action-sheet'
 import { reducer as formReducer } from 'redux-form'
+import 'es6-symbol/implement'
 
 import * as reducers from './ducks'
 import App from './components/App'
