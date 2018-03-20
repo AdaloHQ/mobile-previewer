@@ -1,3 +1,5 @@
+import config from 'react-native-config'
+
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableHighlight } from 'react-native'
 import { connect } from 'react-redux'
@@ -48,8 +50,7 @@ class Viewer extends Component {
   render() {
     let { app } = this.props
 
-    //let baseURL = 'https://proton-database.herokuapp.com'
-    let baseURL = 'http://localhost:3030'
+    let baseURL = config.REACT_APP_DATABASE_URL
 
     return (
       <View style={styles.view}>

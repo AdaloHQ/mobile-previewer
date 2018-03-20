@@ -10,3 +10,4 @@ android/android.iml
 android/build
 android/app/build
 UserInterfaceState.xcuserstate
+.env
