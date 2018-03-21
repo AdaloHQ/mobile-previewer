@@ -47,11 +47,22 @@ export default mergeReducers(
       // Make call to API
       requestSingle(appId)
   
-      return state
+      return {
+        ...state,
+        apps: {
+          ...state.apps,
+          [appId]: null
+        }
+      }
     }
   
     if (action.type === LOAD_APP) {
       let { app } = action
+
+      app = {
+        ...app,
+        hash: String(+(new Date()))
+      }
 
       return {
         ...state,
@@ -93,7 +104,7 @@ export const requestApp = appId => ({ type: REQUEST_APP, appId })
 
 export const getApps = state => {
   let map = state.apps.apps
-  let apps = Object.keys(map).map(id => map[id])
+  let apps = Object.keys(map).map(id => map[id]).filter(app => app)
   apps.sort((a, b) => b.updatedAt - a.updatedAt)
   return apps
 }

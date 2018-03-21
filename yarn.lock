@@ -9,19 +9,21 @@
     hoist-non-react-statics "^2.2.2"
     prop-types "^15.5.10"
 
-"@protonapp/proton-constants@0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.3.tgz#712c10461dff29c3859b4735cf590482ba84dae2"
+"@protonapp/proton-constants@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.4.tgz#c0178936c60314c57b22641b958b2a85899abd4b"
 
-"@protonapp/proton-runner@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.2.tgz#e0b407984a9a4d1de42ed0b0d5200fc05ab756ce"
+"@protonapp/proton-runner@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.6.tgz#5c888c5557583a448ff5671f878419266714979f"
   dependencies:
-    "@protonapp/proton-constants" "0.0.3"
+    "@protonapp/proton-constants" "0.0.4"
     axios "^0.17.1"
     buffer "^5.0.8"
     immutability-helper "^2.6.2"
+    js-base64 "^2.4.3"
     moment "^2.20.1"
+    moment-shortformat "^2.1.0"
     react-native-blur "^3.2.2"
     react-native-keyboard-aware-scroll-view "^0.4.3"
     react-redux "^5.0.6"
@@ -2933,6 +2935,10 @@ jest@^20.0.4:
   dependencies:
     jest-cli "^20.0.4"
 
+js-base64@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.3.tgz#2e545ec2b0f2957f41356510205214e98fad6582"
+
 js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
@@ -3381,6 +3387,10 @@ minimist@~0.0.1:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+moment-shortformat@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/moment-shortformat/-/moment-shortformat-2.1.0.tgz#0292a7219133a937af56ddacdd7eab629d422838"
 
 moment@^2.19.1:
   version "2.19.1"
