@@ -1,3 +1,5 @@
+import config from 'react-native-config'
+
 import { AsyncStorage } from 'react-native'
 import io from 'socket.io-client'
 
@@ -12,8 +14,11 @@ AsyncStorage.getItem('protonSession')
 
 export const ioReady = () => !!socket
 
+const baseURL = 'https://proton-backend.herokuapp.com'
+//const baseURL = config.REACT_APP_BACKEND_URL
+
 export const setToken = token => {
-  socket = io(`https://proton-backend.herokuapp.com/?sessionToken=${token}`)
+  socket = io(`${baseURL}/?sessionToken=${token}`, { pingTimeout: 30000 })
 
   socket.on('app', result => {
     store.dispatch(loadApp(result))

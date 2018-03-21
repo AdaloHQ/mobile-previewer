@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Image, StyleSheet } from 'react-native'
+import { View, Image, StyleSheet, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import { StackNavigator } from 'react-navigation'
 
@@ -44,6 +44,10 @@ const styles = StyleSheet.create({
     },
     borderBottomWidth: 0
   },
+  logo: {
+    width: 90,
+    height: 24
+  }
 })
 
 export default StackNavigator(
@@ -52,7 +56,7 @@ export default StackNavigator(
       screen: ConnectedAppList,
       navigationOptions: ({ navigation }) => ({
         title: (
-          <Image source={LogoImage} />
+          Platform.OS === 'ios' ? <Image source={LogoImage} /> : 'Proton'
         ),
         headerStyle: styles.header,
         headerLeft:  <MenuButton navigation={navigation} />,

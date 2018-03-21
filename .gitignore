@@ -3,3 +3,11 @@ node_modules/
 npm-debug.*
 *.swp
 .DS_Store
+android/local.properties
+android/.gradle
+android/.idea
+android/android.iml
+android/build
+android/app/build
+UserInterfaceState.xcuserstate
+.env
