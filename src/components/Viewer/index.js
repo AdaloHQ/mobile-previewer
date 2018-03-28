@@ -43,6 +43,9 @@ class Viewer extends Component {
   }
 
   componentWillMount() {
+    let { navigation, requestApp } = this.props
+    requestApp(navigation.state.params.appId)
+
     ShakeEvent.addEventListener('shake', this.handleShake)
   }
 

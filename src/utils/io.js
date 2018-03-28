@@ -3,7 +3,7 @@ import config from 'react-native-config'
 import { AsyncStorage } from 'react-native'
 import io from 'socket.io-client'
 
-import { loadApp } from '../ducks/apps'
+import { loadApp, loadAppsList } from '../ducks/apps'
 import { setCurrentUser, setAuthVisible } from '../ducks/users'
 
 let socket
@@ -22,6 +22,10 @@ export const setToken = token => {
 
   socket.on('app', result => {
     store.dispatch(loadApp(result))
+  })
+
+  socket.on('appsList', result => {
+    store.dispatch(loadAppsList(result))
   })
 
   socket.on('userProfile', user => {
