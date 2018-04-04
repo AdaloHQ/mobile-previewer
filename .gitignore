@@ -12,3 +12,4 @@ android/app/build
 UserInterfaceState.xcuserstate
 .env
 *.keystore
+xcshareddata
