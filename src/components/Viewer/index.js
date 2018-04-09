@@ -1,7 +1,15 @@
 import config from 'react-native-config'
 
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TouchableHighlight } from 'react-native'
+
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableHighlight,
+  AppState
+} from 'react-native'
+
 import { connect } from 'react-redux'
 import { NavigationActions } from 'react-navigation'
 import ShakeEvent from 'react-native-shake-event'
@@ -42,15 +50,28 @@ class Viewer extends Component {
     })
   }
 
+  handleChangeAppState = () => {
+    let currentState = AppState.currentState
+    let { navigation } = this.props
+
+    if (currentState === 'active' && this._prevAppState === 'background') {
+      navigation.dispatch(NavigationActions.back())
+    } else {
+      this._prevAppState = currentState
+    }
+  }
+
   componentWillMount() {
     let { navigation, requestApp } = this.props
     requestApp(navigation.state.params.appId)
 
     ShakeEvent.addEventListener('shake', this.handleShake)
+    AppState.addEventListener('change', this.handleChangeAppState)
   }
 
   componentWillUnmount() {
     ShakeEvent.removeEventListener('shake')
+    AppState.removeEventListener('change', this.handleChangeAppState)
   }
 
   render() {
