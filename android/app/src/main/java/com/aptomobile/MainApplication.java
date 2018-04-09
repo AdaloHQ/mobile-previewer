@@ -3,6 +3,7 @@ package com.aptomobile;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.imagepicker.ImagePickerPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.jadsonlourenco.RNShakeEvent.RNShakeEventPackage;
 import com.facebook.react.ReactNativeHost;
@@ -25,6 +26,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ImagePickerPackage(),
             new ReactNativeConfigPackage(),
             new RNShakeEventPackage()
       );
