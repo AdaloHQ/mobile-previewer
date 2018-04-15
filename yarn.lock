@@ -13,9 +13,9 @@
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.4.tgz#c0178936c60314c57b22641b958b2a85899abd4b"
 
-"@protonapp/proton-runner@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.7.tgz#99528e0e17981da4f40930988afad45d805adb74"
+"@protonapp/proton-runner@^0.0.8rc0":
+  version "0.0.8-rc0"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.8-rc0.tgz#f0f140c54a1a800fd712217756db0ad0d8bb098a"
   dependencies:
     "@protonapp/proton-constants" "0.0.4"
     axios "^0.17.1"
