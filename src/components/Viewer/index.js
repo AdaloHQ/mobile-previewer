@@ -79,10 +79,17 @@ class Viewer extends Component {
 
     //let baseURL = config.REACT_APP_DATABASE_URL
     let baseURL = 'https://proton-database.herokuapp.com'
+    let assetsBaseURL = 'https://s3-us-west-1.amazonaws.com/apto-resources-dev'
+    let uploadsBaseURL = 'https://s3.amazonaws.com/proton-uploads-production'
 
     return (
       <View style={styles.view}>
-        <Runner app={app} baseURL={baseURL} />
+        <Runner
+          app={app}
+          baseURL={baseURL}
+          assetsBaseURL={assetsBaseURL}
+          uploadsBaseURL={uploadsBaseURL}
+        />
       </View>
     )
   }
