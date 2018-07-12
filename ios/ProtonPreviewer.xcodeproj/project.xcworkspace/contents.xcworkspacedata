@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/jeremyblalock/Documents/Proton/Code/previewer/ios/ProtonPreviewer.xcodeproj">
    </FileRef>
 </Workspace>
