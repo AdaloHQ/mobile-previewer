@@ -34,7 +34,10 @@ export default class ListView extends Component {
           style={styles.touchableHighlight}
         >
           <View style={styles.item}>
-            <Image source={IconImage} style={styles.icon} />
+            <View style={styles.iconWrapper}>
+              <Image source={this.getIconSource()} style={styles.icon} />
+              <View style={styles.iconBorder} />
+            </View>
             <View style={styles.details}>
               <Text style={styles.title}>
                 {app.name}
@@ -62,10 +65,25 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center'
   },
+  iconWrapper: {
+    width: 60,
+    height: 60,
+    marginRight: 16,
+  },
   icon: {
     width: 60,
     height: 60,
-    marginRight: 16
+    borderRadius: 13,
+  },
+  iconBorder: {
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    position: 'absolute',
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: 'rgba(0, 0, 0, 0.2)',
+    borderRadius: 13,
   },
   details: {
     flex: 1

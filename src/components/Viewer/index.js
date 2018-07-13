@@ -38,7 +38,7 @@ class Viewer extends Component {
     let { navigation, requestApp } = this.props
 
     this.props.showActionSheetWithOptions({
-      options: ['Cancel', 'Reload', 'All Apps'],
+      options: ['Cancel', 'Reload', 'Exit'],
       cancelButtonIndex: 0
     }, index => {
       this.menuOpen = false
