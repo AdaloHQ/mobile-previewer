@@ -9,15 +9,15 @@
     hoist-non-react-statics "^2.2.2"
     prop-types "^15.5.10"
 
-"@protonapp/proton-constants@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.10.tgz#114aa5a64f8c601ad44bca535ef3c9fdd155cbc4"
+"@protonapp/proton-constants@0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.12.tgz#64d2f3e223f5ac261e82e5de33a2562ae6606720"
 
-"@protonapp/proton-runner@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.10.tgz#c129c1772499d8295f44a53fb227b94fa53a907f"
+"@protonapp/proton-runner@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.17.tgz#fc71f90d7aa8289a60b052bb2ce449de1ebdeb88"
   dependencies:
-    "@protonapp/proton-constants" "0.0.10"
+    "@protonapp/proton-constants" "0.0.12"
     "@protonapp/react-mobile-date-picker" "^0.0.3"
     axios "^0.17.1"
     buffer "^5.0.8"
@@ -25,9 +25,11 @@
     js-base64 "^2.4.3"
     moment "^2.20.1"
     moment-shortformat "^2.1.0"
+    numeral "^2.0.6"
     react-native-blur "^3.2.2"
     react-native-datepicker "^1.7.2"
     react-native-image-picker "^0.26.7"
+    react-native-img-cache "^1.5.3"
     react-native-keyboard-aware-scroll-view "^0.4.3"
     react-native-svg "^6.3.1"
     react-redux "^5.0.6"
@@ -1756,6 +1758,10 @@ cryptiles@3.x.x:
   resolved "https://registry.yarnpkg.com/cryptiles/-/cryptiles-3.1.2.tgz#a89fbb220f5ce25ec56e8c4aa8a4fd7b5b0d29fe"
   dependencies:
     boom "5.x.x"
+
+crypto-js@^3.1.9-1:
+  version "3.1.9-1"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
 
 csrf@~3.0.0:
   version "3.0.6"
@@ -3865,6 +3871,10 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
+numeral@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/numeral/-/numeral-2.0.6.tgz#4ad080936d443c2561aed9f2197efffe25f4e506"
+
 "nwmatcher@>= 1.3.9 < 2.0.0":
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/nwmatcher/-/nwmatcher-1.4.3.tgz#64348e3b3d80f035b40ac11563d278f8b72db89c"
@@ -4291,6 +4301,12 @@ react-native-drawer-layout@1.3.2:
 react-native-image-picker@^0.26.7:
   version "0.26.7"
   resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.26.7.tgz#ad2ee957f7f6cc01396893ea03d84cb2adb2e376"
+
+react-native-img-cache@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/react-native-img-cache/-/react-native-img-cache-1.5.3.tgz#ccffba86603077d0be4f9dc08aff59e3f551090b"
+  dependencies:
+    crypto-js "^3.1.9-1"
 
 react-native-iphone-x-helper@^1.0.1:
   version "1.0.2"
