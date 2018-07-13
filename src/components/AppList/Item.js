@@ -3,11 +3,24 @@ import { View, Text, Image, StyleSheet, TouchableHighlight } from 'react-native'
 
 import { relativeDate } from '../../utils/dates'
 import IconImage from './default-icon.png'
+import { assetsBaseURL } from '../Viewer'
 
 export default class ListView extends Component {
   handlePress = () => {
     let { app, onPress } = this.props
     onPress(app.id)
+  }
+
+  getIconSource() {
+    let { app } = this.props
+
+    if (app && app.icon) {
+      return {
+        uri: `${assetsBaseURL}/${app.icon}`
+      }
+    }
+
+    return IconImage
   }
 
   render() {

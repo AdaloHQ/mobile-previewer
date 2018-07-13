@@ -18,6 +18,10 @@ import { connectActionSheet } from '@expo/react-native-action-sheet'
 import { getApp, requestApp } from '../../ducks/apps'
 import Runner from '@protonapp/proton-runner'
 
+export const baseURL = 'https://proton-database.herokuapp.com'
+export const assetsBaseURL = 'https://s3-us-west-1.amazonaws.com/apto-resources-dev'
+export const uploadsBaseURL = 'https://s3.amazonaws.com/proton-uploads-production'
+
 class Viewer extends Component {
   menuOpen = false
 
@@ -78,9 +82,6 @@ class Viewer extends Component {
     let { app } = this.props
 
     //let baseURL = config.REACT_APP_DATABASE_URL
-    let baseURL = 'https://proton-database.herokuapp.com'
-    let assetsBaseURL = 'https://s3-us-west-1.amazonaws.com/apto-resources-dev'
-    let uploadsBaseURL = 'https://s3.amazonaws.com/proton-uploads-production'
 
     return (
       <View style={styles.view}>
