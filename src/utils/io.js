@@ -1,43 +1,42 @@
 import config from 'react-native-config'
 
 import { AsyncStorage } from 'react-native'
-import io from 'socket.io-client'
+import axios from 'axios'
 
 import { loadApp, loadAppsList } from '../ducks/apps'
 import { setCurrentUser, setAuthVisible } from '../ducks/users'
 
-let socket
 let store
+let token
 
 AsyncStorage.getItem('protonSession')
-  .then(token => setToken(token))
+  .then(token => {
+    setToken(token)
+    getUserProfile()
+  })
 
-export const ioReady = () => !!socket
+export const ioReady = () => true
 
 const baseURL = 'https://proton-backend.herokuapp.com'
-//const baseURL = config.REACT_APP_BACKEND_URL
+//const baseURL = 'http://localhost:8084'
 
-export const setToken = token => {
-  socket = io(`${baseURL}/?sessionToken=${token}`, { pingTimeout: 30000 })
+const buildURL = path => {
+  return `${baseURL}${path}`
+}
 
-  socket.on('app', result => {
-    store.dispatch(loadApp(result))
-  })
-
-  socket.on('appsList', result => {
-    store.dispatch(loadAppsList(result))
-  })
-
-  socket.on('userProfile', user => {
-    store.dispatch(setCurrentUser(user))
-  })
-
-  socket.on('unauthorized', () => {
-    store.dispatch(setAuthVisible())
-  })
+export const setToken = tok => {
+  token = tok
 }
 
 // Receiving
+
+const handleError = err => {
+  if (err.response.status === 401) {
+    store.dispatch(setAuthVisible())
+  } else {
+    console.error('ERROR RESPONSE:', err.response.status)
+  }
+}
 
 export const connectSocket = newStore => {
   store = newStore
@@ -46,14 +45,34 @@ export const connectSocket = newStore => {
 // Sending
 
 export const requestAll = () => {
-  socket.emit('requestAll')
+  axios.get(buildURL('/apps'), { headers: { 'x-proton-auth': token } })
+    .then(resp => store.dispatch(loadAppsList(resp.data)))
+    .catch(handleError)
 }
 
 export const requestApp = appId => {
-  socket.emit('requestApp', { appId })
+  return axios.get(buildURL(`/apps/${appId}`))
+    .then(resp => store.dispatch(loadApp(resp.data)))
+    .catch(handleError)
 }
 
 export const authenticate = (data, callback) => {
-  socket.emit('authenticate', data, callback)
+  return axios.post(buildURL('/sessions'), data)
+    .then(resp => {
+      setToken(resp.data.sessionToken)
+
+      callback(resp.data)
+
+      return getUserProfile()
+    })
+    .catch(err => {
+      callback({ success: false })
+    })
+}
+
+export const getUserProfile = () => {
+  return axios.get( buildURL('/user'), { headers: { 'x-proton-auth': token } })
+    .then(resp => store.dispatch(setCurrentUser(resp.data)))
+    .catch(handleError)
 }
 
