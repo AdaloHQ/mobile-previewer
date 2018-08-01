@@ -8,7 +8,6 @@ import Form from './LoginForm'
 
 export default class Login extends Component {
   handleLogin = data => {
-    console.log("LOGGING IN WITH:", data)
     authenticate(data, async ({ success, sessionToken }) => {
       let { navigation } = this.props
 
