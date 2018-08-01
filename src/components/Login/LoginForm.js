@@ -25,7 +25,8 @@ class LoginForm extends Component {
             placeholder="Email"
             type="email"
             component={WrappedInput}
-            style={styles.input}
+            style={styles.inputWrapper}
+            inputStyle={styles.input}
           />
           <Field
             secureTextEntry
@@ -34,7 +35,8 @@ class LoginForm extends Component {
             placeholder="Password"
             type="password"
             component={WrappedInput}
-            style={styles.input}
+            style={styles.inputWrapper}
+            inputStyle={styles.input}
           />
         </View>
         <Button
@@ -57,12 +59,16 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 
-  input: {
+  inputWrapper: {
     borderBottomColor: '#ddd',
     borderBottomWidth: 1,
     paddingTop: 10,
     paddingBottom: 10,
-    marginBottom: 15
+    marginBottom: 15,
+  },
+
+  input: {
+    fontSize: 17,
   },
 
   inputs: {
