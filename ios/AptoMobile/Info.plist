@@ -2,17 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLName</key>
-			<string>com.protonapp.ios</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>proton</string>
-			</array>
-		</dict>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -31,8 +20,19 @@
 	<string>0.2.19</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.protonapp.ios</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>proton</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>6</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -48,8 +48,10 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>We need access to your camera so you can take a photo</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Proton needs to access your location so that this app can use your location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Proton needs to access your location so that this app can use your location.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>We need access to your photo library so you can choose a photo</string>
 	<key>NSPhotoLibraryUsageDescription</key>
