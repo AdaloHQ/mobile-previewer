@@ -9,16 +9,17 @@
     hoist-non-react-statics "^2.2.2"
     prop-types "^15.5.10"
 
-"@protonapp/proton-constants@0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.12.tgz#64d2f3e223f5ac261e82e5de33a2562ae6606720"
+"@protonapp/proton-constants@0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.16.tgz#3d200c4fee669277a34f23bc6093237c6a654db4"
 
-"@protonapp/proton-runner@^0.0.17":
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.17.tgz#fc71f90d7aa8289a60b052bb2ce449de1ebdeb88"
+"@protonapp/proton-runner@^0.0.27-0":
+  version "0.0.27-0"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.27-0.tgz#f99988579bb9ea53d85099c4593bb26aded302da"
   dependencies:
-    "@protonapp/proton-constants" "0.0.12"
-    "@protonapp/react-mobile-date-picker" "^0.0.3"
+    "@protonapp/proton-constants" "0.0.16"
+    "@protonapp/react-mobile-date-picker" "^0.0.4"
+    "@protonapp/react-native-icloud-file-picker" "^0.0.1"
     axios "^0.17.1"
     buffer "^5.0.8"
     immutability-helper "^2.6.2"
@@ -26,11 +27,9 @@
     moment "^2.20.1"
     moment-shortformat "^2.1.0"
     numeral "^2.0.6"
-    react-native-blur "^3.2.2"
+    qs "^6.5.2"
     react-native-datepicker "^1.7.2"
     react-native-image-picker "^0.26.7"
-    react-native-img-cache "^1.5.3"
-    react-native-keyboard-aware-scroll-view "^0.4.3"
     react-native-svg "^6.3.1"
     react-redux "^5.0.6"
     redux "^3.7.2"
@@ -38,9 +37,9 @@
     redux-promise-middleware "^5.0.0"
     redux-thunk "^2.2.0"
 
-"@protonapp/react-mobile-date-picker@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@protonapp/react-mobile-date-picker/-/react-mobile-date-picker-0.0.3.tgz#33ac6c2de5f492e6223e436ab7d627382ea02f9b"
+"@protonapp/react-mobile-date-picker@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@protonapp/react-mobile-date-picker/-/react-mobile-date-picker-0.0.4.tgz#0dc2c8b3d28ba343bf581105a8f4e777cf0a0750"
   dependencies:
     babel-cli "^6.26.0"
     babel-core "^6.26.0"
@@ -51,6 +50,10 @@
     prop-types "^15.6.1"
     react "^16.3.2"
     react-transition-group "^2.3.1"
+
+"@protonapp/react-native-icloud-file-picker@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@protonapp/react-native-icloud-file-picker/-/react-native-icloud-file-picker-0.0.1.tgz#3bff7c5aac2a44b51f5fb45f76357c787c9a7461"
 
 abab@^1.0.3:
   version "1.0.4"
@@ -1758,10 +1761,6 @@ cryptiles@3.x.x:
   resolved "https://registry.yarnpkg.com/cryptiles/-/cryptiles-3.1.2.tgz#a89fbb220f5ce25ec56e8c4aa8a4fd7b5b0d29fe"
   dependencies:
     boom "5.x.x"
-
-crypto-js@^3.1.9-1:
-  version "3.1.9-1"
-  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
 
 csrf@~3.0.0:
   version "3.0.6"
@@ -4211,6 +4210,10 @@ qs@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-4.0.0.tgz#c31d9b74ec27df75e543a86c78728ed8d4623607"
 
+qs@^6.5.2:
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
+
 qs@~6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
@@ -4266,12 +4269,6 @@ react-devtools-core@3.0.0:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
-react-native-blur@^3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/react-native-blur/-/react-native-blur-3.2.2.tgz#5bfb50638d148982c9560436554ed01d77d6d07d"
-  dependencies:
-    prop-types "^15.5.10"
-
 react-native-config@^0.11.5:
   version "0.11.5"
   resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-0.11.5.tgz#516cb7b6ec437c7739236ca075971db3aabdcb95"
@@ -4301,23 +4298,6 @@ react-native-drawer-layout@1.3.2:
 react-native-image-picker@^0.26.7:
   version "0.26.7"
   resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.26.7.tgz#ad2ee957f7f6cc01396893ea03d84cb2adb2e376"
-
-react-native-img-cache@^1.5.3:
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/react-native-img-cache/-/react-native-img-cache-1.5.3.tgz#ccffba86603077d0be4f9dc08aff59e3f551090b"
-  dependencies:
-    crypto-js "^3.1.9-1"
-
-react-native-iphone-x-helper@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.0.2.tgz#7dbca530930f7c1ce8633cc8fd13ba94102992e1"
-
-react-native-keyboard-aware-scroll-view@^0.4.3:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/react-native-keyboard-aware-scroll-view/-/react-native-keyboard-aware-scroll-view-0.4.4.tgz#116d08975a84482e4ee64dd0b526a8f04138b0a7"
-  dependencies:
-    prop-types "^15.6.0"
-    react-native-iphone-x-helper "^1.0.1"
 
 react-native-shake-event@^4.0.1:
   version "4.0.1"
