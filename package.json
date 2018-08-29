@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@expo/react-native-action-sheet": "^1.0.2",
-    "@protonapp/proton-runner": "^0.0.27-0",
+    "@protonapp/proton-runner": "^0.0.27-1",
     "axios": "^0.17.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",

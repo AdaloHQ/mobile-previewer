@@ -42,6 +42,7 @@
 		D33D75B55D19470889DB2EC1 /* libRNShakeEvent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3248DA7649441888C59C39 /* libRNShakeEvent.a */; };
 		DF63DC392038E358000F47FB /* images in Resources */ = {isa = PBXBuildFile; fileRef = DF63DC382038E357000F47FB /* images */; };
 		F7F82DCFF014461B846C6A40 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 555E8F59A2C74892A7764901 /* libRNImagePicker.a */; };
+		FB3D507DBAEE4CFF8B8E15A8 /* libRNIcloudFilePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9230DDA59F6248AD9C232E5E /* libRNIcloudFilePicker.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -276,6 +277,13 @@
 			remoteGlobalIDString = 3DBE0D0D1F3B181C0099AA32;
 			remoteInfo = "fishhook-tvOS";
 		};
+		DF4D0C9021375DE1006F5096 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40F686E6BBCD45CAB5D7F6CF /* RNIcloudFilePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNIcloudFilePicker;
+		};
 		DF5CA1252048ADC300C6D0FE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 91E13CD4B7034218919B7D19 /* RNShakeEvent.xcodeproj */;
@@ -380,6 +388,7 @@
 		2B3248DA7649441888C59C39 /* libRNShakeEvent.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNShakeEvent.a; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* AptoMobile-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AptoMobile-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* AptoMobile-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AptoMobile-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40F686E6BBCD45CAB5D7F6CF /* RNIcloudFilePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNIcloudFilePicker.xcodeproj; path = "../node_modules/react-native-icloud-file-picker/ios/RNIcloudFilePicker.xcodeproj"; sourceTree = "<group>"; };
 		555E8F59A2C74892A7764901 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6313EF814AB94D4F8A7F897C /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
@@ -387,6 +396,7 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8E8F0BDC52FB4296AF58CE2F /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeConfig.xcodeproj; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; };
 		91E13CD4B7034218919B7D19 /* RNShakeEvent.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNShakeEvent.xcodeproj; path = "../node_modules/react-native-shake-event/ios/RNShakeEvent.xcodeproj"; sourceTree = "<group>"; };
+		9230DDA59F6248AD9C232E5E /* libRNIcloudFilePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNIcloudFilePicker.a; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		BCC4DCBB985A4B479138AA6D /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		D095F7ADF1EB4B98811889FB /* libRNSVG-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNSVG-tvOS.a"; sourceTree = "<group>"; };
@@ -423,6 +433,7 @@
 				12C9A786400A4C899010DD45 /* libReactNativeConfig.a in Frameworks */,
 				F7F82DCFF014461B846C6A40 /* libRNImagePicker.a in Frameworks */,
 				84A0A551EF4E492A9A044CA7 /* libRNSVG.a in Frameworks */,
+				FB3D507DBAEE4CFF8B8E15A8 /* libRNIcloudFilePicker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +616,7 @@
 				8E8F0BDC52FB4296AF58CE2F /* ReactNativeConfig.xcodeproj */,
 				BCC4DCBB985A4B479138AA6D /* RNImagePicker.xcodeproj */,
 				1E9F19F4D60D454FA24023E8 /* RNSVG.xcodeproj */,
+				40F686E6BBCD45CAB5D7F6CF /* RNIcloudFilePicker.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -661,6 +673,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		DF4D0C8D21375DE0006F5096 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF4D0C9121375DE1006F5096 /* libRNIcloudFilePicker.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		DF5CA1002048ADC100C6D0FE /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -669,6 +689,7 @@
 				555E8F59A2C74892A7764901 /* libRNImagePicker.a */,
 				6313EF814AB94D4F8A7F897C /* libRNSVG.a */,
 				D095F7ADF1EB4B98811889FB /* libRNSVG-tvOS.a */,
+				9230DDA59F6248AD9C232E5E /* libRNIcloudFilePicker.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -863,6 +884,10 @@
 				{
 					ProductGroup = DF8320CC20619B7000C156CE /* Products */;
 					ProjectRef = 8E8F0BDC52FB4296AF58CE2F /* ReactNativeConfig.xcodeproj */;
+				},
+				{
+					ProductGroup = DF4D0C8D21375DE0006F5096 /* Products */;
+					ProjectRef = 40F686E6BBCD45CAB5D7F6CF /* RNIcloudFilePicker.xcodeproj */;
 				},
 				{
 					ProductGroup = DFE64599207BF8CF00653781 /* Products */;
@@ -1105,6 +1130,13 @@
 			remoteRef = DF3A3DD6200D427500E24D1D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		DF4D0C9121375DE1006F5096 /* libRNIcloudFilePicker.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNIcloudFilePicker.a;
+			remoteRef = DF4D0C9021375DE1006F5096 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		DF5CA1262048ADC300C6D0FE /* libRNShakeEvent.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1328,12 +1360,14 @@
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-icloud-file-picker/ios",
 				);
 				INFOPLIST_FILE = AptoMobileTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1361,12 +1395,14 @@
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-icloud-file-picker/ios",
 				);
 				INFOPLIST_FILE = AptoMobileTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1395,6 +1431,7 @@
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-icloud-file-picker/ios",
 				);
 				INFOPLIST_FILE = AptoMobile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1422,6 +1459,7 @@
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-icloud-file-picker/ios",
 				);
 				INFOPLIST_FILE = AptoMobile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1455,11 +1493,13 @@
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-icloud-file-picker/ios",
 				);
 				INFOPLIST_FILE = "AptoMobile-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1496,11 +1536,13 @@
 					"$(SRCROOT)/../node_modules/react-native-config/ios/ReactNativeConfig",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-icloud-file-picker/ios",
 				);
 				INFOPLIST_FILE = "AptoMobile-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1539,6 +1581,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.AptoMobile-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1563,6 +1606,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

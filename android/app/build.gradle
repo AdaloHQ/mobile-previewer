@@ -148,6 +148,9 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-icloud-file-picker')
+    compile project(':react-native-shake-event')
+    compile project(':react-native-config')
     compile project(':react-native-shake-event')
     compile project(':react-native-config')
     compile project(':react-native-svg')

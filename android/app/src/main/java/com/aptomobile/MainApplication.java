@@ -3,6 +3,9 @@ package com.aptomobile;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactlibrary.RNIcloudFilePickerPackage;
+import com.jadsonlourenco.RNShakeEvent.RNShakeEventPackage;
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.jadsonlourenco.RNShakeEvent.RNShakeEventPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.horcrux.svg.SvgPackage;
@@ -29,6 +32,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNIcloudFilePickerPackage(),
+            new RNShakeEventPackage(),
+            new ReactNativeConfigPackage(),
             new RNShakeEventPackage(),
             new ReactNativeConfigPackage(),
             new SvgPackage(),
