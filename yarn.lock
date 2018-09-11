@@ -9,16 +9,17 @@
     hoist-non-react-statics "^2.2.2"
     prop-types "^15.5.10"
 
-"@protonapp/proton-constants@0.0.17":
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.17.tgz#433c1a135f517e0fc8d31904546b408d61db37fa"
+"@protonapp/proton-constants@0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.16.tgz#3d200c4fee669277a34f23bc6093237c6a654db4"
 
-"@protonapp/proton-runner@^0.0.27-1":
-  version "0.0.27-1"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.27-1.tgz#ce2344781449525ad144ed80541495bf07114cbd"
+"@protonapp/proton-runner@^0.0.27-0":
+  version "0.0.27-0"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.27-0.tgz#f99988579bb9ea53d85099c4593bb26aded302da"
   dependencies:
-    "@protonapp/proton-constants" "0.0.17"
+    "@protonapp/proton-constants" "0.0.16"
     "@protonapp/react-mobile-date-picker" "^0.0.4"
+    "@protonapp/react-native-icloud-file-picker" "^0.0.1"
     axios "^0.17.1"
     buffer "^5.0.8"
     immutability-helper "^2.6.2"
@@ -28,7 +29,6 @@
     numeral "^2.0.6"
     qs "^6.5.2"
     react-native-datepicker "^1.7.2"
-    react-native-icloud-file-picker "^0.0.1"
     react-native-image-picker "^0.26.7"
     react-native-svg "^6.3.1"
     react-redux "^5.0.6"
@@ -50,6 +50,10 @@
     prop-types "^15.6.1"
     react "^16.3.2"
     react-transition-group "^2.3.1"
+
+"@protonapp/react-native-icloud-file-picker@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@protonapp/react-native-icloud-file-picker/-/react-native-icloud-file-picker-0.0.1.tgz#3bff7c5aac2a44b51f5fb45f76357c787c9a7461"
 
 abab@^1.0.3:
   version "1.0.4"
@@ -4290,10 +4294,6 @@ react-native-drawer-layout@1.3.2:
   resolved "https://registry.yarnpkg.com/react-native-drawer-layout/-/react-native-drawer-layout-1.3.2.tgz#b9740d7663a1dc4f88a61b9c6d93d2d948ea426e"
   dependencies:
     react-native-dismiss-keyboard "1.0.0"
-
-react-native-icloud-file-picker@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/react-native-icloud-file-picker/-/react-native-icloud-file-picker-0.0.1.tgz#085089dadeddd00e23d95dd49e99d11f178d559c"
 
 react-native-image-picker@^0.26.7:
   version "0.26.7"
