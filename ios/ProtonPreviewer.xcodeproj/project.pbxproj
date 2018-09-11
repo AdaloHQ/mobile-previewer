@@ -42,6 +42,8 @@
 		A1EA0CA0234646E8A55DB3E5 /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7480224196DB4B3E94C2F3B8 /* libReactNativeConfig.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B7912B7A09F3460A8CD35FB9 /* libRNIcloudFilePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B905F66E5704E5FB51AC2EB /* libRNIcloudFilePicker.a */; };
+		DFC346C421478EB800C57527 /* launch-screen-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFC346C221478EB800C57527 /* launch-screen-logo@2x.png */; };
+		DFC346C521478EB800C57527 /* launch-screen-logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFC346C321478EB800C57527 /* launch-screen-logo@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -399,6 +401,8 @@
 		A7CE6FBAC69F457E9E6A610D /* RNIcloudFilePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNIcloudFilePicker.xcodeproj; path = "../node_modules/react-native-icloud-file-picker/ios/RNIcloudFilePicker.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B604C543C22B4CE49A8525FE /* libRNShakeEvent.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNShakeEvent.a; sourceTree = "<group>"; };
+		DFC346C221478EB800C57527 /* launch-screen-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch-screen-logo@2x.png"; path = "../../../Mockups/Mobile/assets/images/launch-screen-logo@2x.png"; sourceTree = "<group>"; };
+		DFC346C321478EB800C57527 /* launch-screen-logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch-screen-logo@3x.png"; path = "../../../Mockups/Mobile/assets/images/launch-screen-logo@3x.png"; sourceTree = "<group>"; };
 		FF4CA39A912844EEBB416C7A /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -550,6 +554,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				DFC346C221478EB800C57527 /* launch-screen-logo@2x.png */,
+				DFC346C321478EB800C57527 /* launch-screen-logo@3x.png */,
 			);
 			name = ProtonPreviewer;
 			sourceTree = "<group>";
@@ -1235,6 +1241,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				DFC346C521478EB800C57527 /* launch-screen-logo@3x.png in Resources */,
+				DFC346C421478EB800C57527 /* launch-screen-logo@2x.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
