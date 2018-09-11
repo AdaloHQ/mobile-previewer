@@ -1,14 +1,13 @@
-package com.aptomobile;
+package com.protonpreviewer;
 
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.jadsonlourenco.RNShakeEvent.RNShakeEventPackage;
-import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.horcrux.svg.SvgPackage;
 import com.imagepicker.ImagePickerPackage;
-import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
+import com.reactlibrary.RNIcloudFilePickerPackage;
 import com.jadsonlourenco.RNShakeEvent.RNShakeEventPackage;
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -29,12 +28,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNShakeEventPackage(),
-            new ReactNativeConfigPackage(),
             new SvgPackage(),
             new ImagePickerPackage(),
-            new ReactNativeConfigPackage(),
-            new RNShakeEventPackage()
+            new RNIcloudFilePickerPackage(),
+            new RNShakeEventPackage(),
+            new ReactNativeConfigPackage()
       );
     }
 
