@@ -3,6 +3,8 @@ package com.protonpreviewer;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.RNFetchBlob.RNFetchBlobPackage;
+import cl.json.RNSharePackage;
 import com.horcrux.svg.SvgPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.reactlibrary.RNIcloudFilePickerPackage;
@@ -28,6 +30,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNFetchBlobPackage(),
+            new RNSharePackage(),
             new SvgPackage(),
             new ImagePickerPackage(),
             new RNIcloudFilePickerPackage(),
