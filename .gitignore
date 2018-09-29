@@ -13,3 +13,4 @@ UserInterfaceState.xcuserstate
 .env
 *.keystore
 xcshareddata
+yarn-error.log
