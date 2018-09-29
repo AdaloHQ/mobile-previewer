@@ -3,6 +3,7 @@ package com.protonpreviewer;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactlibrary.RNLayoutGuidesPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import cl.json.RNSharePackage;
 import com.horcrux.svg.SvgPackage;
@@ -30,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNLayoutGuidesPackage(),
             new RNFetchBlobPackage(),
             new RNSharePackage(),
             new SvgPackage(),
