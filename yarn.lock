@@ -1094,12 +1094,12 @@
   version "0.0.21"
   resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.21.tgz#0344be7a9ca05970e6f1c78adf53cb291fc6ed6d"
 
-"@protonapp/proton-runner@^0.0.31":
-  version "0.0.31"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.31.tgz#57fd4eaee3d9aef46c85cf0d09a537e7f3ce7eec"
+"@protonapp/proton-runner@^0.0.34":
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.34.tgz#be49707014ea83cccfdbacaa10da6857025aed67"
   dependencies:
     "@protonapp/proton-constants" "0.0.21"
-    "@protonapp/react-mobile-date-picker" "^0.0.4"
+    "@protonapp/react-mobile-date-picker" "^0.0.5"
     axios "^0.17.1"
     buffer "^5.0.8"
     immutability-helper "^2.6.2"
@@ -1111,6 +1111,7 @@
     react-native-datepicker "^1.7.2"
     react-native-icloud-file-picker "^0.0.1"
     react-native-image-picker "^0.26.7"
+    react-native-layout-guides "^0.1.2"
     react-native-share "^1.1.2"
     react-native-svg "^6.3.1"
     react-redux "^5.0.6"
@@ -1120,9 +1121,9 @@
     redux-thunk "^2.2.0"
     rn-fetch-blob "^0.10.13"
 
-"@protonapp/react-mobile-date-picker@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@protonapp/react-mobile-date-picker/-/react-mobile-date-picker-0.0.4.tgz#0dc2c8b3d28ba343bf581105a8f4e777cf0a0750"
+"@protonapp/react-mobile-date-picker@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@protonapp/react-mobile-date-picker/-/react-mobile-date-picker-0.0.5.tgz#0ec9224d95096ac6dc26aaeff1d49f51c4218d1c"
   dependencies:
     babel-cli "^6.26.0"
     babel-core "^6.26.0"
@@ -5294,6 +5295,10 @@ react-native-icloud-file-picker@^0.0.1:
 react-native-image-picker@^0.26.7:
   version "0.26.10"
   resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.26.10.tgz#0bb9ab928984948c67aee0b9e64216bee007a9fc"
+
+react-native-layout-guides@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-layout-guides/-/react-native-layout-guides-0.1.2.tgz#d2399ced270e864b50514bfe29c8358e80a41ad3"
 
 react-native-safe-area-view@0.11.0:
   version "0.11.0"

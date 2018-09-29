@@ -42,13 +42,9 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We need to access your location because the app you&apos;re previewing is requesting your location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-<<<<<<< HEAD
 	<string>We need to access your location because the app you&apos;re previewing is requesting your location.</string>
-=======
-	<string>We need to access your location because the app you're previewing is requesting your location.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>We need to to access your photos because the app you're previewing is requesting to save a photo.</string>
->>>>>>> b3b962f... Gets build working
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need to access your photos because the app you&apos;re previewing is requesting to access your photos.</string>
 	<key>UILaunchStoryboardName</key>

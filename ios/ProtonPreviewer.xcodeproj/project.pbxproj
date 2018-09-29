@@ -365,22 +365,14 @@
 			remoteGlobalIDString = 94DDAC5C1F3D024300EED511;
 			remoteInfo = "RNSVG-tvOS";
 		};
-<<<<<<< HEAD
 		DF31D450214A5312009021C2 /* PBXContainerItemProxy */ = {
-=======
-		DF31D498214A632B009021C2 /* PBXContainerItemProxy */ = {
->>>>>>> b3b962f... Gets build working
 			isa = PBXContainerItemProxy;
 			containerPortal = 24942860B7B744F09E9762E3 /* RNFetchBlob.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A15C300E1CD25C330074CB35;
 			remoteInfo = RNFetchBlob;
 		};
-<<<<<<< HEAD
-		DF31D455214A5313009021C2 /* PBXContainerItemProxy */ = {
-=======
 		DF31D49B214A632B009021C2 /* PBXContainerItemProxy */ = {
->>>>>>> b3b962f... Gets build working
 			isa = PBXContainerItemProxy;
 			containerPortal = 0AFE55232095436FBC6FD360 /* RNShare.xcodeproj */;
 			proxyType = 2;
@@ -768,32 +760,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		DF31D44D214A5312009021C2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DF31D451214A5312009021C2 /* libRNFetchBlob.a */,
-=======
 		DF31D493214A632B009021C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				DF31D49C214A632B009021C2 /* libRNShare.a */,
->>>>>>> b3b962f... Gets build working
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		DF31D452214A5313009021C2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DF31D456214A5313009021C2 /* libRNShare.a */,
-=======
 		DF31D495214A632B009021C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				DF31D499214A632B009021C2 /* libRNFetchBlob.a */,
->>>>>>> b3b962f... Gets build working
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -966,11 +944,7 @@
 					ProjectRef = 0C075F72CDF94F3CB0CAA1A3 /* ReactNativeConfig.xcodeproj */;
 				},
 				{
-<<<<<<< HEAD
 					ProductGroup = DF31D44D214A5312009021C2 /* Products */;
-=======
-					ProductGroup = DF31D495214A632B009021C2 /* Products */;
->>>>>>> b3b962f... Gets build working
 					ProjectRef = 24942860B7B744F09E9762E3 /* RNFetchBlob.xcodeproj */;
 				},
 				{
@@ -986,11 +960,7 @@
 					ProjectRef = 37F51B3DE19F4441A3FF9D52 /* RNShakeEvent.xcodeproj */;
 				},
 				{
-<<<<<<< HEAD
 					ProductGroup = DF31D452214A5313009021C2 /* Products */;
-=======
-					ProductGroup = DF31D493214A632B009021C2 /* Products */;
->>>>>>> b3b962f... Gets build working
 					ProjectRef = 0AFE55232095436FBC6FD360 /* RNShare.xcodeproj */;
 				},
 				{
@@ -1310,20 +1280,6 @@
 			remoteRef = DF1507222147857E0076AD95 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-<<<<<<< HEAD
-		DF31D451214A5312009021C2 /* libRNFetchBlob.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNFetchBlob.a;
-			remoteRef = DF31D450214A5312009021C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DF31D456214A5313009021C2 /* libRNShare.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNShare.a;
-			remoteRef = DF31D455214A5313009021C2 /* PBXContainerItemProxy */;
-=======
 		DF31D499214A632B009021C2 /* libRNFetchBlob.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1336,7 +1292,6 @@
 			fileType = archive.ar;
 			path = libRNShare.a;
 			remoteRef = DF31D49B214A632B009021C2 /* PBXContainerItemProxy */;
->>>>>>> b3b962f... Gets build working
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
