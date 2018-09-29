@@ -1,5 +1,3 @@
-import config from 'react-native-config'
-
 import React, { Component } from 'react'
 
 import {
@@ -80,8 +78,6 @@ class Viewer extends Component {
 
   render() {
     let { app } = this.props
-
-    //let baseURL = config.REACT_APP_DATABASE_URL
 
     return (
       <View style={styles.view}>

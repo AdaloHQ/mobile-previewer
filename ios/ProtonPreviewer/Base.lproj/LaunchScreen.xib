@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,23 +15,23 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-screen-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="WaN-p7-Mbe">
-                    <rect key="frame" x="20" y="106" width="440" height="267"/>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-screen-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="XHv-ye-Jok">
+                    <rect key="frame" x="120" y="134" width="240" height="212"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="267" id="fr3-an-Pfi"/>
+                        <constraint firstAttribute="height" constant="212" id="Npx-37-F4o"/>
+                        <constraint firstAttribute="width" constant="240" id="rhB-dy-dnf"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="WaN-p7-Mbe" secondAttribute="trailing" constant="20" id="HMq-Bu-VG6"/>
-                <constraint firstItem="WaN-p7-Mbe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rjJ-I4-UHM"/>
-                <constraint firstItem="WaN-p7-Mbe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="tkF-AI-upe"/>
+                <constraint firstItem="XHv-ye-Jok" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="C1C-pQ-TRZ"/>
+                <constraint firstItem="XHv-ye-Jok" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Prh-Mc-thz"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="548" y="455"/>
+            <point key="canvasLocation" x="547.20000000000005" y="454.27286356821594"/>
         </view>
     </objects>
     <resources>

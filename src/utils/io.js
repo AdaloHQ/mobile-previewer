@@ -1,5 +1,3 @@
-import config from 'react-native-config'
-
 import { AsyncStorage } from 'react-native'
 import axios from 'axios'
 

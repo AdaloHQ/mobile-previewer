@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>We need to to access your photos because the app you&apos;re previewing is requesting to save a photo.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -28,6 +26,8 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>
@@ -38,15 +38,15 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>We need to access your camera because the app you&apos;re previewing is requesting the camera.</string>
+	<string>We need to access your camera because the app you‘re previewing is requesting the camera.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need to access your location because the app you&apos;re previewing is requesting your location.</string>
+	<string>We need to access your location because the app you‘re previewing is requesting your location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need to access your location because the app you&apos;re previewing is requesting your location.</string>
+	<string>We need to access your location because the app you‘re previewing is requesting your location.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>We need to to access your photos because the app you're previewing is requesting to save a photo.</string>
+	<string>We need to to access your photos because the app you‘re previewing is requesting to save a photo.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need to access your photos because the app you&apos;re previewing is requesting to access your photos.</string>
+	<string>We need to access your photos because the app you‘re previewing is requesting to access your photos.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -56,8 +56,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
