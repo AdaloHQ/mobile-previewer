@@ -545,15 +545,15 @@
     hoist-non-react-statics "^2.2.2"
     prop-types "^15.5.10"
 
-"@protonapp/proton-constants@0.0.21":
-  version "0.0.21"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.21.tgz#0344be7a9ca05970e6f1c78adf53cb291fc6ed6d"
+"@protonapp/proton-constants@0.0.22":
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.22.tgz#921000710309ef5bfbb8ccfa6f42cea012aa065e"
 
-"@protonapp/proton-runner@^0.0.34":
-  version "0.0.34"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.34.tgz#be49707014ea83cccfdbacaa10da6857025aed67"
+"@protonapp/proton-runner@^0.0.38":
+  version "0.0.38"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.38.tgz#5ee60a083acf4f8d7b07699eaa1b158f1b95e798"
   dependencies:
-    "@protonapp/proton-constants" "0.0.21"
+    "@protonapp/proton-constants" "0.0.22"
     "@protonapp/react-mobile-date-picker" "^0.0.5"
     axios "^0.17.1"
     buffer "^5.0.8"
