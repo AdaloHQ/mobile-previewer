@@ -15,6 +15,7 @@ import { connectActionSheet } from '@expo/react-native-action-sheet'
 
 import { getApp, requestApp } from '../../ducks/apps'
 import Runner from '@protonapp/proton-runner'
+import * as MaterialComponents from '@protonapp/material-components'
 
 export const baseURL = 'https://proton-database.herokuapp.com'
 export const assetsBaseURL = 'https://s3-us-west-1.amazonaws.com/apto-resources-dev'
@@ -43,7 +44,6 @@ class Viewer extends Component {
 
       if (index === 1) {
         // Reload
-        console.log("CLICKED RELOAD!")
         requestApp(navigation.state.params.appId)
       } else if (index === 2) {
         // Exit
@@ -60,6 +60,13 @@ class Viewer extends Component {
       navigation.dispatch(NavigationActions.back())
     } else {
       this._prevAppState = currentState
+    }
+  }
+
+  getLibraries = () => {
+    // Hardcoded for now...
+    return {
+      '@protonapp/material-components': MaterialComponents
     }
   }
 
@@ -86,6 +93,7 @@ class Viewer extends Component {
           baseURL={baseURL}
           assetsBaseURL={assetsBaseURL}
           uploadsBaseURL={uploadsBaseURL}
+          libraries={this.getLibraries()}
         />
       </View>
     )

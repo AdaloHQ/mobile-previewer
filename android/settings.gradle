@@ -1,4 +1,6 @@
 rootProject.name = 'ProtonPreviewer'
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
 include ':react-native-layout-guides'
 project(':react-native-layout-guides').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-layout-guides/android')
 include ':rn-fetch-blob'

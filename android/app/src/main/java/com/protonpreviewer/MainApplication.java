@@ -3,6 +3,7 @@ package com.protonpreviewer;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.reactlibrary.RNLayoutGuidesPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import cl.json.RNSharePackage;
@@ -31,6 +32,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new VectorIconsPackage(),
             new RNLayoutGuidesPackage(),
             new RNFetchBlobPackage(),
             new RNSharePackage(),
