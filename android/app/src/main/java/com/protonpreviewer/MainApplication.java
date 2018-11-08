@@ -4,14 +4,11 @@ import android.app.Application;
 
 import com.facebook.react.ReactApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
-import com.reactlibrary.RNLayoutGuidesPackage;
-import com.RNFetchBlob.RNFetchBlobPackage;
-import cl.json.RNSharePackage;
 import com.horcrux.svg.SvgPackage;
+import cl.json.RNSharePackage;
 import com.imagepicker.ImagePickerPackage;
-import com.reactlibrary.RNIcloudFilePickerPackage;
+import com.RNFetchBlob.RNFetchBlobPackage;
 import com.jadsonlourenco.RNShakeEvent.RNShakeEventPackage;
-import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -33,14 +30,11 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new VectorIconsPackage(),
-            new RNLayoutGuidesPackage(),
-            new RNFetchBlobPackage(),
-            new RNSharePackage(),
             new SvgPackage(),
+            new RNSharePackage(),
             new ImagePickerPackage(),
-            new RNIcloudFilePickerPackage(),
-            new RNShakeEventPackage(),
-            new ReactNativeConfigPackage()
+            new RNFetchBlobPackage(),
+            new RNShakeEventPackage()
       );
     }
 
