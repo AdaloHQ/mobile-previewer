@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@expo/react-native-action-sheet": "^1.1.2",
-    "@protonapp/material-components": "^0.0.5",
+    "@protonapp/material-components": "^0.0.7",
     "@protonapp/proton-runner": "^0.0.38",
     "axios": "^0.17.1",
     "buffer": "^5.0.8",

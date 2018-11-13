@@ -545,12 +545,11 @@
     hoist-non-react-statics "^2.2.2"
     prop-types "^15.5.10"
 
-"@protonapp/material-components@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@protonapp/material-components/-/material-components-0.0.5.tgz#a1e263e40f2047c1175f4aad3ed1528525e45090"
+"@protonapp/material-components@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@protonapp/material-components/-/material-components-0.0.7.tgz#c408564d4b5c4a175fe0a30ccc1b83c2524047f7"
   dependencies:
-    material-icons-react "^1.0.4"
-    react-native-material-ui "^1.30.1"
+    "@protonapp/react-native-material-ui" "^1.30.1"
     react-native-vector-icons "^6.0.2"
 
 "@protonapp/proton-constants@0.0.22":
@@ -597,6 +596,16 @@
     prop-types "^15.6.1"
     react "^16.3.2"
     react-transition-group "^2.3.1"
+
+"@protonapp/react-native-material-ui@^1.30.1":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@protonapp/react-native-material-ui/-/react-native-material-ui-2.0.0.tgz#6179d9f5c5531aab59faaf10506060daa12e956b"
+  dependencies:
+    color "3.1.0"
+    hoist-non-react-statics "^2.5.5"
+    lodash.merge "^4.0.0"
+    prop-types "^15.5.10"
+    react-native-material-design-styles "^0.2.6"
 
 abab@^2.0.0:
   version "2.0.0"
@@ -1930,9 +1939,9 @@ color-support@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/color-support/-/color-support-1.1.3.tgz#93834379a1cc9a0c61f82f52f0d04322251bd5a2"
 
-color@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/color/-/color-3.0.0.tgz#d920b4328d534a3ac8295d68f7bd4ba6c427be9a"
+color@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/color/-/color-3.1.0.tgz#d8e9fb096732875774c84bf922815df0308d0ffc"
   dependencies:
     color-convert "^1.9.1"
     color-string "^1.5.2"
@@ -2050,7 +2059,7 @@ cosmiconfig@^5.0.5:
     js-yaml "^3.9.0"
     parse-json "^4.0.0"
 
-create-react-class@^15.6.0, create-react-class@^15.6.3:
+create-react-class@^15.6.3:
   version "15.6.3"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
   dependencies:
@@ -3811,15 +3820,6 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-material-icons-react@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/material-icons-react/-/material-icons-react-1.0.4.tgz#b8763fbe4615a8bd0f88c249ad73ad75f7841241"
-  dependencies:
-    prop-types "^15.6.1"
-    react "^15.0.0"
-    react-dom "^15.0.0"
-    webfontloader "^1.6.28"
-
 math-random@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/math-random/-/math-random-1.0.1.tgz#8b3aac588b8a66e4975e3cdea67f7bb329601fac"
@@ -4756,15 +4756,6 @@ react-devtools-core@3.3.4:
     shell-quote "^1.6.1"
     ws "^3.3.1"
 
-react-dom@^15.0.0:
-  version "15.6.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.2.tgz#41cfadf693b757faf2708443a1d1fd5a02bef730"
-  dependencies:
-    fbjs "^0.8.9"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.0"
-    prop-types "^15.5.10"
-
 react-is@^16.5.0:
   version "16.5.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.5.2.tgz#e2a7b7c3f5d48062eb769fcb123505eb928722e3"
@@ -4810,16 +4801,6 @@ react-native-layout-guides@^0.1.2:
 react-native-material-design-styles@^0.2.6:
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/react-native-material-design-styles/-/react-native-material-design-styles-0.2.7.tgz#428560ef4d0659db1163c9f9b5476d886ed22d57"
-
-react-native-material-ui@^1.30.1:
-  version "1.30.1"
-  resolved "https://registry.yarnpkg.com/react-native-material-ui/-/react-native-material-ui-1.30.1.tgz#42b44f1f4dedeeb4f599c64b9f0adfde5a2ea5ea"
-  dependencies:
-    color "3.0.0"
-    hoist-non-react-statics "^2.5.5"
-    lodash.merge "^4.0.0"
-    prop-types "^15.5.10"
-    react-native-material-design-styles "^0.2.6"
 
 react-native-safe-area-view@0.11.0:
   version "0.11.0"
@@ -4983,16 +4964,6 @@ react@16.5.0:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     schedule "^0.3.0"
-
-react@^15.0.0:
-  version "15.6.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.6.2.tgz#dba0434ab439cfe82f108f0f511663908179aa72"
-  dependencies:
-    create-react-class "^15.6.0"
-    fbjs "^0.8.9"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.0"
-    prop-types "^15.5.10"
 
 react@^16.3.2:
   version "16.5.2"
@@ -5975,10 +5946,6 @@ watch@~0.18.0:
   dependencies:
     exec-sh "^0.2.0"
     minimist "^1.2.0"
-
-webfontloader@^1.6.28:
-  version "1.6.28"
-  resolved "https://registry.yarnpkg.com/webfontloader/-/webfontloader-1.6.28.tgz#db786129253cb6e8eae54c2fb05f870af6675bae"
 
 webidl-conversions@^4.0.2:
   version "4.0.2"
