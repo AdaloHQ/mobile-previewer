@@ -19,15 +19,17 @@ export default class Button extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: '#04f',
-    padding: 15,
+    backgroundColor: '#00a898',
+    padding: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 30,
+    borderRadius: 60,
   },
   text: {
     color: '#fff',
-    fontSize: 15,
-    fontWeight: '600'
+    fontSize: 17,
+    fontWeight: '600',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
   }
 })

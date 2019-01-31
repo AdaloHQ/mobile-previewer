@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Dimensions } from 'react-native'
 import LogoImage from '../AppList/images/proton-logo.png'
 import { StackNavigator } from 'react-navigation'
 import FormWrapper from './Login'
+import Image from 'react-native-scalable-image'
 
-class Login extends Component {
+import bottomGraphic from './bottom-graphic.png'
+
+export default class Login extends Component {
   componentWillMount() {
     global.authIsMounted = true
   }
@@ -15,10 +18,17 @@ class Login extends Component {
 
   render() {
     let { navigation } = this.props
+    let width = Dimensions.get('window').width
 
     return (
       <View style={styles.body}>
         <FormWrapper navigation={navigation} />
+        <View style={styles.bottomGraphic}>
+          <Image
+            source={bottomGraphic}
+            width={width}
+          />
+        </View>
       </View>
     )
   }
@@ -29,25 +39,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff'
   },
-  header: {
-    backgroundColor: '#fff',
-    shadowColor: 'transparent',
-    shadowRadius: 0,
-    shadowOffset: {
-      height: 0
-    },
-    borderBottomWidth: 0
+  bottomGraphic: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
   },
 })
 
-export default StackNavigator(
-  {
-    Main: {
-      screen: Login,
-      navigationOptions: {
-        title: 'Sign In',
-        headerStyle: styles.header,
-      }
-    }
-  }
-)

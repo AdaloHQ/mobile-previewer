@@ -5,7 +5,10 @@ import {
   Text,
   StyleSheet,
   TouchableHighlight,
-  AppState
+  AppState,
+  Animated,
+  Easing,
+  AsyncStorage,
 } from 'react-native'
 
 import { connect } from 'react-redux'
@@ -13,9 +16,11 @@ import { NavigationActions } from 'react-navigation'
 import ShakeEvent from 'react-native-shake-event'
 import { connectActionSheet } from '@expo/react-native-action-sheet'
 
-import { getApp, requestApp } from '../../ducks/apps'
 import Runner from '@protonapp/proton-runner'
 import * as MaterialComponents from '@protonapp/material-components'
+
+import { getApp, requestApp } from '../../ducks/apps'
+import Modal from './Modal'
 
 export const baseURL = 'https://proton-database.herokuapp.com'
 export const assetsBaseURL = 'https://s3-us-west-1.amazonaws.com/apto-resources-dev'
@@ -23,6 +28,11 @@ export const uploadsBaseURL = 'https://s3.amazonaws.com/proton-uploads-productio
 
 class Viewer extends Component {
   menuOpen = false
+
+  state = {
+    modalOpacity: new Animated.Value(0),
+    modalVisible: false,
+  }
 
   handleClose = () => {
     let { navigation } = this.props
@@ -70,12 +80,48 @@ class Viewer extends Component {
     }
   }
 
-  componentWillMount() {
+  showShakeModal = async () => {
+    let { modalOpacity } = this.state
+
+    let modalDismissed = await AsyncStorage.getItem('shakeModalDismissed')
+
+    if (modalDismissed === 'true') { return }
+
+    Animated.timing(modalOpacity, {
+      toValue: 1,
+      duration: 200,
+      delay: 400,
+    }).start()
+
+    this.setState({ modalVisible: true })
+  }
+
+  hideShakeModal = async () => {
+    let { modalOpacity } = this.state
+
+    Animated.timing(modalOpacity, {
+      toValue: 0,
+      duration: 200,
+      delay: 50,
+    }).start()
+
+    this.setState({ modalVisible: false })
+  }
+
+  handleNeverAgain = async () => {
+    this.hideShakeModal()
+
+    await AsyncStorage.setItem('shakeModalDismissed', 'true')
+  }
+
+  componentDidMount() {
     let { navigation, requestApp } = this.props
     requestApp(navigation.state.params.appId)
 
     ShakeEvent.addEventListener('shake', this.handleShake)
     AppState.addEventListener('change', this.handleChangeAppState)
+
+    this.showShakeModal()
   }
 
   componentWillUnmount() {
@@ -85,6 +131,8 @@ class Viewer extends Component {
 
   render() {
     let { app } = this.props
+    let { modalOpacity, modalVisible } = this.state
+    let modalStyles = { opacity: modalOpacity }
 
     return (
       <View style={styles.view}>
@@ -95,6 +143,15 @@ class Viewer extends Component {
           uploadsBaseURL={uploadsBaseURL}
           libraries={this.getLibraries()}
         />
+        <Animated.View
+          style={[styles.shakeModal, modalStyles]}
+          pointerEvents={modalVisible ? 'auto' : 'none'}
+        >
+          <Modal
+            onHide={this.hideShakeModal}
+            onNeverAgain={this.handleNeverAgain}
+          />
+        </Animated.View>
       </View>
     )
   }
@@ -103,6 +160,16 @@ class Viewer extends Component {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
+  },
+  shakeModal: {
+    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 })
 

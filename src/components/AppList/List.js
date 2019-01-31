@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { FlatList, RefreshControl, StyleSheet } from 'react-native'
 import AppItem from './Item'
+import Header from './Header'
 
 export default class ListView extends Component {
   render() {
@@ -24,6 +25,8 @@ export default class ListView extends Component {
           />
         )}
         showsVerticalScrollIndicator={false}
+        style={styles.list}
+        ListHeaderComponent={Header}
       />
     )
   }
@@ -31,6 +34,8 @@ export default class ListView extends Component {
 
 const styles = StyleSheet.create({
   list: {
-    flex: 1
+    paddingTop: 8,
+    paddingBottom: 30,
   }
 })
+

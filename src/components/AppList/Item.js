@@ -58,12 +58,18 @@ const styles = StyleSheet.create({
   touchableHighlight: {
   },
   item: {
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 10,
-    paddingBottom: 10,
+    padding: 16,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderRadius: 4,
+    borderColor: '#ddd',
+    borderWidth: 1,
+    marginBottom: 4,
+    marginTop: 4,
+    marginLeft: 8,
+    marginRight: 8,
+  },
+  itemInner: {
   },
   iconWrapper: {
     width: 60,

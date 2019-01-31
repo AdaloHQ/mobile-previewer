@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Image, Text, StyleSheet } from 'react-native'
 import { reduxForm, Field } from 'redux-form'
 import WrappedInput from '../Forms/WrappedInput'
 import Button from './Button'
+
+import Logo from './logo.png'
 
 const FORM_NAME = 'loginForm'
 
@@ -16,23 +18,26 @@ class LoginForm extends Component {
         className="auth-form"
         style={styles.wrapper}
       >
+        <View style={styles.logoWrapper}>
+          <Image source={Logo} />
+        </View>
         <View style={styles.inputs}>
+          <Text style={styles.label}>Email</Text>
           <Field
             autoFocus
             keyboardType="email-address"
             autoCapitalize="none"
             name="email"
-            placeholder="Email"
             type="email"
             component={WrappedInput}
             style={styles.inputWrapper}
             inputStyle={styles.input}
           />
+          <Text style={styles.label}>Password</Text>
           <Field
             secureTextEntry
             autoCapitalize="none"
             name="password"
-            placeholder="Password"
             type="password"
             component={WrappedInput}
             style={styles.inputWrapper}
@@ -57,22 +62,31 @@ export default reduxForm({
 const styles = StyleSheet.create({
   wrapper: {
     padding: 20,
+    paddingBottom: 40,
   },
-
   inputWrapper: {
-    borderBottomColor: '#ddd',
-    borderBottomWidth: 1,
-    paddingTop: 10,
-    paddingBottom: 10,
-    marginBottom: 15,
+    marginBottom: 16,
   },
-
   input: {
+    borderRadius: 8,
+    borderColor: '#ddd',
+    borderWidth: 1,
     fontSize: 17,
+    padding: 12,
   },
-
   inputs: {
     marginBottom: 20
+  },
+  label: {
+    fontSize: 12,
+    color: '#8a8a8a',
+    marginBottom: 4,
+    marginLeft: 2,
+  },
+  logoWrapper: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginBottom: 20,
   },
 })
 

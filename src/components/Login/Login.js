@@ -1,5 +1,15 @@
 import React, { Component } from 'react'
-import { AsyncStorage, Alert } from 'react-native'
+
+import {
+  View,
+  StyleSheet,
+  AsyncStorage,
+  Alert,
+  SafeAreaView,
+  ScrollView,
+  KeyboardAvoidingView,
+} from 'react-native'
+
 import { SubmissionError } from 'redux-form'
 import { NavigationActions } from 'react-navigation'
 
@@ -39,8 +49,30 @@ export default class Login extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.handleLogin} />
+      <SafeAreaView style={styles.wrapper}>
+        <KeyboardAvoidingView
+          enabled
+          style={styles.innerWrapper}
+          behavior="padding"
+        >
+          <ScrollView style={styles.wrapper}>
+            <View style={styles.formWrapper}>
+              <Form onSubmit={this.handleLogin} />
+            </View>
+          </ScrollView>
+        </KeyboardAvoidingView>
+      </SafeAreaView>
     )
   }
 }
 
+const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+  },
+  innerWrapper: {
+    flex: 1,
+  },
+  formWrapper: {
+  },
+})
