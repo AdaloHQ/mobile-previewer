@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   ScrollView,
   KeyboardAvoidingView,
+  Platform,
 } from 'react-native'
 
 import { SubmissionError } from 'redux-form'
@@ -50,18 +51,34 @@ export default class Login extends Component {
   render() {
     return (
       <SafeAreaView style={styles.wrapper}>
-        <KeyboardAvoidingView
+        <WrappedKeyboardAvoidingView
           enabled
           style={styles.innerWrapper}
           behavior="padding"
         >
-          <ScrollView style={styles.wrapper}>
+          <ScrollView style={styles.scrollView}>
             <View style={styles.formWrapper}>
               <Form onSubmit={this.handleLogin} />
             </View>
           </ScrollView>
-        </KeyboardAvoidingView>
+        </WrappedKeyboardAvoidingView>
       </SafeAreaView>
+    )
+  }
+}
+
+class WrappedKeyboardAvoidingView extends Component {
+  render() {
+    let { children, style, ...props } = this.props
+
+    if (Platform.OS === 'ios') {
+      return <KeyboardAvoidingView {...this.props} />
+    }
+
+    return (
+      <View style={style}>
+        {children}
+      </View>
     )
   }
 }
@@ -71,6 +88,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   innerWrapper: {
+    flex: 1,
+  },
+  scrollView: {
     flex: 1,
   },
   formWrapper: {
