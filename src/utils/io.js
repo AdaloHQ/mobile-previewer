@@ -13,8 +13,6 @@ AsyncStorage.getItem('protonSession')
     getUserProfile()
   })
 
-export const ioReady = () => true
-
 const baseURL = 'https://proton-backend.herokuapp.com'
 //const baseURL = 'http://localhost:8084'
 

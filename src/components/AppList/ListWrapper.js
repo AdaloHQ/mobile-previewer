@@ -14,11 +14,9 @@ class ListWrapper extends Component {
   }
 
   shouldComponentUpdate = newProps => {
-    let { ioReady, userLoading } = this.props
+    let { userLoading } = this.props
 
-    if (newProps.ioReady && !newProps.userLoading &&
-        (!ioReady || userLoading)) {
-
+    if (!newProps.userLoading && userLoading) {
       this.props.requestApps()
     }
 

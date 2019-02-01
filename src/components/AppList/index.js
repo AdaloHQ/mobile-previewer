@@ -3,7 +3,6 @@ import { View, Image, StyleSheet, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import { StackNavigator, Header } from 'react-navigation'
 
-import { ioReady } from '../../utils/io'
 import { getAuthVisible, getCurrentUser } from '../../ducks/users'
 import ListWrapper from './ListWrapper'
 import MenuButton from './MenuButton'
@@ -13,13 +12,12 @@ class AppList extends Component {
   render() {
     let { navigation, authVisible, currentUser } = this.props
 
-    if (ioReady() && authVisible && !global.authIsMounted) {
+    if (authVisible && !global.authIsMounted) {
       navigation.navigate('Login')
     }
 
     return (
       <ListWrapper
-        ioReady={ioReady()}
         userLoading={!currentUser}
         navigation={navigation}
       />
