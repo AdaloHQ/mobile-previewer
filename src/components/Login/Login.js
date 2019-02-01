@@ -56,7 +56,10 @@ export default class Login extends Component {
           style={styles.innerWrapper}
           behavior="padding"
         >
-          <ScrollView style={styles.scrollView}>
+          <ScrollView
+            style={styles.scrollView}
+            keyboardShouldPersistTaps="handled"
+          >
             <View style={styles.formWrapper}>
               <Form onSubmit={this.handleLogin} />
             </View>
