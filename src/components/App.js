@@ -1,10 +1,10 @@
-import { StackNavigator } from 'react-navigation'
+import { createStackNavigator, createAppContainer } from 'react-navigation'
 
 import AppList from './AppList'
 import Viewer from './Viewer'
 import Login from './Login'
 
-export default StackNavigator(
+const AppNavigator = createStackNavigator(
   {
     Home: { screen: AppList },
     Login: {
@@ -25,3 +25,5 @@ export default StackNavigator(
     headerMode: 'none'
   }
 )
+
+export default createAppContainer(AppNavigator)

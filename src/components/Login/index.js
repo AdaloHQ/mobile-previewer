@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Dimensions, Platform } from 'react-native'
 import LogoImage from '../AppList/images/proton-logo.png'
-import { StackNavigator } from 'react-navigation'
 import FormWrapper from './Login'
 import Image from 'react-native-scalable-image'
 

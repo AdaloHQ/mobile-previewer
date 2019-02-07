@@ -1,7 +1,15 @@
 import React, { Component } from 'react'
-import { View, Image, StyleSheet, Platform } from 'react-native'
+
+import {
+  View,
+  Image,
+  StyleSheet,
+  Platform,
+  AppState,
+} from 'react-native'
+
 import { connect } from 'react-redux'
-import { StackNavigator, Header } from 'react-navigation'
+import { createStackNavigator, Header, StackActions, NavigationActions } from 'react-navigation'
 
 import { getAuthVisible, getCurrentUser } from '../../ducks/users'
 import ListWrapper from './ListWrapper'
@@ -9,6 +17,31 @@ import MenuButton from './MenuButton'
 import LogoImage from './images/foundry-logo-text.png'
 
 class AppList extends Component {
+  handleChangeAppState = () => {
+    let currentState = AppState.currentState
+    let { navigation } = this.props
+
+    if (currentState === 'active' && this._prevAppState === 'background') {
+      navigation.dispatch(StackActions.reset({
+        index: 1,
+        actions: [
+          NavigationActions.navigate({ routeName: 'Home' }),
+          NavigationActions.navigate({ routeName: 'Viewer', params: { appId: 'd309389b-b1e7-4fc9-86cf-b36458c8439b' } })
+        ],
+      }))
+    } else {
+      this._prevAppState = currentState
+    }
+  }
+
+  componentDidMount() {
+    AppState.addEventListener('change', this.handleChangeAppState)
+  }
+
+  componentWillUnmount() {
+    AppState.removeEventListener('change', this.handleChangeAppState)
+  }
+
   render() {
     let { navigation, authVisible, currentUser } = this.props
 
@@ -50,14 +83,15 @@ class WrappedHeader extends Component {
   }
 }
 
-export default StackNavigator(
+export default createStackNavigator(
   {
     Main: {
       screen: ConnectedAppList,
       navigationOptions: ({ navigation }) => ({
-        title: (
-          Platform.OS === 'ios' ? <Image source={LogoImage} /> : 'Foundry'
-        ),
+        title: 'Foundry',
+        headerTitle: Platform.OS === 'ios'
+          ? <Image source={LogoImage} />
+          : 'Foundry',
         header: props => <WrappedHeader {...props} />,
         headerStyle: styles.header,
         headerLeft:  <MenuButton navigation={navigation} />,
@@ -74,7 +108,11 @@ const styles = StyleSheet.create({
     shadowOffset: {
       height: 0
     },
-    borderBottomWidth: 0
+    borderBottomWidth: 0,
+    height: Platform.OS === 'ios' ? 56 : undefined,
+  },
+  headerIOS: {
+    height: 56,
   },
   headerStripe: {
     height: 4,

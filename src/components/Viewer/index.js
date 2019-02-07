@@ -67,7 +67,7 @@ class Viewer extends Component {
     let { navigation } = this.props
 
     if (currentState === 'active' && this._prevAppState === 'background') {
-      navigation.dispatch(NavigationActions.back())
+      //navigation.dispatch(NavigationActions.back())
     } else {
       this._prevAppState = currentState
     }
