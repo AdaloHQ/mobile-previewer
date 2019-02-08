@@ -9,12 +9,13 @@ import {
 } from 'react-native'
 
 import { connect } from 'react-redux'
-import { createStackNavigator, Header, StackActions, NavigationActions } from 'react-navigation'
+import { createStackNavigator, StackActions, NavigationActions } from 'react-navigation'
 
 import { getAuthVisible, getCurrentUser } from '../../ducks/users'
 import ListWrapper from './ListWrapper'
 import MenuButton from './MenuButton'
 import LogoImage from './images/foundry-logo-text.png'
+import AppBar from './AppBar'
 
 class AppList extends Component {
   handleChangeAppState = () => {
@@ -65,25 +66,18 @@ const mapStateToProps = state => ({
 
 const ConnectedAppList = connect(mapStateToProps)(AppList)
 
-class WrappedHeader extends Component {
+export default class AppListWrapper extends Component {
   render() {
     return (
-      <View style={styles.headerWrapper}>
-        <Header {...this.props} />
-        <View style={styles.headerStripe}>
-          <View style={{ flex: 1, backgroundColor: '#a82058' }} />
-          <View style={{ flex: 1, backgroundColor: '#ef4c30' }} />
-          <View style={{ flex: 1, backgroundColor: '#ffc00e' }} />
-          <View style={{ flex: 1, backgroundColor: '#a1cd46' }} />
-          <View style={{ flex: 1, backgroundColor: '#00a898' }} />
-          <View style={{ flex: 1, backgroundColor: '#43437a' }} />
-        </View>
+      <View style={styles.wrapper}>
+        <AppBar {...this.props} />
+        <ConnectedAppList {...this.props} />
       </View>
     )
   }
 }
 
-export default createStackNavigator(
+const nav = createStackNavigator(
   {
     Main: {
       screen: ConnectedAppList,
@@ -101,6 +95,9 @@ export default createStackNavigator(
 )
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+  },
   header: {
     backgroundColor: '#fff',
     shadowColor: 'transparent',
