@@ -8,9 +8,9 @@ import ListView from './List'
 
 class ListWrapper extends Component {
   handlePress = appId => {
-    let { navigation } = this.props
+    let { navigation, deviceId } = this.props
 
-    navigation.navigate('Viewer', { appId })
+    navigation.navigate('Viewer', { appId, deviceId })
   }
 
   shouldComponentUpdate = newProps => {

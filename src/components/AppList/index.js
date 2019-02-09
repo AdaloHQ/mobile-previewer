@@ -6,10 +6,12 @@ import {
   StyleSheet,
   Platform,
   AppState,
+  PushNotificationIOS,
 } from 'react-native'
 
 import { connect } from 'react-redux'
 import { createStackNavigator, StackActions, NavigationActions } from 'react-navigation'
+import PushNotification from 'react-native-push-notification'
 
 import { getAuthVisible, getCurrentUser } from '../../ducks/users'
 import ListWrapper from './ListWrapper'
@@ -18,16 +20,17 @@ import LogoImage from './images/foundry-logo-text.png'
 import AppBar from './AppBar'
 
 class AppList extends Component {
+  state = { deviceId: null }
+
   handleChangeAppState = () => {
     let currentState = AppState.currentState
     let { navigation } = this.props
 
     if (currentState === 'active' && this._prevAppState === 'background') {
       navigation.dispatch(StackActions.reset({
-        index: 1,
+        index: 0,
         actions: [
           NavigationActions.navigate({ routeName: 'Home' }),
-          NavigationActions.navigate({ routeName: 'Viewer', params: { appId: 'd309389b-b1e7-4fc9-86cf-b36458c8439b' } })
         ],
       }))
     } else {
@@ -35,8 +38,41 @@ class AppList extends Component {
     }
   }
 
+  handleNotification = notification => {
+    let { navigation } = this.props
+    let { deviceId } = this.state
+    let { userInteraction } = notification
+    let { appId, route } = notification.data
+
+    notification.finish(PushNotificationIOS.FetchResult.NoData);
+
+    if (!userInteraction || !appId || !route || !route.target) { return }
+
+    navigation.dispatch(StackActions.reset({
+      index: 1,
+      actions: [
+        NavigationActions.navigate({ routeName: 'Home' }),
+        NavigationActions.navigate({
+          routeName: 'Viewer',
+          params: { appId, deviceId, initialRoute: route }
+        })
+      ],
+    }))
+  }
+
+  handleRegister = device => {
+    this.setState({ deviceId: device.token })
+  }
+
   componentDidMount() {
     AppState.addEventListener('change', this.handleChangeAppState)
+
+    PushNotification.configure({
+      onRegister: this.handleRegister,
+      onNotification: this.handleNotification,
+      popInitialNotification: true,
+      requestPermissions: true,
+    });
   }
 
   componentWillUnmount() {
@@ -45,6 +81,7 @@ class AppList extends Component {
 
   render() {
     let { navigation, authVisible, currentUser } = this.props
+    let { deviceId } = this.state
 
     if (authVisible && !global.authIsMounted) {
       navigation.navigate('Login')
@@ -54,6 +91,7 @@ class AppList extends Component {
       <ListWrapper
         userLoading={!currentUser}
         navigation={navigation}
+        deviceId={deviceId}
       />
     )
   }
@@ -77,23 +115,6 @@ export default class AppListWrapper extends Component {
   }
 }
 
-const nav = createStackNavigator(
-  {
-    Main: {
-      screen: ConnectedAppList,
-      navigationOptions: ({ navigation }) => ({
-        title: 'Foundry',
-        headerTitle: Platform.OS === 'ios'
-          ? <Image source={LogoImage} />
-          : 'Foundry',
-        header: props => <WrappedHeader {...props} />,
-        headerStyle: styles.header,
-        headerLeft:  <MenuButton navigation={navigation} />,
-      })
-    }
-  }
-)
-
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
@@ -109,7 +130,7 @@ const styles = StyleSheet.create({
     height: Platform.OS === 'ios' ? 56 : undefined,
   },
   headerIOS: {
-    height: 56,
+    height: 50,
   },
   headerStripe: {
     height: 4,

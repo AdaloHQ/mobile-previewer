@@ -130,18 +130,22 @@ class Viewer extends Component {
   }
 
   render() {
-    let { app } = this.props
+    let { app, navigation } = this.props
+    let { deviceId, initialRoute } = navigation.state.params
     let { modalOpacity, modalVisible } = this.state
     let modalStyles = { opacity: modalOpacity }
 
     return (
       <View style={styles.view}>
         <Runner
+          skipNotifications
           app={app}
           baseURL={baseURL}
           assetsBaseURL={assetsBaseURL}
           uploadsBaseURL={uploadsBaseURL}
           libraries={this.getLibraries()}
+          deviceId={deviceId}
+          initialRoute={initialRoute}
         />
         <Animated.View
           style={[styles.shakeModal, modalStyles]}

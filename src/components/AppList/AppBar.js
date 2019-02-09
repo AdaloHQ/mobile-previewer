@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   innerWrapper: {
-    paddingTop: 8,
-    paddingBottom: 8,
+    paddingTop: 0,
+    paddingBottom: 0,
     flexDirection: 'row',
   },
   title: {
