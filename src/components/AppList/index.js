@@ -7,6 +7,7 @@ import {
   Platform,
   AppState,
   PushNotificationIOS,
+  Platform,
 } from 'react-native'
 
 import { connect } from 'react-redux'
@@ -44,7 +45,9 @@ class AppList extends Component {
     let { userInteraction } = notification
     let { appId, route } = notification.data
 
-    notification.finish(PushNotificationIOS.FetchResult.NoData);
+    if (Platform.OS === 'ios') {
+      notification.finish(PushNotificationIOS.FetchResult.NoData);
+    }
 
     if (!userInteraction || !appId || !route || !route.target) { return }
 
