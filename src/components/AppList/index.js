@@ -7,7 +7,6 @@ import {
   Platform,
   AppState,
   PushNotificationIOS,
-  Platform,
 } from 'react-native'
 
 import { connect } from 'react-redux'
