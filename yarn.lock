@@ -552,15 +552,15 @@
     "@protonapp/react-native-material-ui" "^1.30.1"
     react-native-vector-icons "^6.0.2"
 
-"@protonapp/proton-constants@0.0.22":
-  version "0.0.22"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.22.tgz#921000710309ef5bfbb8ccfa6f42cea012aa065e"
+"@protonapp/proton-constants@0.0.32":
+  version "0.0.32"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.32.tgz#ad184b9915a25b735d5796110a54e93c15d7b6ac"
 
-"@protonapp/proton-runner@^0.0.38":
-  version "0.0.38"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.38.tgz#5ee60a083acf4f8d7b07699eaa1b158f1b95e798"
+"@protonapp/proton-runner@^0.0.45":
+  version "0.0.45"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.45.tgz#239eed92f56e1ee3b50ee4e74263cb4a2a72e167"
   dependencies:
-    "@protonapp/proton-constants" "0.0.22"
+    "@protonapp/proton-constants" "0.0.32"
     "@protonapp/react-mobile-date-picker" "^0.0.5"
     axios "^0.17.1"
     buffer "^5.0.8"
@@ -574,8 +574,10 @@
     react-native-icloud-file-picker "^0.0.1"
     react-native-image-picker "^0.26.7"
     react-native-layout-guides "^0.1.2"
+    react-native-push-notification "^3.1.2"
     react-native-share "^1.1.2"
     react-native-svg "^6.3.1"
+    react-native-vector-icons "^6.1.0"
     react-redux "^5.0.6"
     redux "^3.7.2"
     redux-form "^7.2.0"
@@ -4883,6 +4885,14 @@ react-native-tab-view@^1.0.0, react-native-tab-view@^1.2.0:
 react-native-vector-icons@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-6.0.2.tgz#826252a72d648cf957d46ada8df890318dac53e1"
+  dependencies:
+    lodash "^4.0.0"
+    prop-types "^15.6.2"
+    yargs "^8.0.2"
+
+react-native-vector-icons@^6.1.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-6.3.0.tgz#47a0c9e04e045c0ea0b9ca450e2af84e45c07b3f"
   dependencies:
     lodash "^4.0.0"
     prop-types "^15.6.2"
