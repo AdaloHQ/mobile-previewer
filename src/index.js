@@ -8,6 +8,7 @@ import 'es6-symbol/implement'
 import * as reducers from './ducks'
 import App from './components/App'
 import { connectSocket } from './utils/io'
+//import firebase from './utils/firebase'
 
 const store = createStore(combineReducers({
   ...reducers,

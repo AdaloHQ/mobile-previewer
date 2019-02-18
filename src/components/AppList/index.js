@@ -6,13 +6,12 @@ import {
   StyleSheet,
   Platform,
   AppState,
-  PushNotificationIOS,
 } from 'react-native'
 
 import { connect } from 'react-redux'
 import { createStackNavigator, StackActions, NavigationActions } from 'react-navigation'
-import PushNotification from 'react-native-push-notification'
 
+import { register } from '../../utils/notifications'
 import { getAuthVisible, getCurrentUser } from '../../ducks/users'
 import ListWrapper from './ListWrapper'
 import MenuButton from './MenuButton'
@@ -38,17 +37,13 @@ class AppList extends Component {
     }
   }
 
-  handleNotification = notification => {
+  handleRegister = token => {
+    this.setState({ deviceId: token })
+  }
+
+  handleNotification = (appId, route) => {
     let { navigation } = this.props
     let { deviceId } = this.state
-    let { userInteraction } = notification
-    let { appId, route } = notification.data
-
-    if (Platform.OS === 'ios') {
-      notification.finish(PushNotificationIOS.FetchResult.NoData);
-    }
-
-    if (!userInteraction || !appId || !route || !route.target) { return }
 
     navigation.dispatch(StackActions.reset({
       index: 1,
@@ -62,19 +57,13 @@ class AppList extends Component {
     }))
   }
 
-  handleRegister = device => {
-    this.setState({ deviceId: device.token })
-  }
-
   componentDidMount() {
     AppState.addEventListener('change', this.handleChangeAppState)
 
-    PushNotification.configure({
+    register({
       onRegister: this.handleRegister,
       onNotification: this.handleNotification,
-      popInitialNotification: true,
-      requestPermissions: true,
-    });
+    })
   }
 
   componentWillUnmount() {
