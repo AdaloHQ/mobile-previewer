@@ -29,7 +29,7 @@ export default class Login extends Component {
         Alert.alert(
           'Invalid email or password',
           'Please check the email and password you entered, and try again.',
-          { text: 'OK', onPress: () => {} }
+          [{ text: 'OK', onPress: () => {} }]
         )
 
         return
