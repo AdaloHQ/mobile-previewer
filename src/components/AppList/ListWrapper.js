@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { StyleSheet, Image, Text, View, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
 
@@ -7,8 +8,13 @@ import Loader from '../Shared/Loader'
 import ListView from './List'
 
 class ListWrapper extends Component {
+  static contextTypes = {
+    getDeviceId: PropTypes.func,
+  }
+
   handlePress = appId => {
-    let { navigation, deviceId } = this.props
+    let { deviceId } = this.context
+    let { navigation } = this.props
 
     navigation.navigate('Viewer', { appId, deviceId })
   }

@@ -13,7 +13,7 @@ const configurationOptions = {
 
 const firebase = RNFirebase.initializeApp(configurationOptions)
 
-export const register = ({ onRegister, onNotification }) => {
+export const register = async ({ onRegister, onNotification }) => {
   firebase.messaging().getToken()
     .then(token => {
       console.log('-------> REGISTERED...', token)
@@ -31,13 +31,21 @@ export const register = ({ onRegister, onNotification }) => {
       console.log('---------> ERROR GETTING NOTIFICATIONS PERMISSION...', err)
     })
 
-  firebase.notifications().onNotificationOpened(notif => {
+  const handleNotification = notif => {
     console.log('-----------> NOTIFICATION DATA:', notif.notification.data)
 
     let { appId, target, ...params } = notif.notification.data
     route = { target, params }
 
     onNotification(appId, route)
-  })
+  }
+
+  firebase.notifications().onNotificationOpened(handleNotification)
+
+  let notificationOpen = await firebase.notifications().getInitialNotification()
+
+  if (notificationOpen) {
+    handleNotification(notificationOpen)
+  }
 }
 
