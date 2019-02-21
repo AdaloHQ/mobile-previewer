@@ -13,8 +13,8 @@ class ListWrapper extends Component {
   }
 
   handlePress = appId => {
-    let { deviceId } = this.context
     let { navigation } = this.props
+    let deviceId = this.context.getDeviceId()
 
     navigation.navigate('Viewer', { appId, deviceId })
   }
