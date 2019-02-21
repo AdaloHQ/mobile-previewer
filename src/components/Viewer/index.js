@@ -139,6 +139,7 @@ class Viewer extends Component {
     return (
       <View style={styles.view}>
         <Runner
+          previewer
           skipNotifications
           app={app}
           baseURL={baseURL}
