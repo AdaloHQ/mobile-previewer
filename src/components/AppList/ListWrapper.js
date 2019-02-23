@@ -34,7 +34,10 @@ class ListWrapper extends Component {
 
     return (
       <View style={styles.body}>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar
+          backgroundColor="#fff"
+          barStyle="dark-content"
+        />
         <ListView
           apps={apps}
           loading={loading || userLoading}

@@ -58,15 +58,18 @@ export const requestApp = appId => {
 }
 
 export const authenticate = (data, callback) => {
+  console.log('>>>>>>>>>>>>>>>>>> LOGGING IN..........')
   return axios.post(buildURL('/sessions'), data)
     .then(resp => {
       setToken(resp.data.sessionToken)
 
       callback(resp.data)
 
+      console.log('SUCCESS!!!', resp.data)
       return getUserProfile()
     })
     .catch(err => {
+      console.log('FAILURE!!!', err)
       callback({ success: false })
     })
 }

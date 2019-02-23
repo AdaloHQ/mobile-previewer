@@ -1,5 +1,14 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Dimensions, Platform } from 'react-native'
+
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  Platform,
+  StatusBar,
+} from 'react-native'
+
 import LogoImage from '../AppList/images/proton-logo.png'
 import FormWrapper from './Login'
 import Image from 'react-native-scalable-image'
@@ -21,6 +30,10 @@ export default class Login extends Component {
 
     return (
       <View style={styles.body}>
+        <StatusBar
+          backgroundColor="#fff"
+          barStyle="dark-content"
+        />
         <FormWrapper navigation={navigation} />
         {Platform.OS === 'ios'
           ? <View style={styles.bottomGraphic}>
