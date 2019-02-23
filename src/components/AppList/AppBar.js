@@ -1,17 +1,24 @@
 import React, { Component } from 'react'
-import { View, Text, Image, StyleSheet, SafeAreaView } from 'react-native'
+import { View, Text, Image, StyleSheet, SafeAreaView, Platform } from 'react-native'
 
 import MenuButton from './MenuButton'
 import LogoImage from './images/foundry-logo-text.png'
 
+const STATUS_BAR_HEIGHT = 24
+
 export default class AppBar extends Component {
   render() {
     let { navigation } = this.props
+    let innerWrapperStyles = {}
+
+    if (Platform.OS === 'android') {
+      innerWrapperStyles.marginTop = 24
+    }
 
     return (
       <View style={styles.wrapper}>
         <SafeAreaView>
-          <View style={styles.innerWrapper}>
+          <View style={[styles.innerWrapper, innerWrapperStyles]}>
             <View style={[styles.button, styles.leftButton]}>
               <MenuButton navigation={navigation} />
             </View>

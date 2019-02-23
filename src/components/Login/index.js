@@ -15,6 +15,8 @@ import Image from 'react-native-scalable-image'
 
 import bottomGraphic from './bottom-graphic.png'
 
+const STATUS_BAR_HEIGHT = 24
+
 export default class Login extends Component {
   componentWillMount() {
     global.authIsMounted = true
@@ -27,9 +29,10 @@ export default class Login extends Component {
   render() {
     let { navigation } = this.props
     let width = Dimensions.get('window').width
+    let paddingTop = Platform.OS === 'android' ? STATUS_BAR_HEIGHT : 0
 
     return (
-      <View style={styles.body}>
+      <View style={[styles.body, { paddingTop }]}>
         <StatusBar
           backgroundColor="#fff"
           barStyle="dark-content"

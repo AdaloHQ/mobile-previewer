@@ -35,7 +35,8 @@ class ListWrapper extends Component {
     return (
       <View style={styles.body}>
         <StatusBar
-          backgroundColor="#fff"
+          translucent
+          backgroundColor="transparent"
           barStyle="dark-content"
         />
         <ListView
