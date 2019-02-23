@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { AppState } from 'react-native'
+import { Platform, AppState } from 'react-native'
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import { StackActions, NavigationActions } from 'react-navigation'
@@ -38,7 +38,7 @@ class Wrapper extends Component {
     let currentState = AppState.currentState
     let navigation = this._navigation
 
-    if (!navigation) { return }
+    if (!navigation || Platform.OS === 'android') { return }
 
     if (currentState === 'background') {
       navigation.dispatch(StackActions.reset({
