@@ -40,15 +40,13 @@ class Wrapper extends Component {
 
     if (!navigation) { return }
 
-    if (currentState === 'active' && this._prevAppState === 'background') {
+    if (currentState === 'background') {
       navigation.dispatch(StackActions.reset({
         index: 0,
         actions: [
           NavigationActions.navigate({ routeName: 'Home' }),
         ],
       }))
-    } else {
-      this._prevAppState = currentState
     }
   }
 

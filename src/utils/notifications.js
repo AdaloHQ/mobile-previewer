@@ -18,8 +18,6 @@ export const register = ({ onRegister, onNotification }) => {
 }
 
 const handleNotification = callback => notification => {
-  let { navigation } = this.props
-  let { deviceId } = this.state
   let { userInteraction } = notification
   let { appId, route } = notification.data
 
