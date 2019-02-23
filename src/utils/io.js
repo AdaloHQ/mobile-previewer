@@ -10,7 +10,12 @@ let token
 AsyncStorage.getItem('protonSession')
   .then(token => {
     setToken(token)
-    getUserProfile()
+
+    if (token) {
+      getUserProfile()
+    } else {
+      store.dispatch(setAuthVisible())
+    }
   })
 
 const baseURL = 'https://proton-backend.herokuapp.com'

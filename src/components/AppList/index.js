@@ -35,7 +35,7 @@ class AppList extends Component {
 
 const mapStateToProps = state => ({
   authVisible: getAuthVisible(state),
-  currentUser: getCurrentUser(state)
+  currentUser: getCurrentUser(state),
 })
 
 const ConnectedAppList = connect(mapStateToProps)(AppList)

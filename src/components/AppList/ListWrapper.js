@@ -19,7 +19,7 @@ class ListWrapper extends Component {
     navigation.navigate('Viewer', { appId, deviceId })
   }
 
-  shouldComponentUpdate = newProps => {
+  shouldComponentUpdate(newProps) {
     let { userLoading } = this.props
 
     if (!newProps.userLoading && userLoading) {
