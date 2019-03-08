@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/runtime": "^7.1.2",
+    "aws-sdk": "^2.415.0",
     "babel-jest": "23.6.0",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.47.0",
