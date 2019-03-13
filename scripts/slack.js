@@ -8,10 +8,17 @@ const token = process.env.FOUNDRY_SLACK_TOKEN
 console.log('SENDING SLACK MESSAGE...')
 
 const filePath = process.argv[2]
+const messageText = process.argv[3]
 const filename = path.basename(filePath)
 const url = `https://s3-us-west-1.amazonaws.com/proton-android-releases/${filename}`
 
-const message = `New android build available:\n\n${url}`
+let message = `New android build available:\n\n`
+
+if (messageText) {
+  message += `> ${messageText}\n\n`
+}
+
+message += url
 
 axios.post('https://slack.com/api/chat.postMessage', {
   channel: 'android-builds',
