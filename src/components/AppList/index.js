@@ -9,7 +9,6 @@ import {
 
 import { connect } from 'react-redux'
 
-import { register } from '../../utils/notifications'
 import { getAuthVisible, getCurrentUser } from '../../ducks/users'
 import ListWrapper from './ListWrapper'
 import MenuButton from './MenuButton'
