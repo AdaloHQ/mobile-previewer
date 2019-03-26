@@ -22,4 +22,10 @@ platform :ios do
     build_app(scheme: "ProtonPreviewer")
     upload_to_testflight
   end
+
+  desc "Print latest uploaded build number"
+  lane :buildnumber do
+    build_number = latest_testflight_build_number(version: '0.3.1')
+    puts "-------------> #{build_number}"
+  end
 end

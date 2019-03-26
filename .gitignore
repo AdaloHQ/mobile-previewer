@@ -60,3 +60,4 @@ index.android.bundle
 
 # Misc
 scripts/constants.js
+*.app.dSYM.zip
