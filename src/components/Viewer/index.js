@@ -25,7 +25,7 @@ import Modal from './Modal'
 
 export const baseURL = 'https://proton-database.herokuapp.com'
 export const assetsBaseURL = 'https://s3-us-west-1.amazonaws.com/apto-resources-dev'
-export const uploadsBaseURL = 'https://s3.amazonaws.com/proton-uploads-production'
+export const uploadsBaseURL = 'https://foundry-uploads.imgix.net'
 export const notificationsURL = 'https://proton-notifications.herokuapp.com'
 
 class Viewer extends Component {
