@@ -545,11 +545,12 @@
     hoist-non-react-statics "^2.2.2"
     prop-types "^15.5.10"
 
-"@protonapp/material-components@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@protonapp/material-components/-/material-components-0.0.7.tgz#c408564d4b5c4a175fe0a30ccc1b83c2524047f7"
+"@protonapp/material-components@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@protonapp/material-components/-/material-components-0.0.12.tgz#931fb80f89b39fae86bd007341854cd4f17e17eb"
   dependencies:
-    "@protonapp/react-native-material-ui" "^1.30.1"
+    "@protonapp/react-native-material-ui" "^2.0.2"
+    color "^3.1.0"
     react-native-vector-icons "^6.0.2"
 
 "@protonapp/proton-constants@0.0.32":
@@ -599,7 +600,7 @@
     react "^16.3.2"
     react-transition-group "^2.3.1"
 
-"@protonapp/react-native-material-ui@^1.30.1", "@protonapp/react-native-material-ui@^2.0.2":
+"@protonapp/react-native-material-ui@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@protonapp/react-native-material-ui/-/react-native-material-ui-2.0.2.tgz#ce9e6c6243fc39e7c89a69b1d1fc939e69a019d2"
   dependencies:
