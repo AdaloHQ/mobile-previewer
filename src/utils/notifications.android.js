@@ -1,17 +1,19 @@
-import RNFirebase from 'react-native-firebase'
+// import RNFirebase from 'react-native-firebase'
+//
+// const configurationOptions = {
+//   debug: true,
+//   promptOnMissingPlayServices: true,
+//   apiKey: 'AIzaSyC4JQq-yNqZPP4Ig3_vSoSgLifWAoTYa1M',
+//   appId: 'com.protonpreviewer',
+//   projectId: 'previewer-android',
+//   databaseURL: 'https://previewer-android.firebaseio.com',
+//   storageBucket: 'previewer-android.appspot.com',
+//   messagingSenderId: '627288280805',
+// }
+//
+// const firebase = RNFirebase.initializeApp(configurationOptions)
 
-const configurationOptions = {
-  debug: true,
-  promptOnMissingPlayServices: true,
-  apiKey: 'AIzaSyC4JQq-yNqZPP4Ig3_vSoSgLifWAoTYa1M',
-  appId: 'com.protonpreviewer',
-  projectId: 'previewer-android',
-  databaseURL: 'https://previewer-android.firebaseio.com',
-  storageBucket: 'previewer-android.appspot.com',
-  messagingSenderId: '627288280805',
-}
-
-const firebase = RNFirebase.initializeApp(configurationOptions)
+import firebase from 'react-native-firebase'
 
 export const register = async ({ onRegister, onNotification }) => {
   firebase.messaging().getToken()

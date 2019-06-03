@@ -12,7 +12,6 @@ import * as reducers from './ducks'
 import App from './components/App'
 import { connectSocket } from './utils/io'
 import { register } from './utils/notifications'
-//import firebase from './utils/firebase'
 
 const store = createStore(combineReducers({
   ...reducers,

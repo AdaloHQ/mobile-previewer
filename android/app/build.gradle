@@ -148,6 +148,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-inappbrowser-reborn')
     implementation(project(':react-native-firebase')) {
       transitive = false
     }
