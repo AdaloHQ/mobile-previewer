@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 
-require('./constants')
+try {
+  require('./constants')
+} catch (err) {
+  console.log('scripts/constants.js not present. Using environment variables')
+}
 
 const child_process = require('child_process')
 const path = require('path')
