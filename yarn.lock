@@ -553,17 +553,17 @@
     color "^3.1.0"
     react-native-vector-icons "^6.0.2"
 
-"@protonapp/proton-constants@0.0.34":
-  version "0.0.34"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.34.tgz#c1d88b16f05e5ef87ca2983d361b48e7749166f7"
-  integrity sha512-+YK5iWeYMw2dlUzWfgmS8L49MQqktLOVNlPi+m5e35X0ES95b/PhPzGG04cSwX5ppKUT+QXRCMVPRPXpMguDiA==
+"@protonapp/proton-constants@0.0.35":
+  version "0.0.35"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.35.tgz#5a9fb459d5df6ebafc5a59acd6e48e86b747620b"
+  integrity sha512-vyFreQyeHT2xnp/oNaXw9G11WxYAtRbytdfCLi4ZT3S1v4cgnwX3h+z1fkbOkEMrhksiX3N3NHtxicLR089GZw==
 
-"@protonapp/proton-runner@^0.0.60":
-  version "0.0.60"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.60.tgz#9f27dda03ecc52c3fa63635b6c4a5cbcc96a84fd"
-  integrity sha512-NDc4FiV7OSuPFjvrxM9QNN5LXetay96z2ggVGLeKFcFWiYSo6GTuxUIWJJLMbe5M/K2VB27tXvKwEOD4MF1Ssw==
+"@protonapp/proton-runner@^0.0.68":
+  version "0.0.68"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.68.tgz#cc6410a311bd992e25b9878b44e23aee7b7ced9c"
+  integrity sha512-dzASAehC44cMUmM3XpvM0OnAKFaaMrUlHjPVJUizAK19Lh72B4xh3jugPtU9w+dxCSQWU4S/2EpcfWck6xyifg==
   dependencies:
-    "@protonapp/proton-constants" "0.0.34"
+    "@protonapp/proton-constants" "0.0.35"
     "@protonapp/react-mobile-date-picker" "^0.0.5"
     axios "^0.17.1"
     buffer "^5.0.8"
@@ -582,7 +582,7 @@
     react-native-layout-guides "^0.1.2"
     react-native-push-notification "^3.1.2"
     react-native-share "^1.1.2"
-    react-native-svg "^9"
+    react-native-svg "9.4.0"
     react-native-vector-icons "^6.1.0"
     react-redux "^5.0.6"
     redux "^3.7.2"
@@ -5152,7 +5152,7 @@ react-native-svg-uri@^1.2.3:
   dependencies:
     xmldom "^0.1.22"
 
-react-native-svg@^9:
+react-native-svg@9.4.0:
   version "9.4.0"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-9.4.0.tgz#e428e0eae55aebd2355f1ff4f22675dad4611960"
   integrity sha512-IVJlVbS2dAPerPr927fEi4uXzrPXzlra5ddgyJXZZ2IKA2ZygyYWFZDM+vsQs+Vj20CfL8nOWszQQV57vdQgFg==
