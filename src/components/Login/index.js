@@ -9,7 +9,6 @@ import {
   StatusBar,
 } from 'react-native'
 
-import LogoImage from '../AppList/images/proton-logo.png'
 import FormWrapper from './Login'
 import Image from 'react-native-scalable-image'
 
