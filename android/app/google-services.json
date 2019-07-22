@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "627288280805",
+    "firebase_url": "https://previewer-android.firebaseio.com",
+    "project_id": "previewer-android",
+    "storage_bucket": "previewer-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:627288280805:android:ecd71c7bd7c8989b",
+        "android_client_info": {
+          "package_name": "com.protonpreviewer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "627288280805-48ke9c65c2m3837q2r3lv32s0r7rr8t4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4JQq-yNqZPP4Ig3_vSoSgLifWAoTYa1M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

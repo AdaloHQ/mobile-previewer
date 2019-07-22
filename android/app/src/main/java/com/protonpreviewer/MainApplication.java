@@ -1,4 +1,4 @@
-package com.adalo;
+package com.protonpreviewer;
 
 import android.app.Application;
 
@@ -7,6 +7,8 @@ import com.proyecto26.inappbrowser.RNInAppBrowserPackage;
 import com.jadsonlourenco.RNShakeEvent.RNShakeEventPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import cl.json.RNSharePackage;
@@ -36,6 +38,8 @@ public class MainApplication extends Application implements ReactApplication {
             new RNShakeEventPackage(),
             new RNGestureHandlerPackage(),
             new RNFirebasePackage(),
+new RNFirebaseNotificationsPackage(),
+new RNFirebaseMessagingPackage(),
             new VectorIconsPackage(),
             new RNFetchBlobPackage(),
             new RNSharePackage(),

@@ -1,4 +1,4 @@
-package com.adalo;
+package com.protonpreviewer;
 
 import com.facebook.react.ReactActivity;
 
