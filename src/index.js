@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Platform, AppState } from 'react-native'
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
-import { StackActions, NavigationActions } from 'react-navigation'
 import { ActionSheetProvider } from '@expo/react-native-action-sheet'
 import { reducer as formReducer } from 'redux-form'
 import 'es6-symbol/implement'
@@ -33,22 +31,6 @@ class Wrapper extends Component {
     }
   }
 
-  handleChangeAppState = () => {
-    let currentState = AppState.currentState
-    let navigation = this._navigation
-
-    if (!navigation || Platform.OS === 'android') { return }
-
-    if (currentState === 'background') {
-      navigation.dispatch(StackActions.reset({
-        index: 0,
-        actions: [
-          NavigationActions.navigate({ routeName: 'Home' }),
-        ],
-      }))
-    }
-  }
-
   handleRegister = token => {
     this.setState({ deviceId: token })
   }
@@ -75,18 +57,11 @@ class Wrapper extends Component {
   }
 
   componentDidMount() {
-    AppState.addEventListener('change', this.handleChangeAppState)
-
     register({
       onRegister: this.handleRegister,
       onNotification: this.handleNotification,
     })
   }
-
-  componentWillUnmount() {
-    AppState.removeEventListener('change', this.handleChangeAppState)
-  }
-
 
   navRef = el => {
     this._navigation = el

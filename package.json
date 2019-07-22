@@ -1,26 +1,24 @@
 {
-  "name": "ProtonPreviewer",
+  "name": "Adalo",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "bundle-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && rm -rf android/app/src/main/res/drawable-*/src* && rm -rf android/app/src/main/res/drawable-*/node_modules*",
-    "postinstall": "sed -i '' '/DevelopmentTeam = V9WTTPBFK9/d;/DEVELOPMENT_TEAM/d;/ProvisioningStyle = Automatic/d' ./node_modules/react-native/React/React.xcodeproj/project.pbxproj"
+    "bundle:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && rm -rf android/app/src/main/res/drawable-*/src* && rm -rf android/app/src/main/res/drawable-*/node_modules* && rm -rf android/app/src/main/res/drawable-*/images_*"
   },
   "dependencies": {
-    "@expo/react-native-action-sheet": "^1.1.2",
-    "@protonapp/material-components": "^0.0.12",
-    "@protonapp/proton-runner": "^0.0.68",
-    "@protonapp/stripe-component": "^0.0.1",
-    "axios": "^0.17.1",
-    "buffer": "^5.0.8",
+    "@expo/react-native-action-sheet": "^3.0.3",
+    "@protonapp/material-components": "^0.0.25",
+    "@protonapp/proton-runner": "^0.0.71",
+    "@protonapp/stripe-component": "^0.0.2",
+    "axios": "^0.19.0",
     "es6-symbol": "^3.1.1",
-    "immutability-helper": "^2.5.0",
-    "moment": "^2.19.1",
-    "react": "16.5.0",
-    "react-native": "0.57.1",
-    "react-native-firebase": "^5.2.2",
+    "moment": "^2.24.0",
+    "react": "16.8.3",
+    "react-native": "0.59.10",
+    "react-native-firebase": "5.4.2",
+    "react-native-gesture-handler": "^1.3.0",
     "react-native-push-notification": "^3.1.2",
     "react-native-scalable-image": "^0.5.0",
     "react-native-shake-event": "^4.0.1",
@@ -30,12 +28,13 @@
     "redux-form": "^7.1.2"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.1.2",
+    "@babel/core": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
     "aws-sdk": "^2.415.0",
-    "babel-jest": "23.6.0",
-    "jest": "23.6.0",
-    "metro-react-native-babel-preset": "0.47.0",
-    "react-test-renderer": "16.5.0"
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
+    "metro-react-native-babel-preset": "^0.55.0",
+    "react-test-renderer": "16.8.3"
   },
   "jest": {
     "preset": "react-native"

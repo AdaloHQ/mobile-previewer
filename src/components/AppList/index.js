@@ -12,7 +12,6 @@ import { connect } from 'react-redux'
 import { getAuthVisible, getCurrentUser } from '../../ducks/users'
 import ListWrapper from './ListWrapper'
 import MenuButton from './MenuButton'
-import LogoImage from './images/foundry-logo-text.png'
 import AppBar from './AppBar'
 
 class AppList extends Component {

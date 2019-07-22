@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet, SafeAreaView, Platform } from 'react-native'
 
 import MenuButton from './MenuButton'
-import LogoImage from './images/foundry-logo-text.png'
+import LogoImage from './images/logo-image.png'
 
 const STATUS_BAR_HEIGHT = 24
 
@@ -30,12 +30,9 @@ export default class AppBar extends Component {
           </View>
         </SafeAreaView>
         <View style={styles.headerStripe}>
-          <View style={{ flex: 1, backgroundColor: '#a82058' }} />
+          <View style={{ flex: 1, backgroundColor: '#04a797' }} />
+          <View style={{ flex: 1, backgroundColor: '#fdbc11' }} />
           <View style={{ flex: 1, backgroundColor: '#ef4c30' }} />
-          <View style={{ flex: 1, backgroundColor: '#ffc00e' }} />
-          <View style={{ flex: 1, backgroundColor: '#a1cd46' }} />
-          <View style={{ flex: 1, backgroundColor: '#00a898' }} />
-          <View style={{ flex: 1, backgroundColor: '#43437a' }} />
         </View>
       </View>
     )

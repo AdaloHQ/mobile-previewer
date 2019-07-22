@@ -9,10 +9,11 @@ import {
   Animated,
   Easing,
   AsyncStorage,
+  Platform,
 } from 'react-native'
 
 import { connect } from 'react-redux'
-import { NavigationActions } from 'react-navigation'
+import { StackActions, NavigationActions } from 'react-navigation'
 import ShakeEvent from 'react-native-shake-event'
 import { connectActionSheet } from '@expo/react-native-action-sheet'
 
@@ -68,10 +69,15 @@ class Viewer extends Component {
     let currentState = AppState.currentState
     let { navigation } = this.props
 
-    if (currentState === 'active' && this._prevAppState === 'background') {
-      //navigation.dispatch(NavigationActions.back())
-    } else {
-      this._prevAppState = currentState
+    if (!navigation || Platform.OS === 'android') { return }
+
+    if (currentState === 'background') {
+      navigation.dispatch(StackActions.reset({
+        index: 0,
+        actions: [
+          NavigationActions.navigate({ routeName: 'Home' }),
+        ],
+      }))
     }
   }
 
