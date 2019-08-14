@@ -822,10 +822,10 @@
   resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.35.tgz#5a9fb459d5df6ebafc5a59acd6e48e86b747620b"
   integrity sha512-vyFreQyeHT2xnp/oNaXw9G11WxYAtRbytdfCLi4ZT3S1v4cgnwX3h+z1fkbOkEMrhksiX3N3NHtxicLR089GZw==
 
-"@protonapp/proton-runner@^0.0.71":
-  version "0.0.71"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.71.tgz#7ecdf68ef5809555372f7b761a07817fe5e7d814"
-  integrity sha512-/EdsQqJT7alR+cz3mi3RHspaf1QOaW6ospUXahuBAX8aucrPOo8PqDHOF0CIvfXycbVhwEsNbxeBGRDwnbx1lQ==
+"@protonapp/proton-runner@^0.0.74":
+  version "0.0.74"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.74.tgz#9e48be5adedf93cbaeeec6b49356a671a8c9de89"
+  integrity sha512-Y5P9gSGIlud2kyoW6w1O+2wD1oJKIc8u6E1vB2j5ScVRe6zGdq/YDk0u8fpG0Grn4AnxgzBp2eCCsd/aAnOZjQ==
   dependencies:
     "@protonapp/proton-constants" "0.0.35"
     "@protonapp/react-mobile-date-picker" "^0.0.5"
@@ -853,7 +853,7 @@
     redux-form "^7.2.0"
     redux-promise-middleware "^5.0.0"
     redux-thunk "^2.2.0"
-    rn-fetch-blob "^0.10.13"
+    rn-fetch-blob "0.10.15"
 
 "@protonapp/react-mobile-date-picker@^0.0.5":
   version "0.0.5"
@@ -6884,10 +6884,10 @@ rimraf@~2.2.6:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
-rn-fetch-blob@^0.10.13:
-  version "0.10.16"
-  resolved "https://registry.yarnpkg.com/rn-fetch-blob/-/rn-fetch-blob-0.10.16.tgz#bd54f66c94f7a8e06c213077483646478ae8d230"
-  integrity sha512-hZV+nF0HK4CWmspXGMw7/G8Q8qugpS/wbKiNLsFpdBZR8XYzjFZNvBWgGyC0F5JWQn3sjmK2w/FJjBlwdQWNQg==
+rn-fetch-blob@0.10.15:
+  version "0.10.15"
+  resolved "https://registry.yarnpkg.com/rn-fetch-blob/-/rn-fetch-blob-0.10.15.tgz#3526860c1c57e0bf4c09bdbe409c919264afffba"
+  integrity sha512-/m/gurTaPAvR3J843uehHhznj5k89x7XClyO5ejmbspNLNQ4ByF+kZs80wiiKGWntj+Wqo0jJu1goArXEfc0kA==
   dependencies:
     base-64 "0.1.0"
     glob "7.0.6"
