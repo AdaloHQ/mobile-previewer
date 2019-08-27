@@ -808,26 +808,27 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
-"@protonapp/material-components@^0.0.25":
-  version "0.0.25"
-  resolved "https://registry.yarnpkg.com/@protonapp/material-components/-/material-components-0.0.25.tgz#b5bfef3bc1c080ab0b3e5ccfd171568caa9785d1"
-  integrity sha512-3AEMLapWj5kAh4LxXt/lXOHRW31XtKAR2nIYtK9s6Pd1Qsis91IUaNsEetk6TtglMBEJLdqPoOolimZTnK/Aqg==
+"@protonapp/material-components@^0.0.26":
+  version "0.0.26"
+  resolved "https://registry.yarnpkg.com/@protonapp/material-components/-/material-components-0.0.26.tgz#7f64d6e62c610965964ab6ea74a668d89cf38d5f"
+  integrity sha512-ogI6XmgCRMIpw9NDDwjWqGpW5cHXEQ5AgrFWtjPLQDVAaRgSMIn3qDi4owef6OcYeHJ/MW3LQmuliv/f6gd++g==
   dependencies:
     "@protonapp/react-native-material-ui" "^2.0.2"
     color "^3.1.0"
+    react-native-masonry-layout "^1.0.6"
     react-native-vector-icons "^6.0.2"
 
-"@protonapp/proton-constants@0.0.35":
-  version "0.0.35"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.35.tgz#5a9fb459d5df6ebafc5a59acd6e48e86b747620b"
-  integrity sha512-vyFreQyeHT2xnp/oNaXw9G11WxYAtRbytdfCLi4ZT3S1v4cgnwX3h+z1fkbOkEMrhksiX3N3NHtxicLR089GZw==
+"@protonapp/proton-constants@0.0.36":
+  version "0.0.36"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.36.tgz#34fb83836477775a2510ba461350916c49ba15c2"
+  integrity sha512-QxL/JPhsz1EXEe74Xu/muaHdK6oiLO3VneCPNvk2nutfbRuhOkzKVLFRPJ/WG+AWj9fJPL64uz+IFBvvGTpBXQ==
 
-"@protonapp/proton-runner@^0.0.74":
-  version "0.0.74"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.74.tgz#9e48be5adedf93cbaeeec6b49356a671a8c9de89"
-  integrity sha512-Y5P9gSGIlud2kyoW6w1O+2wD1oJKIc8u6E1vB2j5ScVRe6zGdq/YDk0u8fpG0Grn4AnxgzBp2eCCsd/aAnOZjQ==
+"@protonapp/proton-runner@^0.0.80":
+  version "0.0.80"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.80.tgz#66c4c398625265f3f81aa394f5735d6ae09947e8"
+  integrity sha512-X1vXIQ4VbvVwu71tQBm1OSmDp5cEIdvYDmGdgr6tucXxriim/C3zU1wgLfCqYNpCw+zQdxTW8EPCPp3olqNF2A==
   dependencies:
-    "@protonapp/proton-constants" "0.0.35"
+    "@protonapp/proton-constants" "0.0.36"
     "@protonapp/react-mobile-date-picker" "^0.0.5"
     axios "^0.17.1"
     buffer "^5.0.8"
@@ -6313,6 +6314,11 @@ react-native-layout-guides@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/react-native-layout-guides/-/react-native-layout-guides-0.1.2.tgz#d2399ced270e864b50514bfe29c8358e80a41ad3"
   integrity sha512-FTSrfEVDXcSB4IKqScwRnv8raR9vsWEjF4CaqMTz66tz6qnPuw3ekjMtC/2M6l8iKry4ngSge0yGhS8QOOFlFg==
+
+react-native-masonry-layout@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-masonry-layout/-/react-native-masonry-layout-1.0.6.tgz#b0ac509fb22a07b1df91e91b7c56374251aa68e2"
+  integrity sha1-sKxQn7IqB7HfkekbfFY3QlGqaOI=
 
 react-native-material-design-styles@^0.2.6:
   version "0.2.7"
