@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@expo/react-native-action-sheet": "^3.0.3",
-    "@protonapp/material-components": "^0.0.26",
-    "@protonapp/proton-runner": "^0.0.80",
+    "@protonapp/material-components": "^0.0.28",
+    "@protonapp/proton-runner": "^0.0.82",
     "@protonapp/stripe-component": "^0.0.2",
     "axios": "^0.19.0",
     "es6-symbol": "^3.1.1",

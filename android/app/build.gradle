@@ -105,8 +105,8 @@ android {
         applicationId "com.protonpreviewer"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 5
-        versionName "5.0"
+        versionCode 8
+        versionName "8.0"
     }
 signingConfigs {
 release {
@@ -156,6 +156,8 @@ dependencies {
 implementation "com.google.android.gms:play-services-base:16.1.0"
 implementation "com.google.firebase:firebase-core:16.0.9"
 implementation "com.google.firebase:firebase-messaging:18.0.0"
+    implementation 'com.facebook.fresco:fresco:1.10.0'
+    implementation 'com.facebook.fresco:animated-gif:1.10.0'
     implementation project(':react-native-vector-icons')
     implementation project(':rn-fetch-blob')
     implementation project(':react-native-share')
