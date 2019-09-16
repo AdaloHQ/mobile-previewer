@@ -822,10 +822,10 @@
   resolved "https://registry.yarnpkg.com/@protonapp/proton-constants/-/proton-constants-0.0.36.tgz#34fb83836477775a2510ba461350916c49ba15c2"
   integrity sha512-QxL/JPhsz1EXEe74Xu/muaHdK6oiLO3VneCPNvk2nutfbRuhOkzKVLFRPJ/WG+AWj9fJPL64uz+IFBvvGTpBXQ==
 
-"@protonapp/proton-runner@^0.0.82":
-  version "0.0.82"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.82.tgz#350bbc75458cb8dcd4d2e944f097dd53222accbf"
-  integrity sha512-kHyni4zpptashdrTmyeElWQsGJ8rLr1bqz/425la7IpEJoNE+Tmdz5axi2BmkkuLFFOe8ZVkDtATb3plW+d66w==
+"@protonapp/proton-runner@^0.0.86":
+  version "0.0.86"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.86.tgz#02181a74c73229f36137901e1ce5ca665bad262a"
+  integrity sha512-USv5U8UzLejh5W2MdfwMu6yDEXgLIa/Rbav38oJL+TaoHHpvgXLusIR0DRer0MW2UzghyxwAYokznaPMXPBQkQ==
   dependencies:
     "@protonapp/proton-constants" "0.0.36"
     "@protonapp/react-mobile-date-picker" "^0.0.5"
