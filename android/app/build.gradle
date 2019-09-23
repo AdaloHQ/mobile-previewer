@@ -149,6 +149,7 @@ signingConfig signingConfigs.release
 }
 
 dependencies {
+    implementation project(':react-native-webview')
     implementation project(':react-native-inappbrowser-reborn')
     implementation project(':react-native-shake-event')
     implementation project(':react-native-gesture-handler')
