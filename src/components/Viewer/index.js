@@ -20,6 +20,7 @@ import { connectActionSheet } from '@expo/react-native-action-sheet'
 import Runner from '@protonapp/proton-runner'
 import * as MaterialComponents from '@protonapp/material-components'
 import * as StripeComponents from '@protonapp/stripe-component'
+import * as MapComponent from '@protonapp/map-component'
 
 import { getApp, requestApp } from '../../ducks/apps'
 import Modal from './Modal'
@@ -86,6 +87,7 @@ class Viewer extends Component {
     return {
       '@protonapp/material-components': MaterialComponents,
       '@protonapp/stripe-component': StripeComponents,
+      '@protonapp/map-component': MapComponent,
     }
   }
 

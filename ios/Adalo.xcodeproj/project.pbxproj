@@ -69,6 +69,7 @@
 		E21E0F06F96E42F68AF5D210 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE106900F244D5CAE73C219 /* libRNImagePicker.a */; };
 		E78E3D5342C24552B4C434FD /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DEA64727B6F4E469EA35062 /* FontAwesome5_Brands.ttf */; };
 		EA4EFBCEDC4B45078580394D /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B81FA8642EE1456B8008532B /* SimpleLineIcons.ttf */; };
+		EA93E79014995CBD00D94DD5 /* libPods-Adalo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 500906951E2A052318DF74AD /* libPods-Adalo.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		F822DC8D489348D48B92D2EC /* libRNCWebView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFD1E9D61C64A1997AB5BFA /* libRNCWebView.a */; };
@@ -502,6 +503,8 @@
 		3EFD1E9D61C64A1997AB5BFA /* libRNCWebView.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCWebView.a; sourceTree = "<group>"; };
 		48F330CACCA04D758A83FC54 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		4D44207EA3C1400CA0E9D71C /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = "<group>"; };
+		500906951E2A052318DF74AD /* libPods-Adalo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Adalo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		577929A235B25477BC0F19B3 /* Pods-Adalo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Adalo.debug.xcconfig"; path = "Target Support Files/Pods-Adalo/Pods-Adalo.debug.xcconfig"; sourceTree = "<group>"; };
 		58DE1DECB2B641C3AEC6AD3F /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
 		5A3A65F516FA47A79FF2A860 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		5DEA64727B6F4E469EA35062 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
@@ -537,6 +540,7 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F1F7EC257FAB4EFCA59BDF8C /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		FD3AD6D0DE584517866D538A /* libRNIcloudFilePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNIcloudFilePicker.a; sourceTree = "<group>"; };
+		FD9D580190F855D6A3F78177 /* Pods-Adalo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Adalo.release.xcconfig"; path = "Target Support Files/Pods-Adalo/Pods-Adalo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -577,6 +581,7 @@
 				0EB1BCFD8687466AA4D7D410 /* libRNShakeEvent.a in Frameworks */,
 				B490FAD7880442ABB52D28A1 /* libRNInAppBrowser.a in Frameworks */,
 				F822DC8D489348D48B92D2EC /* libRNCWebView.a in Frameworks */,
+				EA93E79014995CBD00D94DD5 /* libPods-Adalo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,6 +763,7 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				500906951E2A052318DF74AD /* libPods-Adalo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -830,6 +836,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				28F9CCAB517742D489B84317 /* Resources */,
 				DF0EE4ED22E50E62007366A6 /* Recovered References */,
+				F9879F74AE8E55A9A08650E1 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -977,6 +984,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F9879F74AE8E55A9A08650E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				577929A235B25477BC0F19B3 /* Pods-Adalo.debug.xcconfig */,
+				FD9D580190F855D6A3F78177 /* Pods-Adalo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1002,10 +1019,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Adalo" */;
 			buildPhases = (
+				C80D5CDC72900014BC26FE66 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				AC945816C36EC4CED895AF8C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1659,6 +1678,46 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		AC945816C36EC4CED895AF8C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Adalo/Pods-Adalo-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Adalo/Pods-Adalo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C80D5CDC72900014BC26FE66 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Adalo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1827,6 +1886,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 577929A235B25477BC0F19B3 /* Pods-Adalo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Adalo/Adalo.entitlements;
@@ -1862,6 +1922,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD9D580190F855D6A3F78177 /* Pods-Adalo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Adalo/Adalo.entitlements;
