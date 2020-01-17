@@ -18,7 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [GMSServices provideAPIKey:@"AIzaSyCzf2yhf3BobSKtH96KA_68hed2FffXci8"]; // add this line using the api key obtained from Google Console
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(receiveNotification:)
+                                               name:@"APIKeyNotification"
+                                             object:nil];
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
@@ -38,6 +41,15 @@
   center.delegate = self;
 
   return YES;
+}
+
+- (void) receiveNotification:(NSNotification *) notification
+{
+  if ([[notification name] isEqualToString:@"APIKeyNotification"]) {
+    NSString *apiKey = notification.object;
+    NSLog(@"Here is Google map API Key - %@", apiKey);
+    [GMSServices provideAPIKey:apiKey];
+  }
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

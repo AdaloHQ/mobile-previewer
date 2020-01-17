@@ -49,6 +49,7 @@
 		6EB08971A2174B28B186EDA6 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5FA2997D89F24125920F6EA6 /* Entypo.ttf */; };
 		6EBEF0B56DEB4FDCA35C9A1E /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 789D5C728C87471584E24FCD /* Fontisto.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		8417631423D055C7003A7CD6 /* KeyModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8417631323D055C7003A7CD6 /* KeyModule.m */; };
 		8774F1B491B94DE1B97C1AC0 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F330CACCA04D758A83FC54 /* libRNVectorIcons.a */; };
 		8C4BCF989C4C4A7AA86F3310 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31E9EDD030024099A6376696 /* Feather.ttf */; };
 		912F2FFC9470450D9940763E /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A3A65F516FA47A79FF2A860 /* Ionicons.ttf */; };
@@ -516,6 +517,8 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7C6B8DAD2B3241A9A6B7E805 /* libRNVectorIcons-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNVectorIcons-tvOS.a"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		8417631323D055C7003A7CD6 /* KeyModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KeyModule.m; path = Adalo/KeyModule.m; sourceTree = "<group>"; };
+		8417634A23D05612003A7CD6 /* KeyModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KeyModule.h; path = Adalo/KeyModule.h; sourceTree = "<group>"; };
 		8965B94EF39445B1BC09E415 /* RNInAppBrowser.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNInAppBrowser.xcodeproj; path = "../node_modules/react-native-inappbrowser-reborn/ios/RNInAppBrowser.xcodeproj"; sourceTree = "<group>"; };
 		8D1A8FA39E1646008113CCEB /* libRNShakeEvent.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNShakeEvent.a; sourceTree = "<group>"; };
 		96DE91C07D3E44598F3E306B /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
@@ -701,6 +704,8 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				8417634A23D05612003A7CD6 /* KeyModule.h */,
+				8417631323D055C7003A7CD6 /* KeyModule.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -990,7 +995,6 @@
 				577929A235B25477BC0F19B3 /* Pods-Adalo.debug.xcconfig */,
 				FD9D580190F855D6A3F78177 /* Pods-Adalo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -1734,6 +1738,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				8417631423D055C7003A7CD6 /* KeyModule.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
