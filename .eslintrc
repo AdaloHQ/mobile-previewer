@@ -1,0 +1,95 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "plugin:prettier/recommended", "prettier/react"],
+  "plugins": ["react-hooks"],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "jsx-a11y/href-no-hash": ["off"],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    "semi": "off",
+    "lines-between-class-members": [
+      "error",
+      "always",
+      {
+        "exceptAfterSingleLine": true
+      }
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 80,
+        "tabWidth": 2,
+        "comments": 80,
+        "ignoreComments": false,
+        "ignoreStrings": true
+      }
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "none",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "curly": ["error", "multi-line"],
+    "no-cond-assign": "off",
+    "prefer-const": "off",
+    "no-shadow": "off",
+    "no-use-before-define": "off",
+    "no-param-reassign": "off",
+    "no-useless-escape": "off",
+    "import/prefer-default-export": "off",
+    "no-restricted-syntax": "off",
+    "class-methods-use-this": "off",
+    "no-else-return": "off",
+    "prefer-destructuring": "off",
+    "spaced-comment": "off",
+    "import/no-cycle": "off",
+    "consistent-return": "off",
+    "default-case": "off",
+    "no-return-assign": "off",
+    "no-continue": "off",
+    "radix": "off",
+    "no-loop-func": "off",
+    "array-callback-return": "off",
+    "no-throw-literal": "off",
+    "react/prop-types": "off",
+    "react/prefer-stateless-function": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/no-autofocus": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/aria-role": "off",
+    "react/jsx-props-no-spreading": "off",
+    "operator-assignment": "off",
+    "react/sort-comp": "off",
+    "no-return-await": "off",
+    "react/require-default-props": "off",
+    "no-underscore-dangle": "off",
+    "react/forbid-prop-types": "off",
+    "no-lonely-if": "off",
+    "no-await-in-loop": "off",
+    "no-nested-ternary": "off",
+    "max-classes-per-file": "off",
+    "react/state-in-constructor": "off",
+    "react/static-property-placement": "off",
+    "import/no-named-as-default": "off",
+    "react/jsx-fragments": "off",
+    "guard-for-in": "off",
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": ["react-native"]
+      }
+    ]
+  }
+}
