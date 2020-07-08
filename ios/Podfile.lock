@@ -324,11 +324,11 @@ PODS:
     - React
   - RNGestureHandler (1.6.1):
     - React
-  - RNIcloudFilePicker (0.0.3):
+  - RNIcloudFilePicker (1.0.0):
     - React
   - RNInAppBrowser (3.1.0):
     - React
-  - RNLayoutGuides (0.1.5):
+  - RNLayoutGuides (1.0.0):
     - React
   - RNShare (2.0.0):
     - React
@@ -375,9 +375,9 @@ DEPENDENCIES:
   - RNFirebase (from `../node_modules/react-native-firebase/ios`)
   - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
-  - RNIcloudFilePicker (from `../node_modules/react-native-icloud-file-picker`)
+  - RNIcloudFilePicker (from `../node_modules/react-native-icloud-file-picker/ios`)
   - RNInAppBrowser (from `../node_modules/react-native-inappbrowser-reborn`)
-  - RNLayoutGuides (from `../node_modules/react-native-layout-guides`)
+  - RNLayoutGuides (from `../node_modules/react-native-layout-guides/ios`)
   - RNShare (from `../node_modules/react-native-share`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
@@ -471,11 +471,11 @@ EXTERNAL SOURCES:
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNIcloudFilePicker:
-    :path: "../node_modules/react-native-icloud-file-picker"
+    :path: "../node_modules/react-native-icloud-file-picker/ios"
   RNInAppBrowser:
     :path: "../node_modules/react-native-inappbrowser-reborn"
   RNLayoutGuides:
-    :path: "../node_modules/react-native-layout-guides"
+    :path: "../node_modules/react-native-layout-guides/ios"
   RNShare:
     :path: "../node_modules/react-native-share"
   RNSVG:
@@ -537,14 +537,14 @@ SPEC CHECKSUMS:
   RNFirebase: ac0de8b24c6f91ae9459575491ed6a77327619c6
   RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
-  RNIcloudFilePicker: b8ebb02157accd8843f89da80f2b86816454c50f
+  RNIcloudFilePicker: 2a880537e2eda6b42cb83f568a77e311ce6b7fa6
   RNInAppBrowser: 9d1ffb9db0d0cbdf03f528f1f0624b2c533b93fd
-  RNLayoutGuides: 0cddb904c4a7820ffd874f5d2a3dd66b4f50dd85
+  RNLayoutGuides: 09e2a02b4087453c20dc971088fd8f7c603ff86a
   RNShare: 8b171d4b43c1d886917fdd303bf7a4b87167b05c
   RNSVG: f6177f8d7c095fada7cfee2e4bb7388ba426064c
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: d8c572ddec8d05b7dba08e4e5f1924004a177078
 
-PODFILE CHECKSUM: 7873e182278ae93899fffe7e8b1e5b82035f4485
+PODFILE CHECKSUM: 7d64628f2b296667ad4bbe0ec38ca1c8e788d5d3
 
 COCOAPODS: 1.9.1

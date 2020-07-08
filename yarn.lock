@@ -6259,8 +6259,10 @@ react-native-hyperlinked-text@^1.0.1:
     prop-types "^15.6.0"
     ramda "^0.24.1"
 
-react-native-icloud-file-picker@../react-native-icloud-picker:
+react-native-icloud-file-picker@0.0.2:
   version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-icloud-file-picker/-/react-native-icloud-file-picker-0.0.2.tgz#5c5734f52429a90257a1b9f47430423ec98a4cba"
+  integrity sha512-kVhldgyGAq/cTFyYDy+/YGzr3YN/n+X3nUhKqCwEmNp+RDNofFSej7C3dxsCWQJrSOdXyDJRGCcB6xHPVlosig==
 
 react-native-icloud-file-picker@^0.0.1:
   version "0.0.1"
@@ -6291,8 +6293,10 @@ react-native-inappbrowser-reborn@^3.1.0:
     invariant "^2.2.4"
     opencollective-postinstall "^2.0.2"
 
-react-native-layout-guides@../react-native-layout-guides:
+react-native-layout-guides@0.1.4:
   version "0.1.4"
+  resolved "https://registry.yarnpkg.com/react-native-layout-guides/-/react-native-layout-guides-0.1.4.tgz#a0c60192512a5a647f766079079c87c5a9fabce6"
+  integrity sha512-Ixiub16Oq58DVD5jpmfamsDYF4BEG+uWaXKNDvQZEFg+ngpI5HnR8OtPupxEdwwG2tp8xHCa2Ety5FUMEXuHGA==
 
 react-native-layout-guides@^0.1.2:
   version "0.1.2"
