@@ -14,159 +14,105 @@ import {
 
 import { connect } from 'react-redux'
 import { StackActions, NavigationActions } from 'react-navigation'
-import ShakeEvent from 'react-native-shake-event'
-import { connectActionSheet } from '@expo/react-native-action-sheet'
+import RNShake from 'react-native-shake'
+import ActionSheet from 'react-native-action-sheet'
 
 import Runner from '@protonapp/proton-runner'
-import * as MaterialComponents from '@protonapp/material-components'
-import * as StripeComponents from '@protonapp/stripe-component'
 
 import { getApp, requestApp } from '../../ducks/apps'
-import Modal from './Modal'
+import AppBar from '../AppList/AppBar'
 
-export const baseURL = 'https://proton-database.herokuapp.com'
-export const assetsBaseURL = 'https://s3-us-west-1.amazonaws.com/apto-resources-dev'
-export const uploadsBaseURL = 'https://foundry-uploads.imgix.net'
-export const notificationsURL = 'https://proton-notifications.herokuapp.com'
+export const baseURL = 'https://database-red.adalo.com'
+export const assetsBaseURL =
+  'https://s3-us-west-1.amazonaws.com/apto-resources-dev'
+export const fileUploadsBaseURL =
+  'https://proton-uploads-production.s3.amazonaws.com'
+export const imageUploadsBaseURL = 'https://adalo-uploads.imgix.net'
+export const notificationsURL = 'https://notifications.adalo.com'
+
+import libraries from '../../../libraries'
 
 class Viewer extends Component {
-  menuOpen = false
-
-  state = {
-    modalOpacity: new Animated.Value(0),
-    modalVisible: false,
-  }
-
   handleClose = () => {
     let { navigation } = this.props
 
     navigation.dispatch(NavigationActions.back())
   }
 
-  handleShake = () => {
-    if (this.menuOpen) { return }
-    this.menuOpen = true
+  menuButtonCB = () => {
+    ActionSheet.showActionSheetWithOptions(
+      {
+        options: ['Cancel', 'Reload', 'Exit'],
+        cancelButtonIndex: 0,
+      },
+      async (index) => {
+        let { navigation, requestApp } = this.props
 
-    let { navigation, requestApp } = this.props
-
-    this.props.showActionSheetWithOptions({
-      options: ['Cancel', 'Reload', 'Exit'],
-      cancelButtonIndex: 0
-    }, index => {
-      this.menuOpen = false
-
-      if (index === 1) {
-        // Reload
-        requestApp(navigation.state.params.appId)
-      } else if (index === 2) {
-        // Exit
-        this.handleClose()
+        if (index === 1) {
+          // Reload
+          requestApp(navigation.state.params.appId)
+        } else if (index === 2) {
+          // Exit
+          this.handleClose()
+        }
       }
-    })
+    )
   }
 
   handleChangeAppState = () => {
     let currentState = AppState.currentState
     let { navigation } = this.props
 
-    if (!navigation || Platform.OS === 'android') { return }
+    if (!navigation || Platform.OS === 'android') {
+      return
+    }
 
     if (currentState === 'background') {
-      navigation.dispatch(StackActions.reset({
-        index: 0,
-        actions: [
-          NavigationActions.navigate({ routeName: 'Home' }),
-        ],
-      }))
+      navigation.dispatch(
+        StackActions.reset({
+          index: 0,
+          actions: [NavigationActions.navigate({ routeName: 'Home' })],
+        })
+      )
     }
   }
 
-  getLibraries = () => {
-    // Hardcoded for now...
-    return {
-      '@protonapp/material-components': MaterialComponents,
-      '@protonapp/stripe-component': StripeComponents,
-    }
-  }
+  getLibraries = () => libraries
 
-  showShakeModal = async () => {
-    let { modalOpacity } = this.state
-
-    let modalDismissed = await AsyncStorage.getItem('shakeModalDismissed')
-
-    if (modalDismissed === 'true') { return }
-
-    Animated.timing(modalOpacity, {
-      toValue: 1,
-      duration: 200,
-      delay: 400,
-    }).start()
-
-    this.setState({ modalVisible: true })
-  }
-
-  hideShakeModal = async () => {
-    let { modalOpacity } = this.state
-
-    Animated.timing(modalOpacity, {
-      toValue: 0,
-      duration: 200,
-      delay: 50,
-    }).start()
-
-    this.setState({ modalVisible: false })
-  }
-
-  handleNeverAgain = async () => {
-    this.hideShakeModal()
-
-    await AsyncStorage.setItem('shakeModalDismissed', 'true')
+  getAssetURL = (filename) => {
+    return images[filename] || `${assetsBaseURL}/${filename}`
   }
 
   componentDidMount() {
     let { navigation, requestApp } = this.props
     requestApp(navigation.state.params.appId)
 
-    ShakeEvent.addEventListener('shake', this.handleShake)
     AppState.addEventListener('change', this.handleChangeAppState)
-
-    this.showShakeModal()
   }
 
   componentWillUnmount() {
-    ShakeEvent.removeEventListener('shake')
     AppState.removeEventListener('change', this.handleChangeAppState)
   }
 
   render() {
     let { app, navigation } = this.props
     let { deviceId, initialRoute } = navigation.state.params
-    let { modalOpacity, modalVisible } = this.state
-    let modalStyles = { opacity: modalOpacity }
-
     return (
       <View style={styles.view}>
+        <AppBar navigation={navigation} menuButtonCB={this.menuButtonCB} />
         <Runner
           previewer
           skipNotifications
           app={app}
           baseURL={baseURL}
-          assetsBaseURL={assetsBaseURL}
-          uploadsBaseURL={uploadsBaseURL}
+          getAssetURL={this.getAssetURL}
+          fileUploadsBaseURL={fileUploadsBaseURL}
+          imageUploadsBaseURL={imageUploadsBaseURL}
           notificationsURL={notificationsURL}
           libraries={this.getLibraries()}
           deviceId={deviceId}
           initialRoute={initialRoute}
         />
-        <Animated.View
-          style={[styles.shakeModal, modalStyles]}
-          pointerEvents={modalVisible ? 'auto' : 'none'}
-        >
-          <Modal
-            onHide={this.hideShakeModal}
-            onNeverAgain={this.handleNeverAgain}
-          />
-        </Animated.View>
       </View>
     )
   }
@@ -189,10 +135,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state, ownProps) => ({
-  app: getApp(state, ownProps.navigation.state.params.appId)
+  app: getApp(state, ownProps.navigation.state.params.appId),
 })
 
-export default connectActionSheet(connect(
-  mapStateToProps,
-  { requestApp }
-)(Viewer))
+export default connect(mapStateToProps, { requestApp })(Viewer)

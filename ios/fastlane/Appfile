@@ -1,8 +1,0 @@
-app_identifier("com.protonapp.ios") # The bundle identifier of your app
-apple_id("jeremyjblalock@gmail.com") # Your Apple email address
-
-itc_team_id("110746804") # App Store Connect Team ID
-team_id("M6K49K362N") # Developer Portal Team ID
-
-# For more information about the Appfile, see:
-#     https://docs.fastlane.tools/advanced/#appfile
