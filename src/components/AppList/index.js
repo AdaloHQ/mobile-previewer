@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { View, Image, StyleSheet, Platform } from 'react-native'
+import { View, Image, StyleSheet, Platform, AsyncStorage } from 'react-native'
 
 import { connect } from 'react-redux'
 
@@ -35,6 +35,7 @@ const ConnectedAppList = connect(mapStateToProps)(AppList)
 
 export default class AppListWrapper extends Component {
   menuButtonCB = () => {
+    let { navigation } = this.props
     ActionSheet.showActionSheetWithOptions(
       {
         options: ['Cancel', 'Logout'],
