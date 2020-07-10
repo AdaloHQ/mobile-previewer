@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { AsyncStorage } from 'react-native'
 import { TouchableOpacity, Image, StyleSheet } from 'react-native'
 import ActionSheet from 'react-native-action-sheet'
 
