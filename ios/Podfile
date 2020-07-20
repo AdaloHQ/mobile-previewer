@@ -53,8 +53,6 @@ target 'AdaloApp' do
 
   pod 'RNCPushNotificationIOS', :path => '../node_modules/@react-native-community/push-notification-ios'
 
-  pod 'GoogleSignIn', '~> 5.0.2'
-
   target 'AdaloAppTests' do
     inherit! :search_paths
     # Pods for testing
