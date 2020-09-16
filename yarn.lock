@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@adalo/constants@^0.0.53":
-  version "0.0.53"
-  resolved "https://registry.yarnpkg.com/@adalo/constants/-/constants-0.0.53.tgz#4ecdd516c25025f828a8e1803428f7b38415ce32"
-  integrity sha512-+q2XYQWiPOOQ5TWDpUv09xzPVhu4HykyW0CG3D25n/vC4p4OFn1Q44IRsuujU4wl/onwdsmvLNTLt38ucGg7Fw==
+"@adalo/constants@^0.0.58":
+  version "0.0.58"
+  resolved "https://registry.yarnpkg.com/@adalo/constants/-/constants-0.0.58.tgz#dd171d470e460faf4aacb8aa22054c6910d74a3a"
+  integrity sha512-YHfcyXPQyCb2XOVW0B1NtBl7QHQ56sIZuwbBIg2F5mzL2UzWMbiKh5DqfnaLHHnByoWbnA6Chgsxvp8U6trbCQ==
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.5.5":
   version "7.5.5"
@@ -1178,12 +1178,12 @@
     color "^3.1.0"
     react-native-vector-icons "^6.0.2"
 
-"@protonapp/proton-runner@^0.0.235":
-  version "0.0.235"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.235.tgz#bf92b320469f888a4f65530619a2e91f181ea725"
-  integrity sha512-H8fhlXH8nR6lLazFCTMkCOWJHM//0YEpO/6QsdAwoRKW7Z5X/fnoDRjfcWChPhfHvSZ42GMNV6NHLY1l3NnqOQ==
+"@protonapp/proton-runner@^0.0.263":
+  version "0.0.263"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.263.tgz#c317ed108ead7f7e151b6dbb6af28881a7438259"
+  integrity sha512-KBrWwgUzP/3ofvSRdUmzbRjtN2/0Qvl4am1bP/24leQlZ8tM430qwQuL1x88rEB8x18sbdxmkyf5GkNprTlkmw==
   dependencies:
-    "@adalo/constants" "^0.0.53"
+    "@adalo/constants" "^0.0.58"
     "@protonapp/react-mobile-date-picker" "^0.0.9"
     "@react-native-community/push-notification-ios" "1.1.0"
     axios "^0.17.1"
@@ -1213,6 +1213,7 @@
     react-redux "^5.0.6"
     redux "^3.7.2"
     redux-form "^7.2.0"
+    redux-persist "^6.0.0"
     redux-promise-middleware "^5.0.0"
     redux-thunk "^2.2.0"
     rn-fetch-blob "0.11.2"
@@ -6992,6 +6993,11 @@ redux-form@^7.1.2, redux-form@^7.2.0:
     lodash-es "^4.17.10"
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
+
+redux-persist@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-6.0.0.tgz#b4d2972f9859597c130d40d4b146fecdab51b3a8"
+  integrity sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==
 
 redux-promise-middleware@^5.0.0:
   version "5.1.1"
