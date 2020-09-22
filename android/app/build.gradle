@@ -15,7 +15,9 @@ import com.android.build.OutputFile
  *   // the name of the generated asset file containing your JS bundle
  *   bundleAssetName: "index.android.bundle",
  *
- *   // the entry file for bundle generation
+ *   // the entry file for bundle generation. If none specified and
+ *   // "index.android.js" exists, it will be used. Otherwise "index.js" is
+ *   // default. Can be overridden with ENTRY_FILE environment variable.
  *   entryFile: "index.android.js",
  *
  *   // https://facebook.github.io/react-native/docs/performance#enable-the-ram-format
@@ -135,16 +137,16 @@ android {
         versionName "0.0.1"
         multiDexEnabled true
     }
-signingConfigs {
-release {
-if (project.hasProperty("MYAPP_RELEASE_STORE_FILE")) {
-storeFile file(MYAPP_RELEASE_STORE_FILE)
-storePassword MYAPP_RELEASE_STORE_PASSWORD
-keyAlias MYAPP_RELEASE_KEY_ALIAS
-keyPassword MYAPP_RELEASE_KEY_PASSWORD
-}
-}
-}
+    signingConfigs {
+        release {
+          if (project.hasProperty("MYAPP_RELEASE_STORE_FILE")) {
+            storeFile file(MYAPP_RELEASE_STORE_FILE)
+            storePassword MYAPP_RELEASE_STORE_PASSWORD
+            keyAlias MYAPP_RELEASE_KEY_ALIAS
+            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+          }
+        }
+    }
     splits {
         abi {
             reset()
@@ -167,7 +169,7 @@ keyPassword MYAPP_RELEASE_KEY_PASSWORD
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
-            // see https://facebook.github.io/react-native/docs/signed-apk-android.
+            // see https://reactnative.dev/docs/signed-apk-android.
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
@@ -193,11 +195,11 @@ signingConfig signingConfigs.release
 dependencies {
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-firebase')
-implementation "com.google.android.gms:play-services-base:16.1.0"
-implementation "com.google.firebase:firebase-core:16.0.9"
-implementation "com.google.firebase:firebase-messaging:18.0.0"
-implementation "com.facebook.fresco:fresco:2.0.0"
-implementation "com.facebook.fresco:animated-gif:2.0.0"
+    implementation "com.google.android.gms:play-services-base:16.1.0"
+    implementation "com.google.firebase:firebase-core:16.0.9"
+    implementation "com.google.firebase:firebase-messaging:18.0.0"
+    implementation "com.facebook.fresco:fresco:2.0.0"
+    implementation "com.facebook.fresco:animated-gif:2.0.0"
     implementation project(':rn-fetch-blob')
     implementation project(':react-native-webview')
     implementation project(':react-native-inappbrowser-reborn')
