@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "bundle:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && rm -rf android/app/src/main/res/drawable-*/src* && rm -rf android/app/src/main/res/drawable-*/node_modules* && rm -rf android/app/src/main/res/drawable-*/images_*"
+    "bundle:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && rm -rf android/app/src/main/res/drawable-*/src* && rm -rf android/app/src/main/res/drawable-*/node_modules* && rm -rf android/app/src/main/res/drawable-*/images_*",
+    "postinstall": "node scripts/excludePackages.js $(pwd)/node_modules"
   },
   "dependencies": {
     "@protonapp/material-components": "^0.0.40",

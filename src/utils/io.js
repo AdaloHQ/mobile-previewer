@@ -53,7 +53,11 @@ export const requestAll = () => {
 
 export const requestApp = (appId) => {
   return axios
-    .get(buildURL(`/apps/${appId}`))
+    .get(buildURL(`/apps/${appId}`), {
+      headers: {
+        'x-server-auth': 'hplovecraft',
+      },
+    })
     .then((resp) => store.dispatch(loadApp(resp.data)))
     .catch(handleError)
 }
