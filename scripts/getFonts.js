@@ -69,7 +69,7 @@ const getFontURLs = async (app, platform) => {
 }
 
 const downloadFonts = async (projectPath, platform, projectName, appId) => {
-  axios.defaults.headers['x-server-auth']
+  axios.defaults.headers['x-server-auth'] = ''
   const resp = await axios.get(`${baseURL}/apps/${appId}`)
   const app = resp.data
   const fonts = await getFontURLs(app, platform)
