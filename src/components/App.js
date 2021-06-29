@@ -1,29 +1,35 @@
-import { createStackNavigator, createAppContainer } from 'react-navigation'
-
+import { createStackNavigator } from '@react-navigation/stack'
+import { NavigationContainer } from '@react-navigation/native'
 import AppList from './AppList'
 import Viewer from './Viewer'
 import Login from './Login'
 
-const AppNavigator = createStackNavigator(
-  {
-    Home: { screen: AppList },
-    Login: {
-      screen: Login,
-      navigationOptions: {
-        gesturesEnabled: false
-      }
-    },
-    Viewer: {
-      screen: Viewer,
-      navigationOptions: {
-        gesturesEnabled: false
-      }
-    },
-  },
-  {
-    mode: 'modal',
-    headerMode: 'none'
-  }
-)
+const Stack = createStackNavigator();
 
-export default createAppContainer(AppNavigator)
+function AppNavigator() {
+  return (
+    <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={AppList} />
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{
+          navigationOptions: {
+            gesturesEnabled: false
+          }}}
+      />
+      <Stack.Screen
+        name="Viewer"
+        component={Viewer}
+        options={{
+          navigationOptions: {
+            gesturesEnabled: false
+          }}}
+      />
+    </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default AppNavigator;
