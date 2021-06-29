@@ -1,24 +1,14 @@
 import React, { Component } from 'react'
-
 import {
   View,
-  Text,
   StyleSheet,
-  TouchableHighlight,
   AppState,
-  Animated,
-  Easing,
-  AsyncStorage,
   Platform,
 } from 'react-native'
-
 import { connect } from 'react-redux'
 import { StackActions, NavigationActions } from 'react-navigation'
-import RNShake from 'react-native-shake'
 import ActionSheet from 'react-native-action-sheet'
-
 import Runner from '@protonapp/proton-runner'
-
 import { getApp, requestApp } from '../../ducks/apps'
 import AppBar from '../AppList/AppBar'
 
