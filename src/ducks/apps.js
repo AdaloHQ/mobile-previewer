@@ -1,5 +1,3 @@
-import uuid from 'uuid'
-
 import {
   requestAll,
   requestApp as requestSingle,
