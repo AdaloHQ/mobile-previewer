@@ -1,22 +1,18 @@
 import React, { Component } from 'react'
 import {
   View,
-  Text,
   Image,
   StyleSheet,
   SafeAreaView,
   Platform,
 } from 'react-native'
-
 import MenuButton from './MenuButton'
 import LogoImage from './images/logo-image.png'
 
-const STATUS_BAR_HEIGHT = 24
-
 export default class AppBar extends Component {
   render() {
-    let { navigation, menuButtonCB } = this.props
-    let innerWrapperStyles = {}
+    const { menuButtonCB } = this.props
+    const innerWrapperStyles = {}
 
     if (Platform.OS === 'android') {
       innerWrapperStyles.marginTop = 24
@@ -32,7 +28,7 @@ export default class AppBar extends Component {
             <View style={styles.title}>
               <Image source={LogoImage} />
             </View>
-            <View style={[styles.button, styles.RightButton]}></View>
+            <View style={[styles.button, styles.RightButton]} />
           </View>
         </SafeAreaView>
         <View style={styles.headerStripe}>

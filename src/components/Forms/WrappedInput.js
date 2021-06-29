@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { View, Text, TextInput } from 'react-native'
 
 export default class WrappedInput extends Component {
-  textInputRef = el => {
+  textInputRef = (el) => {
     this.input = el
   }
 
   componentDidMount() {
-    let { autoFocus } = this.props
+    const { autoFocus } = this.props
 
     setTimeout(() => {
       if (autoFocus && this.input) {
@@ -17,7 +17,7 @@ export default class WrappedInput extends Component {
   }
 
   render() {
-    let {
+    const {
       label,
       style,
       inputStyle,
@@ -27,13 +27,11 @@ export default class WrappedInput extends Component {
       ...props
     } = this.props
 
-    let { value, onChange } = this.props.input
+    const { value, onChange } = this.props.input
 
     return (
       <View style={style}>
-        {label
-          ? <Text style={labelStyle}>{label}</Text>
-          : null}
+        {label ? <Text style={labelStyle}>{label}</Text> : null}
         <TextInput
           {...props}
           ref={this.textInputRef}

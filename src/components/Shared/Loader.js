@@ -15,10 +15,10 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   text: {
     color: '#444',
-    fontSize: 17
-  }
+    fontSize: 17,
+  },
 })

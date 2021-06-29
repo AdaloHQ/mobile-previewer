@@ -5,7 +5,6 @@ import { Provider } from 'react-redux'
 import { reducer as formReducer } from 'redux-form'
 import { StackActions, NavigationActions } from 'react-navigation'
 import 'es6-symbol/implement'
-
 import * as reducers from './ducks'
 import App from './components/App'
 import { connectSocket } from './utils/io'
@@ -38,10 +37,10 @@ class Wrapper extends Component {
   }
 
   handleNotification = (appId, route) => {
-    let { deviceId } = this.state
+    const { deviceId } = this.state
 
     window.setTimeout(() => {
-      let navigation = this._navigation
+      const navigation = this._navigation
 
       if (!navigation) {
         return
@@ -62,8 +61,8 @@ class Wrapper extends Component {
     }, 100)
   }
 
-  componentDidMount() {
-    register({
+  async componentDidMount() {
+    await register({
       onRegister: this.handleRegister,
       onNotification: this.handleNotification,
     })

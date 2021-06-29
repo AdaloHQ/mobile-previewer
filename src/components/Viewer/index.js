@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
-import {
-  View,
-  StyleSheet,
-  AppState,
-  Platform,
-} from 'react-native'
+import { View, StyleSheet, AppState, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import { StackActions, NavigationActions } from 'react-navigation'
 import ActionSheet from 'react-native-action-sheet'
 import Runner from '@protonapp/proton-runner'
 import { getApp, requestApp } from '../../ducks/apps'
 import AppBar from '../AppList/AppBar'
+
+import libraries from '../../../libraries'
 
 export const baseURL = 'https://database-red.adalo.com'
 export const assetsBaseURL =
@@ -20,11 +17,17 @@ export const fileUploadsBaseURL =
 export const imageUploadsBaseURL = 'https://adalo-uploads.imgix.net'
 export const notificationsURL = 'https://notifications.adalo.com'
 
-import libraries from '../../../libraries'
-
 class Viewer extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      images: [],
+    }
+  }
+
   handleClose = () => {
-    let { navigation } = this.props
+    const { navigation } = this.props
 
     navigation.dispatch(NavigationActions.back())
   }
@@ -36,11 +39,11 @@ class Viewer extends Component {
         cancelButtonIndex: 0,
       },
       async (index) => {
-        let { navigation, requestApp } = this.props
+        const { route, requestApp } = this.props
 
         if (index === 1) {
           // Reload
-          requestApp(navigation.state.params.appId)
+          requestApp(route.params.appId)
         } else if (index === 2) {
           // Exit
           this.handleClose()
@@ -50,8 +53,8 @@ class Viewer extends Component {
   }
 
   handleChangeAppState = () => {
-    let currentState = AppState.currentState
-    let { navigation } = this.props
+    const { currentState } = AppState
+    const { navigation } = this.props
 
     if (!navigation || Platform.OS === 'android') {
       return
@@ -70,12 +73,12 @@ class Viewer extends Component {
   getLibraries = () => libraries
 
   getAssetURL = (filename) => {
-    return images[filename] || `${assetsBaseURL}/${filename}`
+    return this.state.images[filename] || `${assetsBaseURL}/${filename}`
   }
 
   componentDidMount() {
-    let { navigation, requestApp } = this.props
-    requestApp(navigation.state.params.appId)
+    const { route, requestApp } = this.props
+    requestApp(route.params.appId)
 
     AppState.addEventListener('change', this.handleChangeAppState)
   }
@@ -85,8 +88,8 @@ class Viewer extends Component {
   }
 
   render() {
-    let { app, navigation } = this.props
-    let { deviceId, initialRoute } = navigation.state.params
+    const { app, navigation, route } = this.props
+    const { deviceId, initialRoute } = route.params
     return (
       <View style={styles.view}>
         <AppBar navigation={navigation} menuButtonCB={this.menuButtonCB} />
@@ -125,7 +128,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state, ownProps) => ({
-  app: getApp(state, ownProps.navigation.state.params.appId),
+  app: getApp(state, ownProps.route.params.appId),
 })
 
 export default connect(mapStateToProps, { requestApp })(Viewer)

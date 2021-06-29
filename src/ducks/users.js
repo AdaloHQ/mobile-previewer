@@ -10,19 +10,19 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   if (action.type === SET_CURRENT_USER) {
-    let { userObject } = action
+    const { userObject } = action
 
     return {
       ...state,
       currentUser: userObject,
-      authVisible: false
+      authVisible: false,
     }
   }
 
   if (action.type === SET_AUTH_VISIBLE) {
     return {
       ...state,
-      authVisible: true
+      authVisible: true,
     }
   }
 
@@ -31,21 +31,21 @@ export default (state = INITIAL_STATE, action) => {
 
 // Actions
 
-export const setCurrentUser = userObject => ({
+export const setCurrentUser = (userObject) => ({
   type: SET_CURRENT_USER,
-  userObject
+  userObject,
 })
 
 export const setAuthVisible = () => ({
-  type: SET_AUTH_VISIBLE
+  type: SET_AUTH_VISIBLE,
 })
 
 // Selectors
 
-export const getCurrentUser = state => {
+export const getCurrentUser = (state) => {
   return state.users.currentUser
 }
 
-export const getAuthVisible = state => {
+export const getAuthVisible = (state) => {
   return state.users.authVisible
 }

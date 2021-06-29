@@ -1,25 +1,22 @@
 import React, { Component } from 'react'
-
-import { View, Image, StyleSheet, Platform, AsyncStorage } from 'react-native'
-
+import { View, StyleSheet, Platform } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { connect } from 'react-redux'
-
+import ActionSheet from 'react-native-action-sheet'
 import {
   getAuthVisible,
   getCurrentUser,
   setCurrentUser,
 } from '../../ducks/users'
 import ListWrapper from './ListWrapper'
-import MenuButton from './MenuButton'
 import AppBar from './AppBar'
-import ActionSheet from 'react-native-action-sheet'
 
 class AppList extends Component {
   render() {
-    let { navigation, authVisible, currentUser, deviceId } = this.props
+    const { navigation, authVisible, currentUser } = this.props
 
-    if (authVisible && !global.authIsMounted) {
-      navigation.navigate('Login')
+    if (authVisible) {
+      navigation.navigate({ routeName: 'Login' })
     }
 
     return <ListWrapper userLoading={!currentUser} navigation={navigation} />
@@ -35,7 +32,8 @@ const ConnectedAppList = connect(mapStateToProps)(AppList)
 
 export default class AppListWrapper extends Component {
   menuButtonCB = () => {
-    let { navigation } = this.props
+    const { navigation } = this.props
+
     ActionSheet.showActionSheetWithOptions(
       {
         options: ['Cancel', 'Logout'],
@@ -47,11 +45,12 @@ export default class AppListWrapper extends Component {
           // Logout
           await AsyncStorage.removeItem('protonSession')
           setCurrentUser(null)
-          navigation.navigate('Login')
+          navigation.navigate({ routeName: 'Login' })
         }
       }
     )
   }
+
   render() {
     return (
       <View style={styles.wrapper}>

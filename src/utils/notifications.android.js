@@ -13,41 +13,44 @@ const configurationOptions = {
 
 const firebase = RNFirebase.initializeApp(configurationOptions)
 
-// import firebase from 'react-native-firebase'
-
 export const register = async ({ onRegister, onNotification }) => {
-  firebase.messaging().getToken()
-    .then(token => {
+  firebase
+    .messaging()
+    .getToken()
+    .then((token) => {
       console.log('-------> REGISTERED...', token)
       onRegister(token)
     })
-    .catch(err => {
+    .catch((err) => {
       console.log('----------> ERROR GETTING TOKEN!!!:', err)
     })
 
-  firebase.messaging().requestPermission()
+  firebase
+    .messaging()
+    .requestPermission()
     .then(() => {
       console.log('---------> GOT NOTIFICATIONS PERMISSION!!!')
     })
-    .catch(err => {
+    .catch((err) => {
       console.log('---------> ERROR GETTING NOTIFICATIONS PERMISSION...', err)
     })
 
-  const handleNotification = notif => {
+  const handleNotification = (notif) => {
     console.log('-----------> NOTIFICATION DATA:', notif.notification.data)
 
-    let { appId, target, ...params } = notif.notification.data
-    route = { target, params }
+    const { appId, target, ...params } = notif.notification.data
+    const route = { target, params }
 
     onNotification(appId, route)
   }
 
   firebase.notifications().onNotificationOpened(handleNotification)
 
-  let notificationOpen = await firebase.notifications().getInitialNotification()
+  const notificationOpen = await firebase
+    .notifications()
+    .getInitialNotification()
 
   if (notificationOpen) {
     handleNotification(notificationOpen)
   }
 }
-

@@ -10,17 +10,15 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native'
-
-import { SubmissionError } from 'redux-form'
 import { NavigationActions } from 'react-navigation'
 
 import { authenticate } from '../../utils/io'
 import Form from './LoginForm'
 
 export default class Login extends Component {
-  handleLogin = data => {
+  handleLogin = (data) => {
     authenticate(data, async ({ success, sessionToken }) => {
-      let { navigation } = this.props
+      const { navigation } = this.props
 
       console.log(success, sessionToken)
 
@@ -39,11 +37,10 @@ export default class Login extends Component {
         await AsyncStorage.setItem('protonSession', sessionToken)
         navigation.dispatch(NavigationActions.back())
       } catch (err) {
-        Alert.alert(
-          'An error occurred',
-          'Please try again',
-          { text: 'OK', onPress: () => {} }
-        )
+        Alert.alert('An error occurred', 'Please try again', {
+          text: 'OK',
+          onPress: () => {},
+        })
       }
     })
   }
@@ -72,17 +69,13 @@ export default class Login extends Component {
 
 class WrappedKeyboardAvoidingView extends Component {
   render() {
-    let { children, style, ...props } = this.props
+    const { children, style } = this.props
 
     if (Platform.OS === 'ios') {
       return <KeyboardAvoidingView {...this.props} />
     }
 
-    return (
-      <View style={style}>
-        {children}
-      </View>
-    )
+    return <View style={style}>{children}</View>
   }
 }
 
@@ -96,6 +89,5 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
-  formWrapper: {
-  },
+  formWrapper: {},
 })

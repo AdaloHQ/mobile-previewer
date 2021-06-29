@@ -8,7 +8,7 @@ export const register = ({ onRegister, onNotification }) => {
     senderID: '627288280805',
     popInitialNotification: true,
     requestPermissions: false,
-  });
+  })
 
   console.log('REQUESTING....')
   setTimeout(() => {
@@ -17,22 +17,23 @@ export const register = ({ onRegister, onNotification }) => {
   console.log('REQUESTED....')
 }
 
-const handleNotification = callback => notification => {
-  let { userInteraction } = notification
-  let { appId, route } = notification.data
+const handleNotification = (callback) => (notification) => {
+  const { userInteraction } = notification
+  const { appId, route } = notification.data
 
   if (Platform.OS === 'ios') {
-    notification.finish(PushNotificationIOS.FetchResult.NoData);
+    notification.finish(PushNotificationIOS.FetchResult.NoData)
   }
 
-  if (!userInteraction || !appId || !route || !route.target) { return }
+  if (!userInteraction || !appId || !route || !route.target) {
+    return
+  }
 
   callback(appId, route)
 }
 
-const handleRegister = callback => device => {
+const handleRegister = (callback) => (device) => {
   console.log('------------------->', JSON.stringify(device))
 
   callback(device.token)
 }
-

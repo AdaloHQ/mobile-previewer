@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { StyleSheet, Image, Text, View, StatusBar } from 'react-native'
+import { StyleSheet, View, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
 
 import { getApps, getLoading, requestApps } from '../../ducks/apps'
-import Loader from '../Shared/Loader'
 import ListView from './List'
 
 class ListWrapper extends Component {
@@ -12,15 +11,15 @@ class ListWrapper extends Component {
     getDeviceId: PropTypes.func,
   }
 
-  handlePress = appId => {
-    let { navigation } = this.props
-    let deviceId = this.context.getDeviceId()
+  handlePress = (appId) => {
+    const { navigation } = this.props
+    const deviceId = this.context.getDeviceId()
 
     navigation.navigate('Viewer', { appId, deviceId })
   }
 
   shouldComponentUpdate(newProps) {
-    let { userLoading } = this.props
+    const { userLoading } = this.props
 
     if (!newProps.userLoading && userLoading) {
       this.props.requestApps()
@@ -30,7 +29,7 @@ class ListWrapper extends Component {
   }
 
   render() {
-    let { apps, loading, userLoading, requestApps } = this.props
+    const { apps, loading, userLoading, requestApps } = this.props
 
     return (
       <View style={styles.body}>
@@ -57,12 +56,13 @@ const styles = StyleSheet.create({
   },
 })
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   apps: getApps(state),
-  loading: getLoading(state)
+  loading: getLoading(state),
 })
 
-export default ConnectedListWrapper = connect(
-  mapStateToProps,
-  { requestApps }
-)(ListWrapper)
+const ConnectedListWrapper = connect(mapStateToProps, { requestApps })(
+  ListWrapper
+)
+
+export default ConnectedListWrapper;

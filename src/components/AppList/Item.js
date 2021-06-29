@@ -7,16 +7,17 @@ import { assetsBaseURL } from '../Viewer'
 
 export default class ListView extends Component {
   handlePress = () => {
-    let { app, onPress } = this.props
+    const { app, onPress } = this.props
+
     onPress(app.id)
   }
 
   getIconSource() {
-    let { app } = this.props
+    const { app } = this.props
 
     if (app && app.icon) {
       return {
-        uri: `${assetsBaseURL}/${app.icon}`
+        uri: `${assetsBaseURL}/${app.icon}`,
       }
     }
 
@@ -24,7 +25,7 @@ export default class ListView extends Component {
   }
 
   render() {
-    let { app } = this.props
+    const { app } = this.props
 
     return (
       <View style={styles.wrapper}>
@@ -39,9 +40,7 @@ export default class ListView extends Component {
               <View style={styles.iconBorder} />
             </View>
             <View style={styles.details}>
-              <Text style={styles.title}>
-                {app.name}
-              </Text>
+              <Text style={styles.title}>{app.name}</Text>
               <Text style={styles.date}>
                 Updated {relativeDate(app.updatedAt)}
               </Text>
@@ -53,10 +52,8 @@ export default class ListView extends Component {
   }
 }
 
-
 const styles = StyleSheet.create({
-  touchableHighlight: {
-  },
+  touchableHighlight: {},
   item: {
     padding: 16,
     flexDirection: 'row',
@@ -69,8 +66,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     marginRight: 8,
   },
-  itemInner: {
-  },
+  itemInner: {},
   iconWrapper: {
     width: 60,
     height: 60,
@@ -92,7 +88,7 @@ const styles = StyleSheet.create({
     borderRadius: 13,
   },
   details: {
-    flex: 1
+    flex: 1,
   },
   title: {
     fontSize: 17,
@@ -102,6 +98,6 @@ const styles = StyleSheet.create({
   date: {
     color: '#9a9a9a',
     fontSize: 12,
-    marginTop: 6
-  }
+    marginTop: 6,
+  },
 })

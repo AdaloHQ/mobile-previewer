@@ -1,4 +1,4 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import axios from 'axios'
 
 import { loadApp, loadAppsList } from '../ducks/apps'
@@ -18,7 +18,7 @@ AsyncStorage.getItem('protonSession').then((token) => {
 })
 
 const baseURL = 'https://proton-backend.herokuapp.com'
-//const baseURL = "http://localhost:8084";
+// const baseURL = "http://localhost:8084";
 
 const buildURL = (path) => {
   return `${baseURL}${path}`

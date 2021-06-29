@@ -10,7 +10,7 @@ const FORM_NAME = 'loginForm'
 
 class LoginForm extends Component {
   render() {
-    let { handleSubmit, error } = this.props
+    const { handleSubmit } = this.props
 
     return (
       <View
@@ -44,10 +44,7 @@ class LoginForm extends Component {
             inputStyle={styles.input}
           />
         </View>
-        <Button
-          title="Sign In"
-          onPress={handleSubmit}
-        >
+        <Button title="Sign In" onPress={handleSubmit}>
           Sign In
         </Button>
       </View>
@@ -56,7 +53,7 @@ class LoginForm extends Component {
 }
 
 export default reduxForm({
-  form: FORM_NAME
+  form: FORM_NAME,
 })(LoginForm)
 
 const styles = StyleSheet.create({
@@ -75,7 +72,7 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   inputs: {
-    marginBottom: 20
+    marginBottom: 20,
   },
   label: {
     fontSize: 12,
@@ -89,4 +86,3 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 })
-

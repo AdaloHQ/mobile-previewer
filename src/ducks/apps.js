@@ -1,7 +1,4 @@
-import {
-  requestAll,
-  requestApp as requestSingle,
-} from '../utils/io'
+import { requestAll, requestApp as requestSingle } from '../utils/io'
 
 const LOAD_APP = Symbol('LOAD_APP')
 const LOAD_APPS_LIST = Symbol('LOAD_APPS_LIST')
@@ -23,12 +20,12 @@ export default (state = INITIAL_STATE, action) => {
 
     return {
       ...state,
-      loading: true
+      loading: true,
     }
   }
 
   if (action.type === REQUEST_APP) {
-    let { appId } = action
+    const { appId } = action
 
     // Make call to API
     requestSingle(appId)
@@ -37,8 +34,8 @@ export default (state = INITIAL_STATE, action) => {
       ...state,
       apps: {
         ...state.apps,
-        [appId]: null
-      }
+        [appId]: null,
+      },
     }
   }
 
@@ -47,7 +44,7 @@ export default (state = INITIAL_STATE, action) => {
 
     app = {
       ...app,
-      hash: String(+(new Date()))
+      hash: String(+new Date()),
     }
 
     return {
@@ -55,18 +52,18 @@ export default (state = INITIAL_STATE, action) => {
       loading: false,
       apps: {
         ...state.apps,
-        [app.id]: app
-      }
+        [app.id]: app,
+      },
     }
   }
 
   if (action.type === LOAD_APPS_LIST) {
-    let { apps } = action
+    const { apps } = action
 
     return {
       ...state,
       loading: false,
-      list: apps
+      list: apps,
     }
   }
 
@@ -75,22 +72,22 @@ export default (state = INITIAL_STATE, action) => {
 
 // ACTIONS
 
-export const loadApp = app => ({
+export const loadApp = (app) => ({
   type: LOAD_APP,
-  app
+  app,
 })
 
-export const loadAppsList = apps => ({
+export const loadAppsList = (apps) => ({
   type: LOAD_APPS_LIST,
-  apps
+  apps,
 })
 
 export const requestApps = () => ({ type: REQUEST_ALL })
-export const requestApp = appId => ({ type: REQUEST_APP, appId })
+export const requestApp = (appId) => ({ type: REQUEST_APP, appId })
 
 // SELECTORS
 
-export const getApps = state => {
+export const getApps = (state) => {
   return state.apps.list
 }
 
@@ -98,6 +95,6 @@ export const getApp = (state, appId) => {
   return state.apps.apps[appId]
 }
 
-export const getLoading = state => {
+export const getLoading = (state) => {
   return state.apps.loading
 }

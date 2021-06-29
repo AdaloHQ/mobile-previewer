@@ -16,12 +16,12 @@ const excludedPackages = [
   'react-native-inappbrowser-reborn',
 ]
 
-let excludePackagesRecursive = async (projectPath, currentPath) => {
+const excludePackagesRecursive = async (projectPath, currentPath) => {
   if (!currentPath) currentPath = projectPath
   const modules = await readdir(currentPath, { withFileTypes: true })
 
-  for (let module of modules) {
-    let moduleName = typeof module == 'string' ? module : module.name
+  for (const module of modules) {
+    const moduleName = typeof module === 'string' ? module : module.name
     if (excludedPackages.includes(moduleName) && currentPath !== projectPath) {
       console.log('removing library ', moduleName, ' from path ', currentPath)
       await exec(`rm -rf ${join(currentPath, moduleName)}`)
@@ -39,7 +39,7 @@ if (process.argv.length !== 3) {
   process.exit(1)
 }
 
-let [dc1, dc2, projectPath] = process.argv
+const [projectPath] = process.argv
 
 excludePackagesRecursive(projectPath)
   .then(() => process.exit(0))
