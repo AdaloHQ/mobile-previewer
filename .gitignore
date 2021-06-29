@@ -25,7 +25,6 @@ ios/Pods
 
 # Android/IntelliJ
 #
-build/
 .idea
 .gradle
 local.properties
@@ -55,3 +54,4 @@ buck-out/
 
 # Bundle artifact
 *.jsbundle
+*.hprof
