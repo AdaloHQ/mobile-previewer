@@ -13,7 +13,7 @@
   "dependencies": {
     "@protonapp/material-components": "^0.0.40",
     "@protonapp/proton-runner": "^0.2.7",
-    "axios": "^0.19.0",
+    "axios": "^0.21.2",
     "es6-symbol": "^3.1.1",
     "moment": "^2.24.0",
     "react": "^16.13.1",
