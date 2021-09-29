@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@adalo/constants@^0.0.58":
-  version "0.0.58"
-  resolved "https://registry.yarnpkg.com/@adalo/constants/-/constants-0.0.58.tgz#dd171d470e460faf4aacb8aa22054c6910d74a3a"
-  integrity sha512-YHfcyXPQyCb2XOVW0B1NtBl7QHQ56sIZuwbBIg2F5mzL2UzWMbiKh5DqfnaLHHnByoWbnA6Chgsxvp8U6trbCQ==
+"@adalo/constants@^0.0.67":
+  version "0.0.67"
+  resolved "https://registry.yarnpkg.com/@adalo/constants/-/constants-0.0.67.tgz#dbdd190204e5f2c9ac4f1f77f1e24d15f9ded3e2"
+  integrity sha512-XTqFH5BcIveOouY1J6ZU8k09GgZKkdB+uIXPO4NA/WdG4nY2NHGHZ5wnuoDicTaPOIeXb4Wf2yJNgQ/XQhqTRg==
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.5.5":
   version "7.5.5"
@@ -1178,14 +1178,15 @@
     color "^3.1.0"
     react-native-vector-icons "^6.0.2"
 
-"@protonapp/proton-runner@^0.0.263":
-  version "0.0.263"
-  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.0.263.tgz#c317ed108ead7f7e151b6dbb6af28881a7438259"
-  integrity sha512-KBrWwgUzP/3ofvSRdUmzbRjtN2/0Qvl4am1bP/24leQlZ8tM430qwQuL1x88rEB8x18sbdxmkyf5GkNprTlkmw==
+"@protonapp/proton-runner@^0.2.7":
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/@protonapp/proton-runner/-/proton-runner-0.2.7.tgz#4c91422d208e4bd5b35c5778e16ada75a59f0c09"
+  integrity sha512-aXRGTfFHkLF3Ik2tC+x0JRQjjLaS3MUZcNAzvZqlocrb/zmcv0k3ZuZ1q7gg9cGL6ejPiCFWf4V3K/K/mIFI8w==
   dependencies:
-    "@adalo/constants" "^0.0.58"
+    "@adalo/constants" "^0.0.67"
     "@protonapp/react-mobile-date-picker" "^0.0.9"
     "@react-native-community/push-notification-ios" "1.1.0"
+    "@react-native-picker/picker" "^1.16.1"
     axios "^0.17.1"
     buffer "^5.0.8"
     chroma-js "^2.0.3"
@@ -1193,7 +1194,8 @@
     email-validator "^2.0.4"
     immutability-helper "^2.6.2"
     js-base64 "^2.4.3"
-    moment "^2.20.1"
+    lodash "^4.17.21"
+    moment "^2.29.1"
     moment-shortformat "^2.1.0"
     numeral "^2.0.6"
     prop-types "^15.7.2"
@@ -1203,21 +1205,22 @@
     react-native-document-picker "3.3.3"
     react-native-firebase "^5.5.6"
     react-native-icloud-file-picker "^0.0.1"
-    react-native-image-picker "^0.26.7"
+    react-native-image-picker "^3.8.0"
     react-native-inappbrowser-reborn "^3.1.0"
     react-native-layout-guides "^0.1.2"
+    react-native-modal-datetime-picker "^9.2.1"
     react-native-share "^2"
     react-native-svg "9.13.3"
     react-native-vector-icons "^7.0.0"
     react-native-webview "^7.2.7"
     react-redux "^5.0.6"
     redux "^3.7.2"
-    redux-form "^7.2.0"
     redux-persist "^6.0.0"
     redux-promise-middleware "^5.0.0"
     redux-thunk "^2.2.0"
     rn-fetch-blob "0.11.2"
     safe-area-insets "^1.4.1"
+    webfontloader "^1.6.28"
 
 "@protonapp/react-mobile-date-picker@^0.0.9":
   version "0.0.9"
@@ -1377,6 +1380,11 @@
   integrity sha512-0+DL68CgH5TF8WKwdjI9pul+mPKChGk9uHYcMJ0C6b296W5BQVaBQP6On2QYOgL/EWOWNWeBenW65FjKzWFf0g==
   dependencies:
     invariant "^2.2.4"
+
+"@react-native-picker/picker@^1.16.1":
+  version "1.16.8"
+  resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-1.16.8.tgz#2126ca54d4a5a3e9ea5e3f39ad1e6643f8e4b3d4"
+  integrity sha512-pacdQDX6V6EmjF+HoiIh6u++qx4mTK0WnhgUHRc01B+Qt5eoeUwseBqmqfTSXTx/aHDEd6PiIw7UGvKgFoqgFQ==
 
 "@react-navigation/core@~3.4.1":
   version "3.4.2"
@@ -5371,6 +5379,11 @@ lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.1
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
 log-symbols@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-2.2.0.tgz#5740e1c5d6f0dfda4ad9323b5332107ef6b4c40a"
@@ -5906,9 +5919,14 @@ moment-shortformat@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/moment-shortformat/-/moment-shortformat-2.1.0.tgz#0292a7219133a937af56ddacdd7eab629d422838"
 
-moment@^2.20.1, moment@^2.22.0, moment@^2.22.1, moment@^2.24.0:
+moment@^2.22.0, moment@^2.22.1, moment@^2.24.0:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+
+moment@^2.29.1:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
 ms@2.0.0:
   version "2.0.0"
@@ -6681,9 +6699,10 @@ react-native-image-picker@2.3.1:
   resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-2.3.1.tgz#1977b65e07793d2c0b2d1976fb675c5f75ad7f11"
   integrity sha512-c/a2h7/T7yBo5KlNQhcSn4xf4+6Li6LfJ59+GZT1ZzzWrj/6X8DiJ/TJBOlOZMC5tJriZKuRkWSsr74k6z+brw==
 
-react-native-image-picker@^0.26.7:
-  version "0.26.10"
-  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-0.26.10.tgz#0bb9ab928984948c67aee0b9e64216bee007a9fc"
+react-native-image-picker@^3.8.0:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-3.8.1.tgz#6e830e9b69c882ad5f1160e10592a84963a7f2c9"
+  integrity sha512-Q7qaJ7Zkt8ipIkkF+7UcuRbI0cxaNwsHBcnDLZdlpHnxuMaLhS/xp6v/om/kBYhMg6BeT+NcncynZQoKz7dQqw==
 
 react-native-inappbrowser-reborn@3.1.0:
   version "3.1.0"
@@ -6713,6 +6732,13 @@ react-native-layout-guides@^0.1.6:
 react-native-material-design-styles@^0.2.6:
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/react-native-material-design-styles/-/react-native-material-design-styles-0.2.7.tgz#428560ef4d0659db1163c9f9b5476d886ed22d57"
+
+react-native-modal-datetime-picker@^9.2.1:
+  version "9.2.3"
+  resolved "https://registry.yarnpkg.com/react-native-modal-datetime-picker/-/react-native-modal-datetime-picker-9.2.3.tgz#9a06b32f2b5a5a0e3d1ffbc81de3f91d44d280bb"
+  integrity sha512-fMQFQ5kLeKP6Z4412CvqcXzTAl8YCke2Hb1VI5M4CAnGtYYHvQS6EXzKoxwRgFOm7bqwGZHtpQP5Krc181BXvQ==
+  dependencies:
+    prop-types "^15.7.2"
 
 react-native-plaid-link@^1.4.3:
   version "1.4.3"
@@ -6977,7 +7003,7 @@ realpath-native@^2.0.0:
   resolved "https://registry.yarnpkg.com/realpath-native/-/realpath-native-2.0.0.tgz#7377ac429b6e1fd599dc38d08ed942d0d7beb866"
   integrity sha512-v1SEYUOXXdbBZK8ZuNgO4TBjamPsiSgcFr0aP+tEKpQZK8vooEUqV6nm6Cv502mX4NF2EfsnVqtNAHG+/6Ur1Q==
 
-redux-form@^7.1.2, redux-form@^7.2.0:
+redux-form@^7.1.2:
   version "7.4.2"
   resolved "https://registry.yarnpkg.com/redux-form/-/redux-form-7.4.2.tgz#d6061088fb682eb9fc5fb9749bd8b102f03154b0"
   dependencies:
@@ -8185,6 +8211,11 @@ wcwidth@^1.0.1:
   integrity sha1-8LDc+RW8X/FSivrbLA4XtTLaL+g=
   dependencies:
     defaults "^1.0.3"
+
+webfontloader@^1.6.28:
+  version "1.6.28"
+  resolved "https://registry.yarnpkg.com/webfontloader/-/webfontloader-1.6.28.tgz#db786129253cb6e8eae54c2fb05f870af6675bae"
+  integrity sha1-23hhKSU8tujq5UwvsF+HCvZnW64=
 
 webidl-conversions@^4.0.2:
   version "4.0.2"
