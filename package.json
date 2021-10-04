@@ -11,8 +11,10 @@
     "postinstall": "node scripts/excludePackages.js $(pwd)/node_modules"
   },
   "dependencies": {
-    "@protonapp/material-components": "^0.0.40",
+    "@protonapp/material-components": "https://component-marketplace-prod.s3.amazonaws.com/@protonapp/material-components/0.8.17.tar",
     "@protonapp/proton-runner": "^0.2.7",
+    "@react-native-community/blur": "^3.6.0",
+    "@react-native-community/datetimepicker": "^3.5.2",
     "axios": "^0.19.0",
     "es6-symbol": "^3.1.1",
     "moment": "^2.24.0",
@@ -27,6 +29,8 @@
     "react-native-image-picker": "2.3.1",
     "react-native-inappbrowser-reborn": "3.1.0",
     "react-native-layout-guides": "^0.1.6",
+    "react-native-linear-gradient": "^2.5.6",
+    "react-native-localize": "^2.1.5",
     "react-native-plaid-link": "^1.4.3",
     "react-native-push-notification": "^3.5.2",
     "react-native-scalable-image": "^0.5.0",

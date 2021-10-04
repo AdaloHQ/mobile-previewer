@@ -112,6 +112,7 @@ class Viewer extends Component {
           libraries={this.getLibraries()}
           deviceId={deviceId}
           initialRoute={initialRoute}
+          appVersion="latest"
         />
       </View>
     )
