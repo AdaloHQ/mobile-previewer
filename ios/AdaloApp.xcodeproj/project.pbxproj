@@ -1453,7 +1453,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "af7bfe36-5c33-401a-8b37-0f147752b2aa";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.adalo.app";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdaloApp.app/AdaloApp";
 			};
@@ -1532,7 +1531,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.adalo.app;
 				PRODUCT_NAME = "Adalo App";
-				PROVISIONING_PROFILE = "af7bfe36-5c33-401a-8b37-0f147752b2aa";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "AdaloApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -1614,7 +1612,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.AdaloApp-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "af7bfe36-5c33-401a-8b37-0f147752b2aa";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.adalo.app";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1694,7 +1691,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.AdaloApp-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "af7bfe36-5c33-401a-8b37-0f147752b2aa";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.adalo.app";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdaloApp-tvOS.app/AdaloApp-tvOS";
