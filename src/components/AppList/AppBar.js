@@ -51,7 +51,7 @@ export default class AppBar extends Component {
     let { menuButtonCB } = this.props
     let innerWrapperStyles = {}
     let HORIZONTAL_POSITION = Dimensions.get("window").width * 0.5 - ADALO_MENU_SIZE / 2
-    let VERTICAL_POSITION = Dimensions.get("window").height * 0.05 - ADALO_MENU_SIZE / 2
+    let VERTICAL_POSITION = Dimensions.get("window").height - ADALO_MENU_SIZE / 2
 
     if (Platform.OS === 'android') {
       innerWrapperStyles.marginTop = 48
