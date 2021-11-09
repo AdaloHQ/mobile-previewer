@@ -99,7 +99,7 @@ class Viewer extends Component {
     let { deviceId, initialRoute } = navigation.state.params
     return (
       <View style={styles.view}>
-        <AppBar navigation={navigation} menuButtonCB={this.menuButtonCB} />
+        <AppBar navigation={navigation} hintDraggable={false} menuButtonCB={this.menuButtonCB} />
         <Runner
           previewer
           skipNotifications
