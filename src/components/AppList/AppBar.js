@@ -1,84 +1,84 @@
 import React, { Component } from 'react'
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  SafeAreaView,
-  Platform,
-} from 'react-native'
+import {Dimensions, Platform, Animated, Easing} from 'react-native'
+import LogoImage from './images/logo-circle.png'
+import Draggable from "react-native-draggable";
 
-import MenuButton from './MenuButton'
-import LogoImage from './images/logo-image.png'
-
-const STATUS_BAR_HEIGHT = 24
+const ADALO_MENU_SIZE = 45
 
 export default class AppBar extends Component {
+  constructor(props) {
+    super(props)
+    this.animatedValue = new Animated.Value(0)
+  }
+
+  handleAnimation = () => {
+    // A loop is needed for continuous animation
+    Animated.loop(
+        // Animation consists of a sequence of steps
+        Animated.sequence([
+          // start rotation in one direction (only half the time is needed)
+          Animated.timing(this.animatedValue, {
+            toValue: 1.0,
+            duration: 20,
+            easing: Easing.linear,
+            useNativeDriver: true
+          }),
+          // rotate in other direction, to minimum value (= twice the duration of above)
+          Animated.timing(this.animatedValue, {
+            toValue: -1.0,
+            duration: 20,
+            easing: Easing.linear,
+            useNativeDriver: true
+          }),
+          // return to begin position
+          Animated.timing(this.animatedValue, {
+            toValue: 0.0,
+            duration: 20,
+            easing: Easing.linear,
+            useNativeDriver: true
+          })
+        ]), {iterations: 3}
+    ).start();
+  }
+
+    componentDidMount() {
+      if(this.props?.hintDraggable) {
+        this.handleAnimation()
+      }
+    }
+
   render() {
-    let { navigation, menuButtonCB } = this.props
+    let { menuButtonCB } = this.props
     let innerWrapperStyles = {}
+    let HORIZONTAL_POSITION = Dimensions.get("window").width * 0.5 - ADALO_MENU_SIZE / 2
+    let VERTICAL_POSITION = Dimensions.get("window").height * 0.05 - ADALO_MENU_SIZE / 2
 
     if (Platform.OS === 'android') {
       innerWrapperStyles.marginTop = 24
     }
 
     return (
-      <View style={styles.wrapper}>
-        <SafeAreaView>
-          <View style={[styles.innerWrapper, innerWrapperStyles]}>
-            <View style={[styles.button, styles.leftButton]}>
-              <MenuButton menuButtonCB={menuButtonCB} />
-            </View>
-            <View style={styles.title}>
-              <Image source={LogoImage} />
-            </View>
-            <View style={[styles.button, styles.RightButton]}></View>
-          </View>
-        </SafeAreaView>
-        <View style={styles.headerStripe}>
-          <View style={{ flex: 1, backgroundColor: '#04a797' }} />
-          <View style={{ flex: 1, backgroundColor: '#fdbc11' }} />
-          <View style={{ flex: 1, backgroundColor: '#ef4c30' }} />
-        </View>
-      </View>
+        <Draggable x={HORIZONTAL_POSITION}
+                   y={VERTICAL_POSITION}
+                   isCircle
+                   onShortPressRelease={menuButtonCB}
+        >
+          <Animated.Image
+              source={LogoImage}
+              resizeMode='contain'
+              style={{
+                width: ADALO_MENU_SIZE,
+                height: ADALO_MENU_SIZE,
+                transform: [{
+                  rotate: this.animatedValue.interpolate({
+                    inputRange: [-1, 1],
+                    outputRange: ['-0.1rad', '0.1rad']
+                  })
+                }]
+              }}
+
+          />
+        </Draggable>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    backgroundColor: '#fff',
-    shadowColor: 'rgba(0, 0, 0, 0.2)',
-    shadowRadius: 6,
-    shadowOffset: { height: 3 },
-    shadowOpacity: 1,
-    elevation: 4,
-    zIndex: 1,
-  },
-  innerWrapper: {
-    paddingTop: 0,
-    paddingBottom: 0,
-    flexDirection: 'row',
-  },
-  title: {
-    flex: 3,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  button: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  leftButton: {
-    justifyContent: 'flex-start',
-  },
-  rightButton: {
-    justifyContent: 'flex-end',
-  },
-  headerStripe: {
-    height: 4,
-    flexDirection: 'row',
-    alignItems: 'stretch',
-  },
-})
