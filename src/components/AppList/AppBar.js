@@ -54,7 +54,7 @@ export default class AppBar extends Component {
     let VERTICAL_POSITION = Dimensions.get("window").height * 0.05 - ADALO_MENU_SIZE / 2
 
     if (Platform.OS === 'android') {
-      innerWrapperStyles.marginTop = 24
+      innerWrapperStyles.marginTop = 48
     }
 
     return (
