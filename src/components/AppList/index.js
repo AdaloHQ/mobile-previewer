@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-
-import { View, Image, StyleSheet, Platform, AsyncStorage } from 'react-native'
+import { View, StyleSheet, Platform, AsyncStorage } from 'react-native'
 
 import { connect } from 'react-redux'
 
@@ -13,6 +12,7 @@ import ListWrapper from './ListWrapper'
 import MenuButton from './MenuButton'
 import AppBar from './AppBar'
 import ActionSheet from 'react-native-action-sheet'
+import Draggable from 'react-native-draggable';
 
 class AppList extends Component {
   render() {
@@ -54,10 +54,12 @@ export default class AppListWrapper extends Component {
   }
   render() {
     return (
-      <View style={styles.wrapper}>
-        <AppBar {...this.props} menuButtonCB={this.menuButtonCB} />
-        <ConnectedAppList {...this.props} />
-      </View>
+        <>
+          <AppBar {...this.props} hintDraggable menuButtonCB={this.menuButtonCB} />
+          <View style={styles.wrapper}>
+            <ConnectedAppList {...this.props} />
+          </View>
+        </>
     )
   }
 }
