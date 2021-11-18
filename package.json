@@ -8,7 +8,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "bundle:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && rm -rf android/app/src/main/res/drawable-*/src* && rm -rf android/app/src/main/res/drawable-*/node_modules* && rm -rf android/app/src/main/res/drawable-*/images_*",
-    "postinstall": "jetify && node scripts/excludePackages.js $(pwd)/node_modules"
+    "postinstall": "node scripts/excludePackages.js $(pwd)/node_modules"
   },
   "dependencies": {
     "@protonapp/material-components": "https://component-marketplace-prod.s3.amazonaws.com/@protonapp/material-components/0.8.17.tar",
