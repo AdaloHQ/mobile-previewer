@@ -8,11 +8,14 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "bundle:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && rm -rf android/app/src/main/res/drawable-*/src* && rm -rf android/app/src/main/res/drawable-*/node_modules* && rm -rf android/app/src/main/res/drawable-*/images_*",
-    "postinstall": "node scripts/excludePackages.js $(pwd)/node_modules"
+    "postinstall": "jetify && node scripts/excludePackages.js $(pwd)/node_modules"
   },
   "dependencies": {
-    "@protonapp/material-components": "^0.0.40",
-    "@protonapp/proton-runner": "^0.2.7",
+    "@protonapp/material-components": "https://component-marketplace-prod.s3.amazonaws.com/@protonapp/material-components/0.8.17.tar",
+    "@protonapp/proton-runner": "^0.2.30",
+    "@react-native-async-storage/async-storage": "^1.15.11",
+    "@react-native-community/blur": "^3.6.0",
+    "@react-native-community/datetimepicker": "^3.5.2",
     "axios": "^0.19.0",
     "es6-symbol": "^3.1.1",
     "moment": "^2.24.0",
@@ -28,6 +31,8 @@
     "react-native-image-picker": "2.3.1",
     "react-native-inappbrowser-reborn": "3.1.0",
     "react-native-layout-guides": "^0.1.6",
+    "react-native-linear-gradient": "^2.5.6",
+    "react-native-localize": "^2.1.5",
     "react-native-plaid-link": "^1.4.3",
     "react-native-push-notification": "^3.5.2",
     "react-native-scalable-image": "^0.5.0",
@@ -48,6 +53,7 @@
     "aws-sdk": "^2.415.0",
     "babel-jest": "^25.1.0",
     "jest": "^25.1.0",
+    "jetifier": "^2.0.0",
     "metro-react-native-babel-preset": "^0.59.0",
     "react-test-renderer": "16.13.1"
   },
