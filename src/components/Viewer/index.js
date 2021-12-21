@@ -80,7 +80,7 @@ class Viewer extends Component {
   getLibraries = () => libraries
 
   getAssetURL = (filename) => {
-    return images[filename] || `${assetsBaseURL}/${filename}`
+    return `${assetsBaseURL}/${filename}`
   }
 
   componentDidMount() {
@@ -112,6 +112,7 @@ class Viewer extends Component {
           libraries={this.getLibraries()}
           deviceId={deviceId}
           initialRoute={initialRoute}
+          appVersion="latest"
         />
       </View>
     )
