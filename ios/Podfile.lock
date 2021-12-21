@@ -490,9 +490,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
+  Crashlytics: 9220f5bc89e7a618df411b4f639389dbfb0e03d2
   DoubleConversion: cde416483dac037923206447da6e1454df403714
-  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
   FBLazyVector: 3ef4a7f62e7db01092f9d517d2ebc0d0677c4a37
   FBReactNativeSpec: dc7fa9088f0f2a998503a352b0554d69a4391c5a
   Firebase: 658370fa0181826a74b7cfca8d68c5856ca749ae
@@ -545,4 +545,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: dc80e3db50f3ee3d1db5eb3d02cc95cfbbfde66c
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.11.2
