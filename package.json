@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@protonapp/material-components": "https://component-marketplace-prod.s3.amazonaws.com/@protonapp/material-components/0.8.17.tar",
-    "@protonapp/proton-runner": "^0.2.30",
+    "@protonapp/proton-runner": "^0.4.71",
     "@react-native-async-storage/async-storage": "^1.15.11",
     "@react-native-community/blur": "^3.6.0",
     "@react-native-community/datetimepicker": "^3.5.2",
