@@ -253,12 +253,14 @@ PODS:
   - React-jsinspector (0.63.2)
   - react-native-blur (0.8.0):
     - React
+  - react-native-geolocation-service (5.2.0):
+    - React
   - react-native-image-picker (2.3.1):
     - React
   - react-native-shake (3.4.0):
     - React
-  - react-native-webview (7.6.0):
-    - React
+  - react-native-webview (11.0.0):
+    - React-Core
   - React-RCTActionSheet (0.63.2):
     - React-Core/RCTActionSheetHeaders (= 0.63.2)
   - React-RCTAnimation (0.63.2):
@@ -376,6 +378,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - "react-native-blur (from `../node_modules/@react-native-community/blur`)"
+  - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - react-native-shake (from `../node_modules/react-native-shake`)
   - react-native-webview (from `../node_modules/react-native-webview`)
@@ -456,6 +459,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-blur:
     :path: "../node_modules/@react-native-community/blur"
+  react-native-geolocation-service:
+    :path: "../node_modules/react-native-geolocation-service"
   react-native-image-picker:
     :path: "../node_modules/react-native-image-picker"
   react-native-shake:
@@ -544,9 +549,10 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 8ca588cc921e70590820ce72b8789b02c67cce38
   React-jsinspector: b14e62ebe7a66e9231e9581279909f2fc3db6606
   react-native-blur: cad4d93b364f91e7b7931b3fa935455487e5c33c
+  react-native-geolocation-service: 7c9436da6dfdecd9526c62eac62ea2bc3f0cc8ea
   react-native-image-picker: 6a850c41f57f0848d918c2a77aedd7aa272ffa30
   react-native-shake: de052eaa3eadc4a326b8ddd7ac80c06e8d84528c
-  react-native-webview: db4682f1698ab4b17a5e88f951031d203ff8aea8
+  react-native-webview: 6b7950628616679d81bdd75747e50cf6de9b5a5f
   React-RCTActionSheet: 910163b6b09685a35c4ebbc52b66d1bfbbe39fc5
   React-RCTAnimation: 9a883bbe1e9d2e158d4fb53765ed64c8dc2200c6
   React-RCTBlob: 39cf0ece1927996c4466510e25d2105f67010e13
@@ -575,4 +581,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: dc80e3db50f3ee3d1db5eb3d02cc95cfbbfde66c
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.11.2
