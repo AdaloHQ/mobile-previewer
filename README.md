@@ -1,4 +1,4 @@
-# mobile-previewer
+# Adalo's Mobile Previewer
 Mobile app for previewing / managing applications
 
 ## Setup
