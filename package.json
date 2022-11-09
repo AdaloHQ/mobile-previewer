@@ -20,7 +20,7 @@
     "es6-symbol": "^3.1.1",
     "moment": "^2.24.0",
     "react": "^16.13.1",
-    "react-native": "^0.63.2",
+    "react-native": "0.63",
     "react-native-action-sheet": "^2.2.0",
     "react-native-datepicker": "^1.7.2",
     "react-native-firebase": "^5.5.6",
