@@ -17,7 +17,7 @@ AsyncStorage.getItem('protonSession').then((token) => {
   }
 })
 
-const baseURL = 'https://proton-backend.herokuapp.com'
+const baseURL = 'https://backend.adalo.com'
 //const baseURL = "http://localhost:8084";
 
 const buildURL = (path) => {
