@@ -1,5 +1,2 @@
-# Adalo's Mobile Previewer
-Mobile app previewer that is needed to test native iOS and Android code that is used primarily be 3rd-party developers that are building components for the Component Marketplace.
-
-## Setup
-https://developers.adalo.com/docs/workflow/testing/#set-up-mobile-previewer
+A React Native 0.77.2 application used by Packager.
+No changes should be made to this application.
