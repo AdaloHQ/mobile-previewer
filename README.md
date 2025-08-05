@@ -1,4 +1,3 @@
-# Adalo's Mobile Previewer
 Mobile app previewer that is needed to test native iOS and Android code that is used primarily be 3rd-party developers that are building components for the Component Marketplace.
 
 ## Setup
