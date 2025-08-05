@@ -1,8 +1,8 @@
 {
-  "name": "AdaloApp",
+  "name": "mobile-previewer",
   "version": "0.0.1",
   "private": true,
-  "author":"Jimmy Noujaim",
+  "author":"Adalo",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
